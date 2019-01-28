@@ -125,6 +125,7 @@ Now, let’s look at the opposite conversion, converting decimal numbers to bina
 | 4   | 2   | 0 |
 | 2   | 1   | 0 |
 | 1   | 0   | 1 |
+
 267<sub>10</sub> = 10001011<sub>2</sub>
 
 ### 8. Conclusion
