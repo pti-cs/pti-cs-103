@@ -123,17 +123,26 @@ In Java, the default initial values for numeric primitive types is `0` and `fals
 Consider this snippet of code.
 
 > **Question:** Where is the bug?
-
-```java
-int[] arr = new int[100]; 
-for (int i = 0; i <= 100; ++i) {
-    System.out.println(arr[i]);
-}
-```
+>
+> ```java
+> int[] arr = new int[100]; 
+> for (int i = 0; i <= 100; ++i) {
+>     System.out.println(arr[i]);
+> }
+> ```
 
 The issue is that the program attempts to access the value `arr[100]`, while the last element in the array is `arr[99]`.
 
-This kind of bug is called an "off-one-one error" and is so common... well, it has a name. In general, an off-by-one-error is one in which a loop iterates one time too many or too few.
+This kind of bug is called an "off-by-one error" and is so common... well, it has a name. In general, an off-by-one-error is one in which a loop iterates one time too many or too few.
+
+> **Question:** Where is the off-by-one-error?
+>
+> ```java
+> int[] arr = new int[100]; 
+> for (int i = 100; i > 0; --i) {
+>     System.out.println(arr[i]);
+> }
+> ```
 
 > **Exercise:** Fill in the missing code in this `for` loop to print the numbers in reverse order, i.e. `5, 4, 3, 2, 1`:
 >
