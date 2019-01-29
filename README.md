@@ -45,3 +45,7 @@ Second semester
 26. Searching and sorting
 27. Searching and sorting
 28. Review / midterm
+
+You can see the lectures ready-compiled at `the Read the Docs site`_.
+
+.. _the Read the Docs site: https://pti-cs-103.readthedocs.io/
