@@ -1,13 +1,4 @@
-### TODO
-
-- Will the distinction between _declaring_ and _initializing_ have already been covered by this point?
-- Should our lectures have acknowledgements?
-
----
-
-# CS 103 Introduction to Computer Science
-
-## Lecture 23. Arrays
+# Arrays
 
 ### Topics
 
@@ -17,19 +8,18 @@
 4. Exchanging and shuffling
 5. Exercises
 
-
 ### 1. Motivation
 
 Consider this snippet of code:
 
 ```java
-else if (day ==  1) System.out.println("Monday");
-else if (day ==  2) System.out.println("Tuesday");
-else if (day ==  3) System.out.println("Wednesday");
-else if (day ==  4) System.out.println("Thursday");
-else if (day ==  5) System.out.println("Friday");
-else if (day ==  6) System.out.println("Saturday");
-if      (day ==  7) System.out.println("Sunday");
+if      (day ==  0) System.out.println("Monday");
+else if (day ==  1) System.out.println("Tuesday");
+else if (day ==  2) System.out.println("Wednesday");
+else if (day ==  3) System.out.println("Thursday");
+else if (day ==  4) System.out.println("Friday");
+else if (day ==  5) System.out.println("Saturday");
+else if (day ==  6) System.out.println("Sunday");
 ```
 
 > **Question:** What does this code do?
@@ -64,6 +54,8 @@ The key steps are: we first declare and initialize the array. We then loop over 
 
 ```java
 String[] DAYS_OF_WEEK = {
+//  Indices:
+//  0         1          2            3           4         5           6
     "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
 }; 
 ```
@@ -91,6 +83,17 @@ In Java, array's are said to use _zero-based indexing_ because the first element
 
 > **Question:** What does `System.out.println(DAYS_OF_WEEK[1]);` print?
 
+> **Question:** What does this code do? What number does it print?
+>
+> ```java
+> double sum = 0.0;
+> double[] arr = { 1, 2, 2, 3, 4, 7, 9 }
+> for () {
+>    sum += arr[i];
+> }
+> System.out.println(sum / arr.length)
+> ```
+
 #### 3.2. Array length
 
 As mentioned previously, arrays are _fixed-length_. After you have created an array, it's length is unchangeable. You can access the length of an array `arr[]` with the code `arr.length`.
@@ -103,7 +106,7 @@ As mentioned previously, arrays are _fixed-length_. After you have created an ar
 
 In Java, the default initial values for numeric primitive types is `0` and `false` for the `boolean` type.
 
-> **Question:** Consider this code from earlier:
+> **Exercise:** Consider this code from earlier:
 >
 > ```java
 > double[] arr;
@@ -117,19 +120,38 @@ In Java, the default initial values for numeric primitive types is `0` and `fals
 
 #### 3.4. Bounds checking
 
-Consider this snippet of code. Where is the bug?
+Consider this snippet of code.
 
-```
-int[] arr = new int[100]; 
-for (int i = 0; i <= 100; ++i) 
-{
-    System.out.println(arr[i]);
-}
-```
+> **Question:** Where is the bug?
+>
+> ```java
+> int[] arr = new int[100]; 
+> for (int i = 0; i <= 100; ++i) {
+>     System.out.println(arr[i]);
+> }
+> ```
 
 The issue is that the program attempts to access the value `arr[100]`, while the last element in the array is `arr[99]`.
 
-This kind of bug is called an "off-one-one error" and is so common... well, it has a name. In general, an off-by-one-error is one in which a loop iterates one time too many or too few.
+This kind of bug is called an "off-by-one error" and is so common... well, it has a name. In general, an off-by-one-error is one in which a loop iterates one time too many or too few.
+
+> **Question:** Where is the off-by-one-error?
+>
+> ```java
+> int[] arr = new int[100]; 
+> for (int i = 100; i > 0; --i) {
+>     System.out.println(arr[i]);
+> }
+> ```
+
+> **Exercise:** Fill in the missing code in this `for` loop to print the numbers in reverse order, i.e. `5, 4, 3, 2, 1`:
+>
+> ```java
+> int[] arr = { 1, 2, 3, 4, 5 };
+> for (???) {
+>     System.out.println(arr[i]);
+> }
+> ```
 
 ### 4. Exchanging and shuffling
 
@@ -154,13 +176,21 @@ To shuffle the array, consider the following code:
 int n = arr.length; 
 for (int i = 0; i < n; i++) { 
    int r = i + (int) (Math.random() * (n-i)); 
-   String tmp = deck[r];
+   String tmp = arr[r];
    arr[r] = arr[i];
    arr[i] = tmp;
 } 
 ```
 
-> **Exercise:** In words, what does this code do?
+> **Question:** What does this code do:
+>
+> ```java
+> for (int i = 0; i < n/2; i++) {
+>     double tmp = arr[i];
+>     arr[i] = arr[n-1-i];
+>     arr[n-i-1] = tmp;
+> }
+> ```
 
 ### 5. Exercises
 
@@ -174,4 +204,16 @@ for (int i = 0; i < 10; i++) {
 }
 ```
 
-3. Write a program `HowMany.java` that takes an arbitrary number of command line arguments and prints how many there are. 
+3. Write a program `HowMany.java` that takes an arbitrary number of command line arguments and prints how many there are.
+
+# ArrayLists
+
+TODO: Lecture on ArrayLists.
+
+# Lab: Arrays and ArrayLists
+
+TODO: In-class assignment
+
+# References
+
+- _[Computer Science: An Interdisciplinary Approach](https://introcs.cs.princeton.edu/java/14array/)_, Robert Sedgewick and Kevin Wayne.
