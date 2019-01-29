@@ -16,7 +16,7 @@ Second semester
 - 1 quiz per week (5-10 min. review)
 
 First semester
-------------------
+~~~~~~~~~~~~~~~
 
 #. Introduction
 #. Hardware
@@ -34,7 +34,7 @@ First semester
 #. Review / midterm
 
 Second semester
-----------------
+~~~~~~~~~~~~~~~~
 
 #. Methods
 #. Methods
@@ -51,6 +51,31 @@ Second semester
 #. Searching and sorting
 #. Review / midterm
 
-You can see the lectures ready-compiled at `the Read the Docs site`_.
+Generating the lecture notes
+------------------------------
+
+The lecture notes are automatically compiled and generated via `Sphinx
+<http://www.sphinx-doc.org/en/master/>`_.
+
+Content for the lectures is stored on `docs/source`. Each week should go in a separate .rst file. 
+
+Adding content 
+~~~~~~~~~~~~~~~ 
+
+- install sphinx on your computer (you'll probably want to do this via pip) 
+- review `ReStructured Text syntax <http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html>`_
+- `cd` to `docs/source` and create a new `.rst` file (feel free to model off of `introduction.rst`)
+- change the `index.rst` file to include the name of your file in the toctree (i.e. table of contents tree)
+
+Building locally
+~~~~~~~~~~~~~~~~~~
+
+A Makefile is located in the `docs` directory. To generate an html, type `make html`. To generate a pdf, type `make latexpdf`. This will generate the final files within a directory called `build` within `docs`. 
+
+Building on readthedocs
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can see the html version of the lectures compiled at `the Read the Docs site`_. This updates automatically every time there is a push to the GitHub. 
 
 .. _the Read the Docs site: https://pti-cs-103.readthedocs.io/
+
