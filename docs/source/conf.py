@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'pti_cs_lectures'
+project = 'PTI CS 103'
 copyright = '2019, PTI'
 author = 'PTI'
 
