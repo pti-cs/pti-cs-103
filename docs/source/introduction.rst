@@ -7,9 +7,10 @@ Introduction
   - Ask Sedgewick for permission to copy HelloWorld
   - Put in references to lecture names for hardware and software instead of lecture 3 and lecture 4 (respectively)
   - Add pictures 
-  - Add course expectations
+  - Add course expectations (e.g. grading)
   - Add more discussion questions
   - Add section for the algorithmic thinking activity
+  - Change backtick formatting from italicized to code-blocky
 
 Overview of course
 --------------------

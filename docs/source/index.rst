@@ -1,4 +1,4 @@
-PTI CS Lectures
+PTI CS 103 Lectures
 ===========================================
 
 .. toctree::
