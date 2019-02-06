@@ -24,3 +24,14 @@ div.sphinxsidebarwrapper h3 {
 div.sphinxsidebarwrapper #logo {
 	margin-bottom: 40px !important;
 }
+
+div.contents {
+	background-color: rgb(255,255,255);
+        border: none;
+}
+
+p.topic-title {
+	font-size: 180%;
+	font-weight: normal;
+	margin-bottom: -0.25em !important;
+}
