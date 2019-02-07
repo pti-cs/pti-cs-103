@@ -1,14 +1,10 @@
 Arrays
 ======
 
-Topics
-------
-
-1. Motivation
-2. Creating arrays
-3. Programming with arrays
-4. Exchanging and shuffling
-5. Exercises
+.. contents:: Topics
+  :local:
+  :depth: 1
+  :blanklinks: none
 
 Motivation
 ----------
