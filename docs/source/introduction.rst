@@ -110,7 +110,7 @@ Some more familiar applications software include
 - Internet Explorer: connects the user to the world wide web
 - iTunes: organizes and plays music files
 
-While systems software allows the user to interact with the computer, systems software keeps the computer running. The operating system (OS) is the most common example of systems software, and it schedules tasks and manages storage of data. 
+While applications software allows the user to interact with the computer, systems software keeps the computer running. The operating system (OS) is the most common example of systems software, and it schedules tasks and manages storage of data. 
 
 We will dive deeper into the details of both applications and systems software in lecture 4.
 
