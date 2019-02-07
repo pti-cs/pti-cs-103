@@ -152,8 +152,50 @@ of the rest of the positions in the numbers.
 Binary to Decimal Conversion
 ----------------------------
 
+How do we go from binary numbers to decimal and back? We’ll now examine how to take binary
+numbers and convert them to their decimal notation. This works exactly like the decimal
+decomposition we learned at the beginning of class. And in fact this works to convert a number
+represented in any base to decimal.
+
+.. math::
+  101011001_2 &= 2^9 & + 2^7 & + 2^5 & + 2^4 & + 2^0 \\
+              &= 512 & + 127 & + 32  & + 16  & + 1   \\
+              &= 689
+
+
 Decimal to Binary Conversion
 ----------------------------
 
+Now, let’s look at the opposite conversion, converting decimal numbers to binary. This will
+use successive division and subtraction as opposed to addition in multiplication. We will
+successively divide by two, if the remainder is non-zero we’ll keep the bit at the current
+position. We’ll continue until we can no longer divide by two. Again, this works for any base,
+not just base two.
+
+============= ====== =========
+Initial Value Result Remainder
+============= ====== =========
+267           133    1
+133           66     1
+66            33     0
+33            16     1
+16            8      0
+8             4      0
+4             2      0
+2             1      0
+1             0      1
+============= ====== =========
+
+.. math::
+  \mathbf{267_{10}} = \mathbf{100001011_{2}}
+
 Conclusion
 ----------
+
+Today, we covered two very important number representations. In particular, decimal notation
+that we’re used to seeing in everyday life and binary notation that is useful for understanding
+how computers manipulate numbers. We covered binary addition, multiplication, and three bitwise
+arithmetic operations (and, or, and xor). Then we showed how we can convert between binary and
+decimal notation for numbers. Next lecture, we’ll review what we’ve learned about binary
+numbers and introduce Hexadecimal numbers, another important number representation in computer
+science.
