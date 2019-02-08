@@ -11,6 +11,11 @@ Introduction
   - Add more discussion questions
   - Add section for the algorithmic thinking activity
 
+.. contents::
+  :local:
+  :depth: 1
+  :blanklinks: none
+
 Overview of course
 --------------------
 
