@@ -132,8 +132,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'pti_cs_lectures.tex', 'pti\\_cs\\_lectures Documentation',
-     'PTI', 'manual'),
+    (master_doc, 'pti_cs_lectures.tex', 'PTI CS 103',
+     'Prison Teaching Initiative', 'manual'),
 ]
 
 
@@ -142,7 +142,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'pti_cs_lectures', 'pti_cs_lectures Documentation',
+    (master_doc, 'pti_cs_lectures', 'PTI CS 103',
      [author], 1)
 ]
 
@@ -153,7 +153,7 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'pti_cs_lectures', 'pti_cs_lectures Documentation',
+    (master_doc, 'pti_cs_lectures', 'PTI CS 103',
      author, 'pti_cs_lectures', 'One line description of project.',
      'Miscellaneous'),
 ]

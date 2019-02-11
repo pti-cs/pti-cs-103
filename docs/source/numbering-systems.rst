@@ -46,8 +46,12 @@ How do we actually go from numbers in base 10 to finding their value? We can bre
 by each position. Let’s go back to our running example:
 
 .. math::
+  :nowrap:
+
+  \begin{align*}
   19,874 &= 1 \times 10,000 & + 9 \times 1000 & + 8 \times 100  & + 7 \times 10   & + 4 \times 1    \\
          &= 1 \times 10^4   & + 9 \times 10^3 & + 8 \times 10^2 & + 7 \times 10^1 & + 4 \times 10^0
+  \end{align*}
 
 How do we know the value is nineteen thousand eight hundred seventy four? We can break it down digit
 by digit and add together the values. We have 4 in the 1s (the right-most position), 7 in the 10’s
@@ -56,8 +60,12 @@ other words, at each successive position we multiply the value of the digit at t
 next power of 10 to determine its value. This even works for non-whole numbers. Consider the number:
 
 .. math::
+  :nowrap:
+
+  \begin{align*}
   12.38 &= 1 \times 10   & + 2 \times 1    & + \frac{3}{10}     & + \frac{8}{100}    \\
         &= 1 \times 10^1 & + 2 \times 10^0 & + 3 \times 10^{-1} & + 8 \times 10^{-2}
+  \end{align*}
 
 We find 1 in the tens position, 2 in the ones position, 3 in the tenths position, and 8 in the
 hundredths position. For non-whole numbers we treat every digit to the right of the decimal (or radix)
@@ -158,9 +166,13 @@ decomposition we learned at the beginning of class. And in fact this works to co
 represented in any base to decimal.
 
 .. math::
+  :nowrap:
+
+  \begin{align*}
   101011001_2 &= 2^9 & + 2^7 & + 2^5 & + 2^4 & + 2^0 \\
               &= 512 & + 127 & + 32  & + 16  & + 1   \\
               &= 689
+  \end{align*}
 
 
 Decimal to Binary Conversion
