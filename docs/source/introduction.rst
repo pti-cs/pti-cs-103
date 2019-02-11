@@ -201,62 +201,7 @@ Some examples of careers in computer science include
 
 First program
 --------------
-This entire section is taken from the `intro to CS course at Princeton
-<https://introcs.cs.princeton.edu/java/11hello/>`_.
-
-We will now write our first program in Java, which will demonstrate the 3 basic steps to get a simple program running.
-
-1. Create the program by typing it into a text editor and saving it to, for example, :code:`MyProgram.java`
-2. Compile it by typing :code:`javac MyProgram.java` in the terminal window. 
-3. Execute (or run) it by typing :code:`java MyProgram` in the terminal window. 
-
-The first step creates the program; the second translates it into a language more suitable for machine execution (and puts the result in a file named MyProgram.class); the third actually runs the program. 
-
-Creating a Java program
-~~~~~~~~~~~~~~~~~~~~~~~~
-A program is nothing more than a sequence of characters, like a sentence, a paragraph, or a poem. To create one, we need only define that sequence characters using a text editor in the same way as we do for email. :code:`HelloWorld.java` is an example program. Type these character into your text editor and save it into a file named :code:`HelloWorld.java`.
-
-.. code-block:: java
-
-  public class HelloWorld {
-     public static void main(String[] args) {
-	// Prints "Hello, World" in the terminal window.
-	System.out.println("Hello, World");
-     }
-  }
-
-Compiling a Java program
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-A compiler is an application that translates programs from the Java language to a language more suitable for executing on the computer. It takes a text file with the :code:`.java` extension as input (your program) and produces a file with a :code:`.class` extension (the computer-language version). To compile :code:`HelloWorld.java` type the text below at the terminal. (We use the % symbol to denote the command prompt, but it may appear different depending on your system.)::
-
-  % javac HelloWorld.java
-
-If you typed in the program correctly, you should see no error messages. Otherwise, go back and make sure you typed in the program exactly as it appears above.
-
-Executing (or running) a Java program
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Once you compile your program, you can execute it. This is the exciting part, where the computer follows your instructions. To run the HelloWorld program, type the following in the terminal window::
-
-   % java HelloWorld
-
-If all goes well, you should see the following response::
-
-   Hello, world
-
-
-Understanding a Java program
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The key line with :code:`System.out.println()` prints the text "Hello, World" in the terminal window. When we begin to write more complicated programs, we will discuss the meaning of :code:`public`, :code:`class`, :code:`main`, :code:`String[]`, :code:`args`, :code:`System.out`, and so on.
-
-Creating your own Java program
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-For the time being, all of our programs will be just like :code:`HelloWorld.java`, except with a different sequence of statements in :code:`main()`. The easiest way to write such a program is to:
-
-- Copy :code:`HelloWorld.java` into a new file whose name is the program name followed by :code:`.java`.
-- Replace :code:`HelloWorld` with the program name everywhere.
-- Replace the print statement by a sequence of statements.
+Please refer to the attached handout from the online resource corresponding to`Computer Science: An Interdisciplinary Approach <https://introcs.cs.princeton.edu/java/11hello/>`_, Robert Sedgewick and Kevin Wayne, "Your First Jaba Program: Hello World".
 
 .. pull-quote::
 
@@ -265,5 +210,5 @@ For the time being, all of our programs will be just like :code:`HelloWorld.java
 References
 ----------
 
-- `Computer Science: An Interdisciplinary Approach <https://introcs.cs.princeton.edu/java/14array/>`_, Robert Sedgewick and Kevin Wayne.
+- `Computer Science: An Interdisciplinary Approach <https://introcs.cs.princeton.edu/java/11hello/>`_, Robert Sedgewick and Kevin Wayne.
 - `University of Wisconsin-Madison CS 202 Lectures <http://pages.cs.wisc.edu/~dusseau/Classes/CS202-F11/>`_, Andrea Arpaci-Dusseau.
