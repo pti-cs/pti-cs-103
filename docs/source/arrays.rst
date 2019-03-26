@@ -4,7 +4,7 @@ Arrays
 .. contents:: Topics
   :local:
   :depth: 1
-  :blanklinks: none
+  :backlinks: none
 
 Motivation
 ----------
@@ -31,7 +31,26 @@ This code prints the day of the week after conditioning on the value of an integ
 
 	System.out.println(DAYS_OF_WEEK[day]);
 
-To achieve this in Java, we need arrays. An *array* is an ordered and fixed-length list of values that are of the same type. We can access data in an array by *indexing*, which means referring to specific values in the array by number. If an array has :code:`n` values, then we think of it as being numbered from :code:`0` to :code:`n-1`.
+To achieve this in Java, we need arrays.
+
+Definition
+----------
+
+An *array* is an ordered and fixed-length list of values that are of the same type. We can access data in an array by *indexing*, which means referring to specific values in the array by number. If an array has :code:`n` values, then we think of it as being numbered from :code:`0` to :code:`n-1`:
+
+.. figure:: images/array-diagram.png
+	:align: center
+	:scale: 60%
+
+	Diagram of an array (Credit: https://www.geeksforgeeks.org/arrays-in-java/).
+
+To *loop* or *iterate* over an array means that our program accesses every value in the array, typically in order. For example, if we looped over the array in the diagram, that would mean that we looked at the value at the 0th index, then the value at the 1st index, then the value at the 2nd index, and so on.
+
+When we say that the array is "ordered" is that the relationship between an index and its stored value is unchanged (unless we explicitly modify it). If we loop over an unchanged array multiple times, we will always access the same values.
+
+Arrays are *fixed-length*, meaning that after we have created an array, we cannot change its length. We will see in the next chapter [TK: confirm] that :code:`ArrayLists` are an array-like data structure that allows for changing lengths.
+
+Finally, all the values in an array must be of the same type. For example, an array can hold all floating point numbers or all characters or all strings. But an array cannot hold values of different types.
 
 Creating arrays
 ---------------
@@ -41,8 +60,7 @@ The syntax for creating an array in Java has three parts:
 2. Array name
 3. Either: array size or specific values
 
-For example, this code creates an array of size :code:`n = 10` and fills it with all :code:`0.0`
-s
+For example, this code creates an array of size :code:`n = 10` and fills it with all :code:`0.0` s
 
 .. code:: java
 
@@ -71,11 +89,9 @@ Finally, in Java, it is acceptable to move the brackets to directly after the ty
 	int arr[];
 	int[] arr; 
 
-Programming with arrays
------------------------
 
 Indexing
-~~~~~~~~
+--------
 
 Consider the array :code:`DAYS_OF_WEEK` from the previous section. We can *index* the array using the following syntax:
 
@@ -99,7 +115,7 @@ In Java, array's are said to use *zero-based indexing* because the first element
 		System.out.println(sum / arr.length);
 
 Array length
-~~~~~~~~~~~~
+------------
 
 As mentioned previously, arrays are *fixed-length*. After you have created an array, it's length is unchangeable. You can access the length of an array :code:`arr[]` with the code :code:`arr.length`.
 
@@ -108,7 +124,7 @@ As mentioned previously, arrays are *fixed-length*. After you have created an ar
 	**Exercise:** Write a :code:`for` loop to print the days of the week in order (Monday through Sunday) using an array rather than seven :code:`System.out.println` function calls.
 
 Default initialization
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 In Java, the default initial values for numeric primitive types is :code:`0` and :code:`false` for the :code:`boolean` type.
 
@@ -122,10 +138,10 @@ In Java, the default initial values for numeric primitive types is :code:`0` and
 		    arr[i] = 0.0;
 		}
 
-		Rewrite this code to be a single line.
+	Rewrite this code to be a single line.
 
 Bounds checking
-~~~~~~~~~~~~~~~
+---------------
 
 Consider this snippet of code.
 
@@ -146,7 +162,10 @@ This kind of bug is called an "off-by-one error" and is so common... well, it ha
 
 	.. code:: java
 
-		int[] arr = new int[100]; 
+		int[] arr = new int[100];
+		for (int i = 0; i < array.length; i++) {
+		    arr[i] = i;
+		}
 		for (int i = 100; i > 0; --i) {
 		    System.out.println(arr[i]);
 		}
@@ -159,6 +178,59 @@ This kind of bug is called an "off-by-one error" and is so common... well, it ha
 		for (???) {
 		    System.out.println(arr[i]);
 		}
+
+Empty arrays
+------------
+
+	**Question:** This code prints five values, one per line, but we never specified which values. What do you think it prints?
+
+	.. code:: java
+
+		int[] arr = new int[5];
+		for (int i = 0; i < arr.length; i++) {
+		    System.out.println(arr[i]);
+		}
+
+In Java, an unitialized or empty array is given a default value:
+
+- For :code:`int`, :code:`short`, :code:`byte`, or :code:`long`, the default value is :code:`0`.
+- For :code:`float` or :code:`double`, the default value is :code:`0.0`.
+- For :code:`boolean` values, the default value is :code:`false`.
+- For :code:`char`, the default value is the null character :code:`'\u0000'`.
+
+Note that an array can be partially initialized.
+
+	**Question:** What does this code print?
+
+	.. code:: java
+
+		char[] alphabet = new char[26];
+		alphabet[0] = 'a';
+		alphabet[1] = 'b';
+		for (int i = 0; i < alphabet.length; i++) {
+		    System.out.println(alphabet[i]);
+		}
+
+Enhanced for loop
+-----------------
+
+So far, we have seen how to iterate over arrays by indexing each element with a number:
+
+.. code:: java
+
+	char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+	for (int i = 0; i < vowels.length; ++ i) {
+	    System.out.println(vowels[i]);
+	}
+
+We can perform the same iteration without using indices using an "enhanced :code:`for` loop" or :code:`for-each` loops:
+
+.. code:: java
+
+	char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+	for (char item: vowels) {
+	    System.out.println(item);
+	}
 
 Exchanging and shuffling
 ------------------------
@@ -204,11 +276,11 @@ To shuffle the array, consider the following code:
 		    arr[n-i-1] = tmp;
 		}
 
-5. Exercises
-------------
+Exercises
+---------
 
-1. Write a program that reverses the order of values in an array.
-2. What is wrong with this code snippet?
+1. **Write a program that reverses the order of values in an array.**
+2. **What is wrong with this code snippet?**
 
 	.. code:: java
 
@@ -217,7 +289,39 @@ To shuffle the array, consider the following code:
 		    arr[i] = i;
 		}
 
-3. Write a program :code:`HowMany.java` that takes an arbitrary number of command line arguments and prints how many there are.
+3. **Rewrite this snippet using an enhanced** :code:`for-each` **loop (for now, it is okay to re-define the array):**
+
+	.. code:: java
+
+		char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+		for (int i = array.length; i >= 0; i--) {
+		    char letter = vowels[i];
+		    System.out.println(letter);
+		}
+
+5. **Write a program that uses** :code:`for` **loops to print the following pattern:**
+
+	.. code::
+
+		1********
+
+		12*******
+
+		123******
+
+		1234*****
+
+		12345****
+
+		123456***
+
+		1234567**
+		
+		12345678*
+
+		123456789
+
+4. **Write a program** :code:`HowMany.java` **that takes an arbitrary number of command line arguments and prints how many there are.**
 
 References
 ----------

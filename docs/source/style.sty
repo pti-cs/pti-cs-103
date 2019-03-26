@@ -1,0 +1,55 @@
+% See Sphinx's default files for checking what to override:
+%
+%     http://www.sphinx-doc.org/en/master/latex.html
+%     https://github.com/sphinx-doc/sphinx/blob/master/sphinx/texinputs/sphinx.sty
+%     https://github.com/sphinx-doc/sphinx/blob/master/sphinx/texinputs/sphinxhowto.cls
+%
+% See here for example styles of titles, chapters, and sections:
+%
+%     http://zoonek.free.fr/LaTeX/LaTeX_samples_title/0.html
+%     http://zoonek.free.fr/LaTeX/LaTeX_samples_chapter/0.html
+%     http://zoonek.free.fr/LaTeX/LaTeX_samples_section/0.html
+
+% Redefine header colors to be dark gray.
+\definecolor{TitleColor}{rgb}{0.1,0.1,0.1}
+\sphinxDeclareColorOption{InnerLinkColor}{{rgb}{0.1,0.1,0.1}}
+\sphinxDeclareColorOption{OuterLinkColor}{{rgb}{0.1,0.1,0.1}}
+
+% Make headers serifed.
+\renewcommand{\py@HeaderFamily}{\rmfamily\bfseries}
+
+% Redefine code blocks.
+\definecolor{VerbatimColor}{HTML}{f6f8fa}
+\definecolor{VerbatimBorderColor}{HTML}{dddfe1}
+
+% Change chapter style.
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \reset@font
+  \vspace*{15\p@}%
+  {\parindent \z@ 
+    \begin{flushleft}
+      \reset@font \scshape \bfseries \Large \thechapter \par
+    \end{flushleft}
+    \vspace{1em}
+    \hrule
+    \begin{flushleft}
+      \reset@font \LARGE \strut #1\strut \par
+    \end{flushleft}
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \reset@font
+  \vspace*{15\p@}%
+  {\parindent \z@ 
+    \begin{flushleft}
+      \reset@font \scshape \bfseries \Large \vphantom{\thechapter} \par
+    \end{flushleft}
+    \vspace{1em}
+    \hrule
+    \begin{flushleft}
+      \reset@font \LARGE \strut #1\strut \par
+    \end{flushleft}
+    \vskip 100\p@
+  }}

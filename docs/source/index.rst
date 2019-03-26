@@ -7,4 +7,5 @@ PTI CS 103 Lectures
 
    introduction
    numbering-systems
-   arrays-arraylists
+   arrays
+   arraylists
