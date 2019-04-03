@@ -1,0 +1,127 @@
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{mdframed}
+% Removes indentions for paragraphs preceded by newline.
+\usepackage[parfill]{parskip}
+
+
+% Define chapter styles.
+% ------------------------------------------------------------------------------
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \reset@font
+  \vspace*{5\p@}%
+  {\parindent \z@ 
+    \begin{flushleft}
+      \reset@font \scshape \bfseries \Large \thechapter \par
+    \end{flushleft}
+    \vspace{1em}
+    \hrule
+    \begin{flushleft}
+      \reset@font \LARGE \strut \bfseries{#1}\strut \par
+    \end{flushleft}
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \reset@font
+  \vspace*{5\p@}%
+  {\parindent \z@ 
+    \begin{flushleft}
+      \reset@font \scshape \bfseries \Large \vphantom{\thechapter} \par
+    \end{flushleft}
+    \vspace{1em}
+    \hrule
+    \begin{flushleft}
+      \reset@font \LARGE \strut \bfseries{#1}\strut \par
+    \end{flushleft}
+    \vskip 100\p@
+  }}
+
+
+% Define definition environment.
+% ------------------------------------------------------------------------------
+\newcounter{definition}[section]
+\newenvironment{definition}{%
+  \refstepcounter{definition}
+  \begin{mdframed}
+  \noindent\textbf{Definition~\thedefinition.}
+  }{\end{mdframed}}
+  \numberwithin{definition}{section}
+
+
+% Define example environment.
+% ------------------------------------------------------------------------------
+
+% Define example frames
+\mdfdefinestyle{exmplframe}{%
+    linecolor=black,
+    outerlinewidth=2pt,
+    leftline=false,
+    rightline=false,
+    bottomline=false,
+    innerrightmargin=0,
+    innerleftmargin=15pt}
+
+\newcounter{example}[section]
+\renewcommand{\theexample}{\thesection.\arabic{example}}
+\newenvironment{example}{%
+  \begin{mdframed}[style=exmplframe]
+  \par\medskip
+  \refstepcounter{example}%
+  \noindent\emph{Example~\theexample:} \rmfamily}
+  {\end{mdframed}\medskip}
+\newenvironment{example*}{%
+  \par\medskip
+  \noindent\emph{Example:} \rmfamily}
+  {\medskip}
+
+
+% Define code syntax highlighting.
+% ------------------------------------------------------------------------------
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{verylightgray}{rgb}{0.96,0.97,0.98}
+\definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+
+\newcommand{\codePadding}{8pt}
+
+% Inline code command.
+\newcommand{\ic}{\texttt}
+
+\lstnewenvironment{code}{
+  \lstset{
+    % Language and syntax highlighting
+    language=Java,
+    commentstyle=\color{pgreen},
+    keywordstyle=\color{pblue},
+    stringstyle=\color{pred},
+    moredelim=[il][\textcolor{pgrey}]{$$},
+    moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+    % Configure font size, 
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    stepnumber=1,
+    numberstyle=\tiny,
+    xleftmargin=\codePadding{},
+    framexleftmargin=\codePadding{},
+    framextopmargin=6pt,
+    framexbottommargin=6pt, 
+    frame=tb,
+    rulecolor=\color{lightgray},
+    showspaces=false,
+    backgroundcolor=\color{verylightgray},
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true
+  }
+}{}

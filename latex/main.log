@@ -1,0 +1,713 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 APR 2019 14:49
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+LaTeX2e <2018-04-01> patch level 2
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/bk10.clo
+File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/03/24 v5.7 Page Geometry
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count89
+\Gm@cntv=\count90
+\c@Gm@tempcnt=\count91
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(./pticsstyle.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks16
+\ex@=\dimen111
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen112
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count92
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count93
+\leftroot@=\count94
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count95
+\DOTSCASE@=\count96
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen113
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count97
+\c@MaxMatrixCols=\count98
+\dotsspace@=\muskip10
+\c@parentequation=\count99
+\dspbrk@lvl=\count100
+\tag@help=\toks17
+\row@=\count101
+\column@=\count102
+\maxfields@=\count103
+\andhelp@=\toks18
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+)
+\Gin@req@height=\dimen120
+\Gin@req@width=\dimen121
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/04/06 v1.3b Input encoding file
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count104
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count105
+\lst@gtempboxa=\box28
+\lst@token=\toks23
+\lst@length=\count106
+\lst@currlwidth=\dimen122
+\lst@column=\count107
+\lst@pos=\count108
+\lst@lostspace=\dimen123
+\lst@width=\dimen124
+\lst@newlines=\count109
+\lst@lineno=\count110
+\lst@maxwidth=\dimen125
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count111
+\lst@skipnumbers=\count112
+\lst@framebox=\box29
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count113
+\calc@Bcount=\count114
+\calc@Adimen=\dimen126
+\calc@Bdimen=\dimen127
+\calc@Askip=\skip46
+\calc@Bskip=\skip47
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count115
+\calc@Cskip=\skip48
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count116
+\l_MT_multwidth_dim=\dimen128
+\origjot=\skip49
+\l_MT_shortvdotswithinadjustabove_dim=\dimen129
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen130
+\l_MT_above_intertext_sep=\dimen131
+\l_MT_below_intertext_sep=\dimen132
+\l_MT_above_shortintertext_sep=\dimen133
+\l_MT_below_shortintertext_sep=\dimen134
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/mdframed/mdframed.sty
+Package: mdframed 2013/07/01 1.9b: mdframed
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2018/03/05 L3 programming layer (loader) 
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2018/03/05 L3 programming layer (code)
+\c_max_int=\count117
+\l_tmpa_int=\count118
+\l_tmpb_int=\count119
+\g_tmpa_int=\count120
+\g_tmpb_int=\count121
+\g__intarray_font_int=\count122
+\g__prg_map_int=\count123
+\c_log_iow=\count124
+\l_iow_line_count_int=\count125
+\l__iow_line_target_int=\count126
+\l__iow_one_indent_int=\count127
+\l__iow_indent_int=\count128
+\c_zero_dim=\dimen135
+\c_max_dim=\dimen136
+\l_tmpa_dim=\dimen137
+\l_tmpb_dim=\dimen138
+\g_tmpa_dim=\dimen139
+\g_tmpb_dim=\dimen140
+\c_zero_skip=\skip50
+\c_max_skip=\skip51
+\l_tmpa_skip=\skip52
+\l_tmpb_skip=\skip53
+\g_tmpa_skip=\skip54
+\g_tmpb_skip=\skip55
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count129
+\c__fp_leading_shift_int=\count130
+\c__fp_middle_shift_int=\count131
+\c__fp_trailing_shift_int=\count132
+\c__fp_big_leading_shift_int=\count133
+\c__fp_big_middle_shift_int=\count134
+\c__fp_big_trailing_shift_int=\count135
+\c__fp_Bigg_leading_shift_int=\count136
+\c__fp_Bigg_middle_shift_int=\count137
+\c__fp_Bigg_trailing_shift_int=\count138
+\c__fp_rand_size_int=\count139
+\c__fp_rand_four_int=\count140
+\c__fp_rand_eight_int=\count141
+\l__sort_length_int=\count142
+\l__sort_min_int=\count143
+\l__sort_top_int=\count144
+\l__sort_max_int=\count145
+\l__sort_true_max_int=\count146
+\l__sort_block_int=\count147
+\l__sort_begin_int=\count148
+\l__sort_end_int=\count149
+\l__sort_A_int=\count150
+\l__sort_B_int=\count151
+\l__sort_C_int=\count152
+\l__tl_build_start_index_int=\count153
+\l__tl_build_index_int=\count154
+\l__tl_analysis_normal_int=\count155
+\l__tl_analysis_index_int=\count156
+\l__tl_analysis_nesting_int=\count157
+\l__tl_analysis_type_int=\count158
+\l__regex_internal_a_int=\count159
+\l__regex_internal_b_int=\count160
+\l__regex_internal_c_int=\count161
+\l__regex_balance_int=\count162
+\l__regex_group_level_int=\count163
+\l__regex_mode_int=\count164
+\c__regex_cs_in_class_mode_int=\count165
+\c__regex_cs_mode_int=\count166
+\l__regex_catcodes_int=\count167
+\l__regex_default_catcodes_int=\count168
+\c__regex_catcode_D_int=\count169
+\c__regex_catcode_S_int=\count170
+\c__regex_catcode_L_int=\count171
+\c__regex_catcode_O_int=\count172
+\c__regex_catcode_A_int=\count173
+\c__regex_all_catcodes_int=\count174
+\l__regex_show_lines_int=\count175
+\l__regex_min_state_int=\count176
+\l__regex_max_state_int=\count177
+\l__regex_left_state_int=\count178
+\l__regex_right_state_int=\count179
+\l__regex_capturing_group_int=\count180
+\l__regex_min_pos_int=\count181
+\l__regex_max_pos_int=\count182
+\l__regex_curr_pos_int=\count183
+\l__regex_start_pos_int=\count184
+\l__regex_success_pos_int=\count185
+\l__regex_curr_char_int=\count186
+\l__regex_curr_catcode_int=\count187
+\l__regex_last_char_int=\count188
+\l__regex_case_changed_char_int=\count189
+\l__regex_curr_state_int=\count190
+\l__regex_step_int=\count191
+\l__regex_min_active_int=\count192
+\l__regex_max_active_int=\count193
+\l__regex_replacement_csnames_int=\count194
+\l__regex_match_count_int=\count195
+\l__regex_min_submatch_int=\count196
+\l__regex_submatch_int=\count197
+\l__regex_zeroth_submatch_int=\count198
+\g__regex_trace_regex_int=\count199
+\c_empty_box=\box30
+\l_tmpa_box=\box31
+\l_tmpb_box=\box32
+\g_tmpa_box=\box33
+\g_tmpb_box=\box34
+\l__box_top_dim=\dimen141
+\l__box_bottom_dim=\dimen142
+\l__box_left_dim=\dimen143
+\l__box_right_dim=\dimen144
+\l__box_top_new_dim=\dimen145
+\l__box_bottom_new_dim=\dimen146
+\l__box_left_new_dim=\dimen147
+\l__box_right_new_dim=\dimen148
+\l__box_internal_box=\box35
+\l__coffin_internal_box=\box36
+\l__coffin_internal_dim=\dimen149
+\l__coffin_offset_x_dim=\dimen150
+\l__coffin_offset_y_dim=\dimen151
+\l__coffin_x_dim=\dimen152
+\l__coffin_y_dim=\dimen153
+\l__coffin_x_prime_dim=\dimen154
+\l__coffin_y_prime_dim=\dimen155
+\c_empty_coffin=\box37
+\l__coffin_aligned_coffin=\box38
+\l__coffin_aligned_internal_coffin=\box39
+\l_tmpa_coffin=\box40
+\l_tmpb_coffin=\box41
+\l__coffin_display_coffin=\box42
+\l__coffin_display_coord_coffin=\box43
+\l__coffin_display_pole_coffin=\box44
+\l__coffin_display_offset_dim=\dimen156
+\l__coffin_display_x_dim=\dimen157
+\l__coffin_display_y_dim=\dimen158
+\l__coffin_bounding_shift_dim=\dimen159
+\l__coffin_left_corner_dim=\dimen160
+\l__coffin_right_corner_dim=\dimen161
+\l__coffin_bottom_corner_dim=\dimen162
+\l__coffin_top_corner_dim=\dimen163
+\l__coffin_scaled_total_height_dim=\dimen164
+\l__coffin_scaled_width_dim=\dimen165
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count266
+))
+Package: xparse 2018/02/21 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count267
+\g__xparse_grabber_int=\count268
+\l__xparse_m_args_int=\count269
+\l__xparse_mandatory_args_int=\count270
+\l__xparse_v_nesting_int=\count271
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count272
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/zref-abspage.sty
+Package: zref-abspage 2016/05/21 v2.26 Module abspage for zref (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/zref-base.sty
+Package: zref-base 2016/05/21 v2.26 Module base for zref (HO)
+
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+Package zref Info: New property list: main on input line 759.
+Package zref Info: New property: default on input line 760.
+Package zref Info: New property: page on input line 761.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+)
+\c@abspage=\count273
+Package zref Info: New property: abspage on input line 62.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/needspace/needspace.sty
+Package: needspace 2010/09/12 v1.3d reserve vertical space
+)
+\mdf@templength=\skip56
+\c@mdf@globalstyle@cnt=\count274
+\mdf@skipabove@length=\skip57
+\mdf@skipbelow@length=\skip58
+\mdf@leftmargin@length=\skip59
+\mdf@rightmargin@length=\skip60
+\mdf@innerleftmargin@length=\skip61
+\mdf@innerrightmargin@length=\skip62
+\mdf@innertopmargin@length=\skip63
+\mdf@innerbottommargin@length=\skip64
+\mdf@splittopskip@length=\skip65
+\mdf@splitbottomskip@length=\skip66
+\mdf@outermargin@length=\skip67
+\mdf@innermargin@length=\skip68
+\mdf@linewidth@length=\skip69
+\mdf@innerlinewidth@length=\skip70
+\mdf@middlelinewidth@length=\skip71
+\mdf@outerlinewidth@length=\skip72
+\mdf@roundcorner@length=\skip73
+\mdf@footenotedistance@length=\skip74
+\mdf@userdefinedwidth@length=\skip75
+\mdf@needspace@length=\skip76
+\mdf@frametitleaboveskip@length=\skip77
+\mdf@frametitlebelowskip@length=\skip78
+\mdf@frametitlerulewidth@length=\skip79
+\mdf@frametitleleftmargin@length=\skip80
+\mdf@frametitlerightmargin@length=\skip81
+\mdf@shadowsize@length=\skip82
+\mdf@extratopheight@length=\skip83
+\mdf@subtitleabovelinewidth@length=\skip84
+\mdf@subtitlebelowlinewidth@length=\skip85
+\mdf@subtitleaboveskip@length=\skip86
+\mdf@subtitlebelowskip@length=\skip87
+\mdf@subtitleinneraboveskip@length=\skip88
+\mdf@subtitleinnerbelowskip@length=\skip89
+\mdf@subsubtitleabovelinewidth@length=\skip90
+\mdf@subsubtitlebelowlinewidth@length=\skip91
+\mdf@subsubtitleaboveskip@length=\skip92
+\mdf@subsubtitlebelowskip@length=\skip93
+\mdf@subsubtitleinneraboveskip@length=\skip94
+\mdf@subsubtitleinnerbelowskip@length=\skip95
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
+File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
+)
+\mdf@frametitlebox=\box45
+\mdf@footnotebox=\box46
+\mdf@splitbox@one=\box47
+\mdf@splitbox@two=\box48
+\mdf@splitbox@save=\box49
+\mdfsplitboxwidth=\skip96
+\mdfsplitboxtotalwidth=\skip97
+\mdfsplitboxheight=\skip98
+\mdfsplitboxdepth=\skip99
+\mdfsplitboxtotalheight=\skip100
+\mdfframetitleboxwidth=\skip101
+\mdfframetitleboxtotalwidth=\skip102
+\mdfframetitleboxheight=\skip103
+\mdfframetitleboxdepth=\skip104
+\mdfframetitleboxtotalheight=\skip105
+\mdffootnoteboxwidth=\skip106
+\mdffootnoteboxtotalwidth=\skip107
+\mdffootnoteboxheight=\skip108
+\mdffootnoteboxdepth=\skip109
+\mdffootnoteboxtotalheight=\skip110
+\mdftotallinewidth=\skip111
+\mdfboundingboxwidth=\skip112
+\mdfboundingboxtotalwidth=\skip113
+\mdfboundingboxheight=\skip114
+\mdfboundingboxdepth=\skip115
+\mdfboundingboxtotalheight=\skip116
+\mdf@freevspace@length=\skip117
+\mdf@horizontalwidthofbox@length=\skip118
+\mdf@verticalmarginwhole@length=\skip119
+\mdf@horizontalspaceofbox=\skip120
+\mdfsubtitleheight=\skip121
+\mdfsubsubtitleheight=\skip122
+\c@mdfcountframes=\count275
+
+****** mdframed patching \endmdf@trivlist
+
+****** -- success******
+
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \newmdtheoremenv with sig. 'O{} m o m o ' on line 601.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \mdtheorem with sig. ' O{} m o m o ' on line 701.
+.................................................
+\mdf@envdepth=\count276
+\c@mdf@env@i=\count277
+\c@mdf@env@ii=\count278
+\c@mdf@zref@counter=\count279
+Package zref Info: New property: mdf@pagevalue on input line 895.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+\c@definition=\count280
+\c@example=\count281
+) (./main.aux)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(108.405pt, 380.69788pt, 108.405pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=380.69788pt
+* \textheight=700.50687pt
+* \oddsidemargin=36.13501pt
+* \evensidemargin=36.13501pt
+* \topmargin=-30.06749pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=125.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count282
+\scratchdimen=\dimen166
+\scratchbox=\box50
+\nofMPsegments=\count283
+\nofMParguments=\count284
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count285
+\MPscratchDim=\dimen167
+\MPnumerator=\count286
+\makeMPintoPDFobject=\count287
+\everyMPtoPDFconversion=\toks25
+) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count288
+\AtBeginShipoutBox=\box51
+
+(./titlepage.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--5
+
+ []
+
+[1
+
+
+
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
+(./acknowledgements.tex) [2]
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 13.
+
+(./main.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
+\tf@toc=\write3
+\openout3 = `main.toc'.
+
+ [3
+
+] [4
+
+]
+(./arrays.tex
+Chapter 1.
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+Package mdframed Info: mdframed works in twoside mode on input line 14.
+Package mdframed Info: mdframed works in twoside mode on input line 26.
+ [1
+
+]
+Package mdframed Info: mdframed works in twoside mode on input line 93.
+Package mdframed Info: mdframed works in twoside mode on input line 97.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 108.
+
+[2])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+(./main.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 14795 strings out of 492649
+ 267878 string characters out of 6129622
+ 518709 words of memory out of 5000000
+ 18539 multiletter control sequences out of 15000+600000
+ 536635 words of font info for 46 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 46i,5n,40p,10423b,1328s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/l
+ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/loca
+l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on main.pdf (7 pages, 133151 bytes).
+PDF statistics:
+ 68 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
