@@ -6,6 +6,6 @@ PTI CS 103 Lectures
    :numbered:
 
    introduction
-   numbering-systems
+   hardware_data_types
    arrays
    arraylists
