@@ -1,0 +1,354 @@
+\chapter{Introduction}
+
+\section{Overview of course}
+
+Knowing just a little bit of computer science can get you started right away in actual applications. One of the goals of this course is to learn about the fascinating subject of computer science. Another is to develop algorithmic thinking skills that will help with day-to-day critical problem-solving skills. But perhaps the most important goal of the course is to develop coding skills, which will not only open up new job opportunities but also make you more effective in most areas of business. 
+
+In the first semester, we will spend the first two classes of each week on computer science theory and special topics. The final day of each week will be a lab day, where we actually start practicing coding skills. 
+
+In the second semester, we will start focusing more on practical coding, with a single day a week for theory and 2 lab periods per week for coding. 
+
+Broadly, we will cover the following topics:
+\begin{itemize}
+    \item How modern computers work
+    	\begin{itemize}
+       		\item Hardware
+       		\item Software
+       		\item Computer networks and information systems
+    	\end{itemize}
+    \item Algorithms for quickly solving complex problems
+    	\begin{itemize}
+       		\item Searching
+       		\item Sorting
+    	\end{itemize}
+    \item Data structures 
+    	\begin{itemize}
+       		\item Arrays
+       		\item ArrayLists
+    	\end{itemize}
+    \item Applications of Computer science
+    	\begin{itemize}
+       		\item Basic coding in Java
+       		\item How to use productivity software
+    	\end{itemize}
+\end{itemize}
+
+\section{Brief history of computer science}
+
+
+Consider this snippet of code:
+
+\begin{code}
+if (i == 3) System.out.println("foo");
+else System.out.println("bar");
+\end{code}
+
+\begin{example}
+What does this code do?
+
+\begin{code}
+System.out.println();
+\end{code}
+
+This code prints the day of the week after conditioning on the value of an integer `day`. But this code is repetitive. It would be useful if we had some way of creating a list of days of the week, and then just specifying which of those days we wanted to print. Something like this:
+\end{example}
+
+To achieve this in Java, we need arrays.
+
+\begin{definition}
+An \emph{array} is an ordered and fixed-length list of values that are of the same type. We can access data in an array by \emph{indexing}, which means referring to specific values in the array by number. If an array has `n` values, then we think of it as being numbered from `0` to `n-1`:
+
+% .. figure:: images/array-diagram.png
+% 	:align: center
+% 	:scale: 60%
+
+% 	Diagram of an array (Credit: https://www.geeksforgeeks.org/arrays-in-java/).
+
+\end{definition}
+
+To \emph{loop} or \emph{iterate} over an array means that our program accesses every value in the array, typically in order. For example, if we looped over the array in the diagram, that would mean that we looked at the value at the 0th index, then the value at the 1st index, then the value at the 2nd index, and so on.
+
+When we say that the array is "ordered" is that the relationship between an index and its stored value is unchanged (unless we explicitly modify it). If we loop over an unchanged array multiple times, we will always access the same values.
+
+Arrays are \emph{fixed-length}, meaning that after we have created an array, we cannot change its length. We will see in the next chapter [TK: confirm] that \ic{ArrayLists} are an array-like data structure that allows for changing lengths.
+
+Finally, all the values in an array must be of the same type. For example, an array can hold all floating point numbers or all characters or all strings. But an array cannot hold values of different types.
+
+\subsection{Creating arrays}
+
+The syntax for creating an array in Java has three parts:
+\begin{enumerate}
+\item Array type
+\item Array name
+\item Either: array size or specific values
+\end{enumerate}
+
+For example, this code creates an array of size \ic{n = 10} and fills it with all \ic{0.0}s
+
+\begin{code}
+double[] arr;                    // Declare array
+arr = new double[n];             // Initialize the array
+for (int i = 0; i < n; i++) {    // Iterate over array
+    arr[i] = 0.0;                // Initialize elements to 0.0
+}
+\end{code}
+
+The key steps are: we first declare and initialize the array. We then loop over the array to initialize specific values. We can also initialize the array at compile time, for example
+
+\begin{code}
+String[] DAYS_OF_WEEK = {
+//  Indices:
+//  0      1      2      3      4      5      6
+    "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"
+};
+\end{code}
+
+Notice the difference in syntax. When creating an empty array, we must specify a size. When initialize an array at compile time with specific values, the size is implicit in the number of values provided.
+
+Finally, in Java, it is acceptable to move the brackets to directly after the type declaration to directly after the name declaration. For example, these two declarations are equivalent:
+
+\begin{code}
+int arr[];
+int[] arr;
+\end{code}
+
+\subsection{Indexing}
+
+Consider the array \ic{DAYS\_OF\_WEEK} from the previous section. We can \emph{index} the array using the following syntax:
+
+\begin{code}
+System.out.println(DAYS_OF_WEEK[3]);  // Prints "Thursday"
+\end{code}
+
+In Java, array's are said to use \emph{zero-based indexing} because the first element in the array is accessed with the number \ic{0} rather than \ic{1}.
+
+\begin{example}
+What does \ic{System.out.println(DAYS\_OF\_WEEK[1]);} print?
+\end{example}
+
+\begin{example}
+What does this code do? What number does it print?
+
+\begin{code}
+double sum = 0.0;
+double[] arr = { 1, 2, 2, 3, 4, 7, 9 }
+for (int i = 0; i < arr.length; i++) {
+    sum += arr[i];
+}
+System.out.println(sum / arr.length);
+\end{code}
+\end{example}
+
+% Array length
+% ------------
+
+% As mentioned previously, arrays are *fixed-length*. After you have created an array, it's length is unchangeable. You can access the length of an array :code:`arr[]` with the code :code:`arr.length`.
+
+% 	**Question:** What does :code:`System.out.println(DAYS_OF_WEEK.length);` print?
+
+% 	**Exercise:** Write a :code:`for` loop to print the days of the week in order (Monday through Sunday) using an array rather than seven :code:`System.out.println` function calls.
+
+% Default initialization
+% ----------------------
+
+% In Java, the default initial values for numeric primitive types is :code:`0` and :code:`false` for the :code:`boolean` type.
+
+% 	**Exercise:** Consider this code from earlier:
+
+% 	.. code:: java
+
+% 		double[] arr;
+% 		arr = new double[n];
+% 		for (int i = 0; i < n; i++) {
+% 		    arr[i] = 0.0;
+% 		}
+
+% 	Rewrite this code to be a single line.
+
+% Bounds checking
+% ---------------
+
+% Consider this snippet of code.
+
+% 	**Question:** Where is the bug?
+
+% 	.. code:: java
+
+% 		int[] arr = new int[100]; 
+% 		for (int i = 0; i <= 100; ++i) {
+% 		    System.out.println(arr[i]);
+% 		}
+
+% The issue is that the program attempts to access the value :code:`arr[100]`, while the last element in the array is :code:`arr[99]`.
+
+% This kind of bug is called an "off-by-one error" and is so common... well, it has a name. In general, an off-by-one-error is one in which a loop iterates one time too many or too few.
+
+% 	**Question:** Where is the off-by-one-error?
+
+% 	.. code:: java
+
+% 		int[] arr = new int[100];
+% 		for (int i = 0; i < array.length; i++) {
+% 		    arr[i] = i;
+% 		}
+% 		for (int i = 100; i > 0; --i) {
+% 		    System.out.println(arr[i]);
+% 		}
+
+% 	**Exercise:** Fill in the missing code in this :code:`for` loop to print the numbers in reverse order, i.e. :code:`5, 4, 3, 2, 1`:
+
+% 	.. code:: java
+
+% 		int[] arr = { 1, 2, 3, 4, 5 };
+% 		for (???) {
+% 		    System.out.println(arr[i]);
+% 		}
+
+% Empty arrays
+% ------------
+
+% 	**Question:** This code prints five values, one per line, but we never specified which values. What do you think it prints?
+
+% 	.. code:: java
+
+% 		int[] arr = new int[5];
+% 		for (int i = 0; i < arr.length; i++) {
+% 		    System.out.println(arr[i]);
+% 		}
+
+% In Java, an unitialized or empty array is given a default value:
+
+% - For :code:`int`, :code:`short`, :code:`byte`, or :code:`long`, the default value is :code:`0`.
+% - For :code:`float` or :code:`double`, the default value is :code:`0.0`.
+% - For :code:`boolean` values, the default value is :code:`false`.
+% - For :code:`char`, the default value is the null character :code:`'\u0000'`.
+
+% Note that an array can be partially initialized.
+
+% 	**Question:** What does this code print?
+
+% 	.. code:: java
+
+% 		char[] alphabet = new char[26];
+% 		alphabet[0] = 'a';
+% 		alphabet[1] = 'b';
+% 		for (int i = 0; i < alphabet.length; i++) {
+% 		    System.out.println(alphabet[i]);
+% 		}
+
+% Enhanced for loop
+% -----------------
+
+% So far, we have seen how to iterate over arrays by indexing each element with a number:
+
+% .. code:: java
+
+% 	char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+% 	for (int i = 0; i < vowels.length; ++ i) {
+% 	    System.out.println(vowels[i]);
+% 	}
+
+% We can perform the same iteration without using indices using an "enhanced :code:`for` loop" or :code:`for-each` loops:
+
+% .. code:: java
+
+% 	char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+% 	for (char item: vowels) {
+% 	    System.out.println(item);
+% 	}
+
+% Exchanging and shuffling
+% ------------------------
+
+% Two common tasks when manipulating arrays are *exchanging two values* and *shuffling* values. (*Sorting* is more complicated and will be address later.)
+
+% To exchange to values, consider the following code:
+
+% .. code:: java
+
+% 	double[] arr = { 1.0, 2.0, 3.0, 4.0, 5.0, 6.0 };
+% 	int i = 1;
+% 	int j = 4;
+% 	double tmp = arr[i]; 
+% 	arr[i] = arr[j]; 
+% 	arr[j] = tmp;
+
+% .. pull-quote::
+
+% 	**Exercise:** What are the six values in the array, in order?
+
+% To shuffle the array, consider the following code:
+
+% .. code:: java
+
+% 	int n = arr.length; 
+% 	for (int i = 0; i < n; i++) { 
+% 	    int r = i + (int) (Math.random() * (n-i)); 
+% 	    String tmp = arr[r];
+% 	    arr[r] = arr[i];
+% 	    arr[i] = tmp;
+% 	}
+
+% .. pull-quote::
+
+% 	**Question:** What does this code do:
+
+% 	.. code:: java
+
+% 		for (int i = 0; i < n/2; i++) {
+% 		    double tmp = arr[i];
+% 		    arr[i] = arr[n-1-i];
+% 		    arr[n-i-1] = tmp;
+% 		}
+
+% Exercises
+% ---------
+
+% 1. **Write a program that reverses the order of values in an array.**
+% 2. **What is wrong with this code snippet?**
+
+% 	.. code:: java
+
+% 		int[] arr;
+% 		for (int i = 0; i < 10; i++) {
+% 		    arr[i] = i;
+% 		}
+
+% 3. **Rewrite this snippet using an enhanced** :code:`for-each` **loop (for now, it is okay to re-define the array):**
+
+% 	.. code:: java
+
+% 		char[] vowels = {'a', 'e', 'i', 'o', 'u'};
+% 		for (int i = array.length; i >= 0; i--) {
+% 		    char letter = vowels[i];
+% 		    System.out.println(letter);
+% 		}
+
+% 5. **Write a program that uses** :code:`for` **loops to print the following pattern:**
+
+% 	.. code::
+
+% 		1********
+
+% 		12*******
+
+% 		123******
+
+% 		1234*****
+
+% 		12345****
+
+% 		123456***
+
+% 		1234567**
+		
+% 		12345678*
+
+% 		123456789
+
+% 4. **Write a program** :code:`HowMany.java` **that takes an arbitrary number of command line arguments and prints how many there are.**
+
+\subsection{References}
+----------
+
+Computer Science: An Interdisciplinary Approach, Robert Sedgewick and Kevin Wayne.
