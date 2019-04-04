@@ -4,9 +4,7 @@ Introduction
 .. todo::
 
   - Put together all references at the end 
-  - Ask Sedgewick for permission to copy HelloWorld
   - Put in references to lecture names for hardware and software instead of lecture 3 and lecture 4 (respectively)
-  - Add pictures 
   - Add course expectations (e.g. grading)
   - Add more discussion questions
   - Add section for the algorithmic thinking activity
@@ -206,7 +204,7 @@ Some examples of careers in computer science include
 
 First program
 --------------
-Please refer to the attached handout from the online resource corresponding to`Computer Science: An Interdisciplinary Approach <https://introcs.cs.princeton.edu/java/11hello/>`_, Robert Sedgewick and Kevin Wayne, "Your First Jaba Program: Hello World".
+Please refer to the attached handout from the online resource corresponding to `Computer Science: An Interdisciplinary Approach <https://introcs.cs.princeton.edu/java/11hello/>`_, Robert Sedgewick and Kevin Wayne, "Your First Java Program: Hello World".
 
 .. pull-quote::
 
