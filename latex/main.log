@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  3 APR 2019 14:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 APR 2019 09:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -23,8 +23,8 @@ File: bk10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/geometry/geometry.sty
+) (./pticsstyle.sty (/usr/local/texlive/2018/texmf-dist/tex/latex/geometry/geom
+etry.sty
 Package: geometry 2018/03/24 v5.7 Page Geometry
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
@@ -54,7 +54,6 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
 )
-(./pticsstyle.sty
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip43
@@ -123,6 +122,22 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen120
+\captionmargin@=\dimen121
+\captionwidth=\dimen122
+\caption@tempdima=\dimen123
+\caption@indent=\dimen124
+\caption@parindent=\dimen125
+\caption@hangindent=\dimen126
+)
+\c@ContinuedFloat=\count104
+)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
 
@@ -134,6 +149,19 @@ Package color Info: Driver file: pdftex.def on input line 147.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 ))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip46
+\f@nch@O@elh=\skip47
+\f@nch@O@erh=\skip48
+\f@nch@O@olh=\skip49
+\f@nch@O@orh=\skip50
+\f@nch@O@elf=\skip51
+\f@nch@O@erf=\skip52
+\f@nch@O@olf=\skip53
+\f@nch@O@orf=\skip54
+)
 (/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
@@ -148,8 +176,8 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 99.
 )
-\Gin@req@height=\dimen120
-\Gin@req@width=\dimen121
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2018/04/06 v1.3b Input encoding file
@@ -158,26 +186,26 @@ Package: inputenc 2018/04/06 v1.3b Input encoding file
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2014/07/27 v1.3 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count104
+\c@lips@count=\count105
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count105
+\lst@mode=\count106
 \lst@gtempboxa=\box28
 \lst@token=\toks23
-\lst@length=\count106
-\lst@currlwidth=\dimen122
-\lst@column=\count107
-\lst@pos=\count108
-\lst@lostspace=\dimen123
-\lst@width=\dimen124
-\lst@newlines=\count109
-\lst@lineno=\count110
-\lst@maxwidth=\dimen125
+\lst@length=\count107
+\lst@currlwidth=\dimen129
+\lst@column=\count108
+\lst@pos=\count109
+\lst@lostspace=\dimen130
+\lst@width=\dimen131
+\lst@newlines=\count110
+\lst@lineno=\count111
+\lst@maxwidth=\dimen132
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-\c@lstnumber=\count111
-\lst@skipnumbers=\count112
+\c@lstnumber=\count112
+\lst@skipnumbers=\count113
 \lst@framebox=\box29
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/listings.cfg
@@ -190,16 +218,16 @@ Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count113
-\calc@Bcount=\count114
-\calc@Adimen=\dimen126
-\calc@Bdimen=\dimen127
-\calc@Askip=\skip46
-\calc@Bskip=\skip47
+\calc@Acount=\count114
+\calc@Bcount=\count115
+\calc@Adimen=\dimen133
+\calc@Bdimen=\dimen134
+\calc@Askip=\skip55
+\calc@Bskip=\skip56
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count115
-\calc@Cskip=\skip48
+\calc@Ccount=\count116
+\calc@Cskip=\skip57
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/mathtools/mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
@@ -208,15 +236,15 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count116
-\l_MT_multwidth_dim=\dimen128
-\origjot=\skip49
-\l_MT_shortvdotswithinadjustabove_dim=\dimen129
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen130
-\l_MT_above_intertext_sep=\dimen131
-\l_MT_below_intertext_sep=\dimen132
-\l_MT_above_shortintertext_sep=\dimen133
-\l_MT_below_shortintertext_sep=\dimen134
+\g_MT_multlinerow_int=\count117
+\l_MT_multwidth_dim=\dimen135
+\origjot=\skip58
+\l_MT_shortvdotswithinadjustabove_dim=\dimen136
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen137
+\l_MT_above_intertext_sep=\dimen138
+\l_MT_below_intertext_sep=\dimen139
+\l_MT_above_shortintertext_sep=\dimen140
+\l_MT_below_shortintertext_sep=\dimen141
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/mdframed/mdframed.sty
 Package: mdframed 2013/07/01 1.9b: mdframed
@@ -251,129 +279,129 @@ Package: expl3 2018/03/05 L3 programming layer (loader)
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
 Package: expl3 2018/03/05 L3 programming layer (code)
-\c_max_int=\count117
-\l_tmpa_int=\count118
-\l_tmpb_int=\count119
-\g_tmpa_int=\count120
-\g_tmpb_int=\count121
-\g__intarray_font_int=\count122
-\g__prg_map_int=\count123
-\c_log_iow=\count124
-\l_iow_line_count_int=\count125
-\l__iow_line_target_int=\count126
-\l__iow_one_indent_int=\count127
-\l__iow_indent_int=\count128
-\c_zero_dim=\dimen135
-\c_max_dim=\dimen136
-\l_tmpa_dim=\dimen137
-\l_tmpb_dim=\dimen138
-\g_tmpa_dim=\dimen139
-\g_tmpb_dim=\dimen140
-\c_zero_skip=\skip50
-\c_max_skip=\skip51
-\l_tmpa_skip=\skip52
-\l_tmpb_skip=\skip53
-\g_tmpa_skip=\skip54
-\g_tmpb_skip=\skip55
+\c_max_int=\count118
+\l_tmpa_int=\count119
+\l_tmpb_int=\count120
+\g_tmpa_int=\count121
+\g_tmpb_int=\count122
+\g__intarray_font_int=\count123
+\g__prg_map_int=\count124
+\c_log_iow=\count125
+\l_iow_line_count_int=\count126
+\l__iow_line_target_int=\count127
+\l__iow_one_indent_int=\count128
+\l__iow_indent_int=\count129
+\c_zero_dim=\dimen142
+\c_max_dim=\dimen143
+\l_tmpa_dim=\dimen144
+\l_tmpb_dim=\dimen145
+\g_tmpa_dim=\dimen146
+\g_tmpb_dim=\dimen147
+\c_zero_skip=\skip59
+\c_max_skip=\skip60
+\l_tmpa_skip=\skip61
+\l_tmpb_skip=\skip62
+\g_tmpa_skip=\skip63
+\g_tmpb_skip=\skip64
 \c_zero_muskip=\muskip11
 \c_max_muskip=\muskip12
 \l_tmpa_muskip=\muskip13
 \l_tmpb_muskip=\muskip14
 \g_tmpa_muskip=\muskip15
 \g_tmpb_muskip=\muskip16
-\l_keys_choice_int=\count129
-\c__fp_leading_shift_int=\count130
-\c__fp_middle_shift_int=\count131
-\c__fp_trailing_shift_int=\count132
-\c__fp_big_leading_shift_int=\count133
-\c__fp_big_middle_shift_int=\count134
-\c__fp_big_trailing_shift_int=\count135
-\c__fp_Bigg_leading_shift_int=\count136
-\c__fp_Bigg_middle_shift_int=\count137
-\c__fp_Bigg_trailing_shift_int=\count138
-\c__fp_rand_size_int=\count139
-\c__fp_rand_four_int=\count140
-\c__fp_rand_eight_int=\count141
-\l__sort_length_int=\count142
-\l__sort_min_int=\count143
-\l__sort_top_int=\count144
-\l__sort_max_int=\count145
-\l__sort_true_max_int=\count146
-\l__sort_block_int=\count147
-\l__sort_begin_int=\count148
-\l__sort_end_int=\count149
-\l__sort_A_int=\count150
-\l__sort_B_int=\count151
-\l__sort_C_int=\count152
-\l__tl_build_start_index_int=\count153
-\l__tl_build_index_int=\count154
-\l__tl_analysis_normal_int=\count155
-\l__tl_analysis_index_int=\count156
-\l__tl_analysis_nesting_int=\count157
-\l__tl_analysis_type_int=\count158
-\l__regex_internal_a_int=\count159
-\l__regex_internal_b_int=\count160
-\l__regex_internal_c_int=\count161
-\l__regex_balance_int=\count162
-\l__regex_group_level_int=\count163
-\l__regex_mode_int=\count164
-\c__regex_cs_in_class_mode_int=\count165
-\c__regex_cs_mode_int=\count166
-\l__regex_catcodes_int=\count167
-\l__regex_default_catcodes_int=\count168
-\c__regex_catcode_D_int=\count169
-\c__regex_catcode_S_int=\count170
-\c__regex_catcode_L_int=\count171
-\c__regex_catcode_O_int=\count172
-\c__regex_catcode_A_int=\count173
-\c__regex_all_catcodes_int=\count174
-\l__regex_show_lines_int=\count175
-\l__regex_min_state_int=\count176
-\l__regex_max_state_int=\count177
-\l__regex_left_state_int=\count178
-\l__regex_right_state_int=\count179
-\l__regex_capturing_group_int=\count180
-\l__regex_min_pos_int=\count181
-\l__regex_max_pos_int=\count182
-\l__regex_curr_pos_int=\count183
-\l__regex_start_pos_int=\count184
-\l__regex_success_pos_int=\count185
-\l__regex_curr_char_int=\count186
-\l__regex_curr_catcode_int=\count187
-\l__regex_last_char_int=\count188
-\l__regex_case_changed_char_int=\count189
-\l__regex_curr_state_int=\count190
-\l__regex_step_int=\count191
-\l__regex_min_active_int=\count192
-\l__regex_max_active_int=\count193
-\l__regex_replacement_csnames_int=\count194
-\l__regex_match_count_int=\count195
-\l__regex_min_submatch_int=\count196
-\l__regex_submatch_int=\count197
-\l__regex_zeroth_submatch_int=\count198
-\g__regex_trace_regex_int=\count199
+\l_keys_choice_int=\count130
+\c__fp_leading_shift_int=\count131
+\c__fp_middle_shift_int=\count132
+\c__fp_trailing_shift_int=\count133
+\c__fp_big_leading_shift_int=\count134
+\c__fp_big_middle_shift_int=\count135
+\c__fp_big_trailing_shift_int=\count136
+\c__fp_Bigg_leading_shift_int=\count137
+\c__fp_Bigg_middle_shift_int=\count138
+\c__fp_Bigg_trailing_shift_int=\count139
+\c__fp_rand_size_int=\count140
+\c__fp_rand_four_int=\count141
+\c__fp_rand_eight_int=\count142
+\l__sort_length_int=\count143
+\l__sort_min_int=\count144
+\l__sort_top_int=\count145
+\l__sort_max_int=\count146
+\l__sort_true_max_int=\count147
+\l__sort_block_int=\count148
+\l__sort_begin_int=\count149
+\l__sort_end_int=\count150
+\l__sort_A_int=\count151
+\l__sort_B_int=\count152
+\l__sort_C_int=\count153
+\l__tl_build_start_index_int=\count154
+\l__tl_build_index_int=\count155
+\l__tl_analysis_normal_int=\count156
+\l__tl_analysis_index_int=\count157
+\l__tl_analysis_nesting_int=\count158
+\l__tl_analysis_type_int=\count159
+\l__regex_internal_a_int=\count160
+\l__regex_internal_b_int=\count161
+\l__regex_internal_c_int=\count162
+\l__regex_balance_int=\count163
+\l__regex_group_level_int=\count164
+\l__regex_mode_int=\count165
+\c__regex_cs_in_class_mode_int=\count166
+\c__regex_cs_mode_int=\count167
+\l__regex_catcodes_int=\count168
+\l__regex_default_catcodes_int=\count169
+\c__regex_catcode_D_int=\count170
+\c__regex_catcode_S_int=\count171
+\c__regex_catcode_L_int=\count172
+\c__regex_catcode_O_int=\count173
+\c__regex_catcode_A_int=\count174
+\c__regex_all_catcodes_int=\count175
+\l__regex_show_lines_int=\count176
+\l__regex_min_state_int=\count177
+\l__regex_max_state_int=\count178
+\l__regex_left_state_int=\count179
+\l__regex_right_state_int=\count180
+\l__regex_capturing_group_int=\count181
+\l__regex_min_pos_int=\count182
+\l__regex_max_pos_int=\count183
+\l__regex_curr_pos_int=\count184
+\l__regex_start_pos_int=\count185
+\l__regex_success_pos_int=\count186
+\l__regex_curr_char_int=\count187
+\l__regex_curr_catcode_int=\count188
+\l__regex_last_char_int=\count189
+\l__regex_case_changed_char_int=\count190
+\l__regex_curr_state_int=\count191
+\l__regex_step_int=\count192
+\l__regex_min_active_int=\count193
+\l__regex_max_active_int=\count194
+\l__regex_replacement_csnames_int=\count195
+\l__regex_match_count_int=\count196
+\l__regex_min_submatch_int=\count197
+\l__regex_submatch_int=\count198
+\l__regex_zeroth_submatch_int=\count199
+\g__regex_trace_regex_int=\count266
 \c_empty_box=\box30
 \l_tmpa_box=\box31
 \l_tmpb_box=\box32
 \g_tmpa_box=\box33
 \g_tmpb_box=\box34
-\l__box_top_dim=\dimen141
-\l__box_bottom_dim=\dimen142
-\l__box_left_dim=\dimen143
-\l__box_right_dim=\dimen144
-\l__box_top_new_dim=\dimen145
-\l__box_bottom_new_dim=\dimen146
-\l__box_left_new_dim=\dimen147
-\l__box_right_new_dim=\dimen148
+\l__box_top_dim=\dimen148
+\l__box_bottom_dim=\dimen149
+\l__box_left_dim=\dimen150
+\l__box_right_dim=\dimen151
+\l__box_top_new_dim=\dimen152
+\l__box_bottom_new_dim=\dimen153
+\l__box_left_new_dim=\dimen154
+\l__box_right_new_dim=\dimen155
 \l__box_internal_box=\box35
 \l__coffin_internal_box=\box36
-\l__coffin_internal_dim=\dimen149
-\l__coffin_offset_x_dim=\dimen150
-\l__coffin_offset_y_dim=\dimen151
-\l__coffin_x_dim=\dimen152
-\l__coffin_y_dim=\dimen153
-\l__coffin_x_prime_dim=\dimen154
-\l__coffin_y_prime_dim=\dimen155
+\l__coffin_internal_dim=\dimen156
+\l__coffin_offset_x_dim=\dimen157
+\l__coffin_offset_y_dim=\dimen158
+\l__coffin_x_dim=\dimen159
+\l__coffin_y_dim=\dimen160
+\l__coffin_x_prime_dim=\dimen161
+\l__coffin_y_prime_dim=\dimen162
 \c_empty_coffin=\box37
 \l__coffin_aligned_coffin=\box38
 \l__coffin_aligned_internal_coffin=\box39
@@ -382,31 +410,31 @@ Package: expl3 2018/03/05 L3 programming layer (code)
 \l__coffin_display_coffin=\box42
 \l__coffin_display_coord_coffin=\box43
 \l__coffin_display_pole_coffin=\box44
-\l__coffin_display_offset_dim=\dimen156
-\l__coffin_display_x_dim=\dimen157
-\l__coffin_display_y_dim=\dimen158
-\l__coffin_bounding_shift_dim=\dimen159
-\l__coffin_left_corner_dim=\dimen160
-\l__coffin_right_corner_dim=\dimen161
-\l__coffin_bottom_corner_dim=\dimen162
-\l__coffin_top_corner_dim=\dimen163
-\l__coffin_scaled_total_height_dim=\dimen164
-\l__coffin_scaled_width_dim=\dimen165
+\l__coffin_display_offset_dim=\dimen163
+\l__coffin_display_x_dim=\dimen164
+\l__coffin_display_y_dim=\dimen165
+\l__coffin_bounding_shift_dim=\dimen166
+\l__coffin_left_corner_dim=\dimen167
+\l__coffin_right_corner_dim=\dimen168
+\l__coffin_bottom_corner_dim=\dimen169
+\l__coffin_top_corner_dim=\dimen170
+\l__coffin_scaled_total_height_dim=\dimen171
+\l__coffin_scaled_width_dim=\dimen172
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
 File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
-\l__driver_color_stack_int=\count266
+\l__driver_color_stack_int=\count267
 ))
 Package: xparse 2018/02/21 L3 Experimental document command parser
-\l__xparse_current_arg_int=\count267
-\g__xparse_grabber_int=\count268
-\l__xparse_m_args_int=\count269
-\l__xparse_mandatory_args_int=\count270
-\l__xparse_v_nesting_int=\count271
+\l__xparse_current_arg_int=\count268
+\g__xparse_grabber_int=\count269
+\l__xparse_m_args_int=\count270
+\l__xparse_mandatory_args_int=\count271
+\l__xparse_v_nesting_int=\count272
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count272
+\etb@tempcnta=\count273
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/zref-abspage.sty
 Package: zref-abspage 2016/05/21 v2.26 Module abspage for zref (HO)
@@ -435,53 +463,53 @@ Package zref Info: New property: page on input line 761.
 (/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 )
-\c@abspage=\count273
+\c@abspage=\count274
 Package zref Info: New property: abspage on input line 62.
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/needspace/needspace.sty
 Package: needspace 2010/09/12 v1.3d reserve vertical space
 )
-\mdf@templength=\skip56
-\c@mdf@globalstyle@cnt=\count274
-\mdf@skipabove@length=\skip57
-\mdf@skipbelow@length=\skip58
-\mdf@leftmargin@length=\skip59
-\mdf@rightmargin@length=\skip60
-\mdf@innerleftmargin@length=\skip61
-\mdf@innerrightmargin@length=\skip62
-\mdf@innertopmargin@length=\skip63
-\mdf@innerbottommargin@length=\skip64
-\mdf@splittopskip@length=\skip65
-\mdf@splitbottomskip@length=\skip66
-\mdf@outermargin@length=\skip67
-\mdf@innermargin@length=\skip68
-\mdf@linewidth@length=\skip69
-\mdf@innerlinewidth@length=\skip70
-\mdf@middlelinewidth@length=\skip71
-\mdf@outerlinewidth@length=\skip72
-\mdf@roundcorner@length=\skip73
-\mdf@footenotedistance@length=\skip74
-\mdf@userdefinedwidth@length=\skip75
-\mdf@needspace@length=\skip76
-\mdf@frametitleaboveskip@length=\skip77
-\mdf@frametitlebelowskip@length=\skip78
-\mdf@frametitlerulewidth@length=\skip79
-\mdf@frametitleleftmargin@length=\skip80
-\mdf@frametitlerightmargin@length=\skip81
-\mdf@shadowsize@length=\skip82
-\mdf@extratopheight@length=\skip83
-\mdf@subtitleabovelinewidth@length=\skip84
-\mdf@subtitlebelowlinewidth@length=\skip85
-\mdf@subtitleaboveskip@length=\skip86
-\mdf@subtitlebelowskip@length=\skip87
-\mdf@subtitleinneraboveskip@length=\skip88
-\mdf@subtitleinnerbelowskip@length=\skip89
-\mdf@subsubtitleabovelinewidth@length=\skip90
-\mdf@subsubtitlebelowlinewidth@length=\skip91
-\mdf@subsubtitleaboveskip@length=\skip92
-\mdf@subsubtitlebelowskip@length=\skip93
-\mdf@subsubtitleinneraboveskip@length=\skip94
-\mdf@subsubtitleinnerbelowskip@length=\skip95
+\mdf@templength=\skip65
+\c@mdf@globalstyle@cnt=\count275
+\mdf@skipabove@length=\skip66
+\mdf@skipbelow@length=\skip67
+\mdf@leftmargin@length=\skip68
+\mdf@rightmargin@length=\skip69
+\mdf@innerleftmargin@length=\skip70
+\mdf@innerrightmargin@length=\skip71
+\mdf@innertopmargin@length=\skip72
+\mdf@innerbottommargin@length=\skip73
+\mdf@splittopskip@length=\skip74
+\mdf@splitbottomskip@length=\skip75
+\mdf@outermargin@length=\skip76
+\mdf@innermargin@length=\skip77
+\mdf@linewidth@length=\skip78
+\mdf@innerlinewidth@length=\skip79
+\mdf@middlelinewidth@length=\skip80
+\mdf@outerlinewidth@length=\skip81
+\mdf@roundcorner@length=\skip82
+\mdf@footenotedistance@length=\skip83
+\mdf@userdefinedwidth@length=\skip84
+\mdf@needspace@length=\skip85
+\mdf@frametitleaboveskip@length=\skip86
+\mdf@frametitlebelowskip@length=\skip87
+\mdf@frametitlerulewidth@length=\skip88
+\mdf@frametitleleftmargin@length=\skip89
+\mdf@frametitlerightmargin@length=\skip90
+\mdf@shadowsize@length=\skip91
+\mdf@extratopheight@length=\skip92
+\mdf@subtitleabovelinewidth@length=\skip93
+\mdf@subtitlebelowlinewidth@length=\skip94
+\mdf@subtitleaboveskip@length=\skip95
+\mdf@subtitlebelowskip@length=\skip96
+\mdf@subtitleinneraboveskip@length=\skip97
+\mdf@subtitleinnerbelowskip@length=\skip98
+\mdf@subsubtitleabovelinewidth@length=\skip99
+\mdf@subsubtitlebelowlinewidth@length=\skip100
+\mdf@subsubtitleaboveskip@length=\skip101
+\mdf@subsubtitlebelowskip@length=\skip102
+\mdf@subsubtitleinneraboveskip@length=\skip103
+\mdf@subsubtitleinnerbelowskip@length=\skip104
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/mdframed/md-frame-0.mdf
 File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
@@ -491,34 +519,34 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \mdf@splitbox@one=\box47
 \mdf@splitbox@two=\box48
 \mdf@splitbox@save=\box49
-\mdfsplitboxwidth=\skip96
-\mdfsplitboxtotalwidth=\skip97
-\mdfsplitboxheight=\skip98
-\mdfsplitboxdepth=\skip99
-\mdfsplitboxtotalheight=\skip100
-\mdfframetitleboxwidth=\skip101
-\mdfframetitleboxtotalwidth=\skip102
-\mdfframetitleboxheight=\skip103
-\mdfframetitleboxdepth=\skip104
-\mdfframetitleboxtotalheight=\skip105
-\mdffootnoteboxwidth=\skip106
-\mdffootnoteboxtotalwidth=\skip107
-\mdffootnoteboxheight=\skip108
-\mdffootnoteboxdepth=\skip109
-\mdffootnoteboxtotalheight=\skip110
-\mdftotallinewidth=\skip111
-\mdfboundingboxwidth=\skip112
-\mdfboundingboxtotalwidth=\skip113
-\mdfboundingboxheight=\skip114
-\mdfboundingboxdepth=\skip115
-\mdfboundingboxtotalheight=\skip116
-\mdf@freevspace@length=\skip117
-\mdf@horizontalwidthofbox@length=\skip118
-\mdf@verticalmarginwhole@length=\skip119
-\mdf@horizontalspaceofbox=\skip120
-\mdfsubtitleheight=\skip121
-\mdfsubsubtitleheight=\skip122
-\c@mdfcountframes=\count275
+\mdfsplitboxwidth=\skip105
+\mdfsplitboxtotalwidth=\skip106
+\mdfsplitboxheight=\skip107
+\mdfsplitboxdepth=\skip108
+\mdfsplitboxtotalheight=\skip109
+\mdfframetitleboxwidth=\skip110
+\mdfframetitleboxtotalwidth=\skip111
+\mdfframetitleboxheight=\skip112
+\mdfframetitleboxdepth=\skip113
+\mdfframetitleboxtotalheight=\skip114
+\mdffootnoteboxwidth=\skip115
+\mdffootnoteboxtotalwidth=\skip116
+\mdffootnoteboxheight=\skip117
+\mdffootnoteboxdepth=\skip118
+\mdffootnoteboxtotalheight=\skip119
+\mdftotallinewidth=\skip120
+\mdfboundingboxwidth=\skip121
+\mdfboundingboxtotalwidth=\skip122
+\mdfboundingboxheight=\skip123
+\mdfboundingboxdepth=\skip124
+\mdfboundingboxtotalheight=\skip125
+\mdf@freevspace@length=\skip126
+\mdf@horizontalwidthofbox@length=\skip127
+\mdf@verticalmarginwhole@length=\skip128
+\mdf@horizontalspaceofbox=\skip129
+\mdfsubtitleheight=\skip130
+\mdfsubsubtitleheight=\skip131
+\c@mdfcountframes=\count276
 
 ****** mdframed patching \endmdf@trivlist
 
@@ -534,32 +562,30 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 . 
 . Defining command \mdtheorem with sig. ' O{} m o m o ' on line 701.
 .................................................
-\mdf@envdepth=\count276
-\c@mdf@env@i=\count277
-\c@mdf@env@ii=\count278
-\c@mdf@zref@counter=\count279
+\mdf@envdepth=\count277
+\c@mdf@env@i=\count278
+\c@mdf@env@ii=\count279
+\c@mdf@zref@counter=\count280
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
-(/usr/local/texlive/2018/texmf-dist/tex/latex/parskip/parskip.sty
-Package: parskip 2001/04/09 non-zero parskip adjustments
+\c@defexmpexrccounter=\count281
+\c@exercisecounter=\count282
 )
-\c@definition=\count280
-\c@example=\count281
-) (./main.aux)
+(./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -595,18 +621,21 @@ LaTeX Font Info:    ... okay on input line 6.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
+Package caption Info: End \AtBeginDocument code.
 (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count282
-\scratchdimen=\dimen166
+\scratchcounter=\count283
+\scratchdimen=\dimen173
 \scratchbox=\box50
-\nofMPsegments=\count283
-\nofMParguments=\count284
+\nofMPsegments=\count284
+\nofMParguments=\count285
 \everyMPshowfont=\toks24
-\MPscratchCnt=\count285
-\MPscratchDim=\dimen167
-\MPnumerator=\count286
-\makeMPintoPDFobject=\count287
+\MPscratchCnt=\count286
+\MPscratchDim=\dimen174
+\MPnumerator=\count287
+\makeMPintoPDFobject=\count288
 \everyMPtoPDFconversion=\toks25
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -625,7 +654,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count288
+\c@lstlisting=\count289
 \AtBeginShipoutBox=\box51
 
 (./titlepage.tex
@@ -638,10 +667,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--5
 
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}])
-(./acknowledgements.tex) [2]
+(./acknowledgements.tex) (./tableofcontents.tex [2]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 13.
+(Font)              using `OT1/cmr/bx/n' instead on input line 2.
 
 (./main.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 2.
@@ -656,7 +685,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
- [3
+) [3
 
 ] [4
 
@@ -666,48 +695,99 @@ Chapter 1.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Package mdframed Info: mdframed works in twoside mode on input line 14.
-Package mdframed Info: mdframed works in twoside mode on input line 26.
+Package mdframed Info: mdframed works in twoside mode on input line 23.
+<images/array-diagram.png, id=20, 336.25626pt x 124.465pt>
+File: images/array-diagram.png Graphic file (type png)
+<use images/array-diagram.png>
+Package pdftex.def Info: images/array-diagram.png  used on input line 29.
+(pdftex.def)             Requested size: 190.34894pt x 70.45769pt.
  [1
 
-]
-Package mdframed Info: mdframed works in twoside mode on input line 93.
-Package mdframed Info: mdframed works in twoside mode on input line 97.
+ <./images/array-diagram.png>]
+Package mdframed Info: mdframed works in twoside mode on input line 90.
+Package mdframed Info: Not enough space on this page on input line 92.
+ [2]
+Package mdframed Info: Not enough space on this page on input line 92.
+Package mdframed Info: mdframed works in twoside mode on input line 94.
+Package mdframed Info: mdframed works in twoside mode on input line 111.
+Package mdframed Info: mdframed works in twoside mode on input line 115.
+Package mdframed Info: mdframed works in twoside mode on input line 123.
+Package mdframed Info: mdframed works in twoside mode on input line 141.
+
+
+Package mdframed Warning: You got a bad break
+(mdframed)                because the last box will be empty
+(mdframed)                you have to change it manually
+(mdframed)                by changing the text, the space
+(mdframed)                or something else on input line 148.
+
 Package mdframed Info: Box was splittet wrong
  starting loop to iterate the splitting point
-(mdframed)              on input line 108.
+(mdframed)              on input line 148.
+[3]
+Package mdframed Info: mdframed works in twoside mode on input line 154.
+Package mdframed Info: mdframed works in twoside mode on input line 168.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 193.
 
-[2])
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
+Package mdframed Info: mdframed works in twoside mode on input line 201.
+ [4]
+Package mdframed Info: mdframed works in twoside mode on input line 249.
+Package mdframed Info: mdframed works in twoside mode on input line 265.
+Package mdframed Info: Box was splittet wrong
+ starting loop to iterate the splitting point
+(mdframed)              on input line 275.
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+Package mdframed Info: mdframed works in twoside mode on input line 279.
+Package mdframed Info: mdframed works in twoside mode on input line 283.
+Package mdframed Info: mdframed works in twoside mode on input line 294.
+Package mdframed Info: mdframed works in twoside mode on input line 306.
+Package mdframed Info: mdframed works in twoside mode on input line 330.
+
+Underfull \hbox (badness 10000) in paragraph at lines 334--335
+
+ []
+
+) [6]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3]
+ [7]
 (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 14795 strings out of 492649
- 267878 string characters out of 6129622
- 518709 words of memory out of 5000000
- 18539 multiletter control sequences out of 15000+600000
- 536635 words of font info for 46 fonts, out of 8000000 for 9000
+ 16027 strings out of 492649
+ 289424 string characters out of 6129622
+ 529224 words of memory out of 5000000
+ 19757 multiletter control sequences out of 15000+600000
+ 536590 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,5n,40p,10423b,1328s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,11n,45p,10394b,1354s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/loca
-l/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/
-texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/t
-exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (7 pages, 133151 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
+usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/loc
+al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/
+texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
+exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/te
+xlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/tex
+live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on main.pdf (11 pages, 168631 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 86 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
