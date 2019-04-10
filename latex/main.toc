@@ -1,10 +1,16 @@
-\contentsline {chapter}{\numberline {1}Arrays}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Creating arrays}{2}{section.1.1}
-\contentsline {section}{\numberline {1.2}Indexing}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Array length}{3}{section.1.3}
-\contentsline {section}{\numberline {1.4}Default initialization}{3}{section.1.4}
-\contentsline {section}{\numberline {1.5}Bounds checking}{3}{section.1.5}
-\contentsline {section}{\numberline {1.6}Empty arrays}{4}{section.1.6}
-\contentsline {section}{\numberline {1.7}Enhanced for loop}{5}{section.1.7}
-\contentsline {section}{\numberline {1.8}Exchanging and shuffling}{5}{section.1.8}
-\contentsline {chapter}{\numberline {2}ArrayLists}{9}{chapter.2}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Overview of course}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Brief history of computer science}{1}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Creating arrays}{2}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Indexing}{3}{subsection.1.2.2}
+\contentsline {subsection}{\numberline {1.2.3}References}{3}{subsection.1.2.3}
+\contentsline {chapter}{\numberline {2}Arrays}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Creating arrays}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}Indexing}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Array length}{7}{section.2.3}
+\contentsline {section}{\numberline {2.4}Default initialization}{7}{section.2.4}
+\contentsline {section}{\numberline {2.5}Bounds checking}{7}{section.2.5}
+\contentsline {section}{\numberline {2.6}Empty arrays}{8}{section.2.6}
+\contentsline {section}{\numberline {2.7}Enhanced for loop}{9}{section.2.7}
+\contentsline {section}{\numberline {2.8}Exchanging and shuffling}{9}{section.2.8}
+\contentsline {chapter}{\numberline {3}ArrayLists}{13}{chapter.3}

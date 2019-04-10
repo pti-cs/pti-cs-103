@@ -1,10 +1,16 @@
-\BOOKMARK [0][-]{chapter.1}{Arrays}{}% 1
-\BOOKMARK [1][-]{section.1.1}{Creating arrays}{chapter.1}% 2
-\BOOKMARK [1][-]{section.1.2}{Indexing}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.3}{Array length}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.4}{Default initialization}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.5}{Bounds checking}{chapter.1}% 6
-\BOOKMARK [1][-]{section.1.6}{Empty arrays}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.7}{Enhanced for loop}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.8}{Exchanging and shuffling}{chapter.1}% 9
-\BOOKMARK [0][-]{chapter.2}{ArrayLists}{}% 10
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Overview of course}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Brief history of computer science}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Creating arrays}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Indexing}{section.1.2}% 5
+\BOOKMARK [2][-]{subsection.1.2.3}{References}{section.1.2}% 6
+\BOOKMARK [0][-]{chapter.2}{Arrays}{}% 7
+\BOOKMARK [1][-]{section.2.1}{Creating arrays}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.2}{Indexing}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.3}{Array length}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.4}{Default initialization}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.5}{Bounds checking}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.6}{Empty arrays}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.7}{Enhanced for loop}{chapter.2}% 14
+\BOOKMARK [1][-]{section.2.8}{Exchanging and shuffling}{chapter.2}% 15
+\BOOKMARK [0][-]{chapter.3}{ArrayLists}{}% 16
