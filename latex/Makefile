@@ -8,6 +8,7 @@ all : main.pdf
 
 main.pdf : *.tex
 	$(TEX) main.tex
+	$(TEX) main.tex
 
 view:
 	$(OPEN) main.pdf 2>/dev/null
