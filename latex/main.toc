@@ -1,9 +1,0 @@
-\contentsline {chapter}{\numberline {1}Arrays}{1}
-\contentsline {section}{\numberline {1.1}Creating arrays}{2}
-\contentsline {section}{\numberline {1.2}Indexing}{2}
-\contentsline {section}{\numberline {1.3}Array length}{3}
-\contentsline {section}{\numberline {1.4}Default initialization}{3}
-\contentsline {section}{\numberline {1.5}Bounds checking}{3}
-\contentsline {section}{\numberline {1.6}Empty arrays}{4}
-\contentsline {section}{\numberline {1.7}Enhanced for loop}{5}
-\contentsline {section}{\numberline {1.8}Exchanging and shuffling}{5}
