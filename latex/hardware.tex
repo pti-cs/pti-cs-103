@@ -123,9 +123,18 @@ circuitry of a computer that performs instructions. The CPU is responsible for
 fetching, decoding, and executing all instructions. These instructions form the
 basic bulding blocks of all programs. These instructions vary between different
 brands of CPUs but in general they will include arithmetric, control, input, and
-output functionalities.
+output functionalities. Example~\ref{ex:hardware:instr} shows several instructions
+that together would perform \ic{x = x + y}, given \ic{x} is stored in memory
+location 16 and \ic{y} at memory location 20. These instructions are quite low
+level, and harder for humans to read than the programs we will write in this course.
+However, the programs we write will be translated into these instructions as they
+are easily understood by the CPU and match directly with the operations the CPU
+can handle. We will not focus further on programs at this level, but rather try
+to understand that when we program, we will build upon these pre-existing
+building blocks.
 
 \begin{example}
+\label{ex:hardware:instr}
 \begin{verbatim}
 load R1 16    -- Load value at memory location 16 into register 1
 load R2 20    -- load value at memory location 20 into register 2
@@ -135,24 +144,18 @@ store R1 16   -- store the value in register 1 to memory location 16
 \end{verbatim}
 \end{example}
 
+In most computers, the CPU is responsible for all computing needs of the computer.
+In some select systems, there will be additional hardware to perform specialized
+operations (e.g. graphics processing units for processing / producing images). It
+is the CPU's responsbility to control the computer and coordinate with devices
+to execute programs.
 
-The CPU is in charge of fetching, decoding, and
-executing all instructions. The basic building blocks of these instructions include arithmetic, logic,
-control, input, and output. The set of basic instructions available to the CPU effects, what the computer
-system can do (and how efficiently). Some CPU's are designed to handle a relatively small number of
-instructions (integer addition, multiplication, division, conditional branching, store to memory, load
-to memory). While others CPU's are designed to handle a large number of instructions (e.g. swap content
-of memory locations, increment and store, etc. in addition to the simpler instructions).
-
-While these instructions can be quite simple, we build up complex behaviours by combining these actions
-into programs. When reasoning about how our programs will work, we should be aware of the limitations
-imposed by the hardware we use. In mathematics, we often consider things in a very abstract way. In models
-of computer systems, we often use unbounded arithmetic and allow a computer to have infinite memory; however,
-in practice we need to run programs on processors with bounded computational and memory capabilities. In most
-systems we encounter today, the CPU allows for 32 or 64 bit computations or memory read and writes in a single
-instruction. Because reading and writing to memory takes a long time (in comparison to arithemetic and logic
-instructions), almost all CPUs include a very small number of memory blocks on the physical CPU to store
-intermediate results of instructions, called registers. In modern CPUs this is further increased by allowing
-even more levels of memory, called caches (Level 1, Level 2, and Level 3), that trade off between speed of access
-and the size of the memory. We won't go in depth on how these work, but briefly mention them to help you
-understand how modern computer systems work to acheive greater efficiency.
+\section {Conclusion}
+In this chapter, we covered the three fundamental parts of a computer system:
+input and output devices, Main and Secondary Memory, and the CPU. We discussed
+their roles, relationships, and basic capabilities. I hope that this will help
+you better understand how hardware works at a high level to better improve how
+to write programs that will eventually run on these computer system. In the
+next chapter we will begin discussing the concept of Software and how its
+similarities and differences to hardware and where the boundary between the two
+lies.
