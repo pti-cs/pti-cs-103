@@ -2,6 +2,8 @@
 
 ### [Syllabus](https://docs.google.com/document/d/1WvgGjS-LlSsHJXPYwWew4DQ-SJC_MdBNfPKTu68ljp0/edit)
 
+### [Lecture notes (draft)](https://github.com/pti-cs/pti-cs-103/blob/master/lectures/main.pdf)
+
 ### Contributing
 
 - Clone the repository.
