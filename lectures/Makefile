@@ -14,4 +14,4 @@ view:
 	$(OPEN) main.pdf 2>/dev/null
 
 clean:
-	rm -rf main.pdf *.aux *.bbl *.blg *.log *.toc
+	rm -rf *.pdf *.aux *.bbl *.blg *.log *.toc *.out

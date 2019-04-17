@@ -1,4 +1,9 @@
 *~
-build/
 \#*\#
 .DS_Store
+lectures/*.aux
+lectures/*.bbl
+lectures/*.blg
+lectures/*.log
+lectures/*.toc
+lectures/*.out
