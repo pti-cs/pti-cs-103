@@ -1,0 +1,196 @@
+\chapter{ArrayLists}
+
+A \emph{collection} is a group of objects. Today, we'll be looking at a very useful collection, the \ic{ArrayList}. A \emph{list} is an ordered collection, and an \ic{ArrayList} is one type of list. We will see at the end of this chapter how an \ic{ArrayList} is different from an \ic{array}.
+
+\section{Creating an \ic{ArrayList}}
+
+Let's create a class \ic{NameTracker} and follow along in it. Before we can use an ArrayList, we have to import it:
+
+\begin{code}
+import java.util.ArrayList;
+
+public class NameTracker {
+    
+    public static void main(String args[]) {
+    }
+}
+\end{code}
+
+\noindent Next, we call the constructor; but we have to declare the type of object the \ic{ArrayList} is going to hold. This is how you create a new \ic{ArrayList} holding \ic{String} objects.
+
+\begin{code}
+ArrayList<String> names = new ArrayList<String>();
+\end{code}
+
+\noindent Notice the word ``String'' in angle brackets. This is the Java syntax for constructing an ArrayList of String objects.
+
+\section{\ic{add()}}
+
+We can add a new String to names using the \ic{add()} method.
+
+\begin{code}
+names.add("Ana");
+\end{code}
+
+\begin{example}
+Exercise: Write a program that asks the user for some names and then stores them in an ArrayList. Here is an example program:
+
+\begin{monospace}
+Please give me some names:
+Sam
+Alecia
+Trey
+Enrique
+Dave
+
+Your name(s) are saved!
+\end{monospace}
+\end{example}
+
+\noindent We can see how many objects are in our ArrayList using the size() method.
+
+\begin{code}
+System.out.println(names.size()); // 5
+\end{code}
+
+\begin{example}
+Modify your program to notify the user how many words they have added.
+
+\begin{monospace}
+Please give me some names:
+Mary
+Judah
+
+Your 2 name(s) are saved!
+\end{monospace}
+\end{example}
+
+\section{\ic{get()}}
+
+Remember how the \ic{String.charAt()} method returns the \ic{char} at a particular index? We can do the same with names. Just call \ic{get()}:
+
+\begin{code}
+names.add("Noah");
+names.add("Jeremiah");
+names.add("Ezekiel");
+System.out.println(names.get(2)); // ``Ezekiel''
+\end{code}
+
+\begin{example}
+Update your program to repeat the names back to the user in reverse order. Your solution should use a for loop and the size() method. For example:
+
+\begin{monospace}
+Please give me some names:
+Ying
+Jordan
+
+Your 2 name(s) are saved! They are:
+Jordan
+Ying
+\end{monospace}
+\end{example}
+
+\section{\ic{contains()}}
+
+Finally, we can ask our names \ic{ArrayList} whether or not it has a particular string.
+
+\begin{code}
+names.add("Veer");
+System.out.println(names.contains("Veer")); // true
+\end{code}
+
+\begin{example}
+Update your program to check if a name was input by the user. For example:
+
+\begin{monospace}
+Please give me some names:
+Ying
+Jordan
+
+Search for a name:
+Ying
+
+Yes!
+\end{monospace}
+\end{example}
+
+\section{\ic{ArrayList}s with custom classes}
+
+An \ic{ArrayList} can hold any type of object! For example, here is a constructor for an \ic{ArrayList} holding an instance of a \ic{Person} class:
+
+\begin{code}
+ArrayList<Person> people = new ArrayList<Person>();
+\end{code}
+
+\noindent where \ic{Person} is defined as
+
+\begin{code}
+public class Person {
+
+    String name;
+    int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+}
+\end{code}
+
+\begin{example}
+Modify our program to save the user's input names as Person instances. Rather than storing String objects in the ArrayList, store Person objects by constructing them with the input name. You'll need to use the Person constructor to get a Person instance!
+\end{example}
+
+\section{\ic{Arrays} versus \ic{ArrayLists}}
+
+The most important difference between an array and an \ic{ArrayLists} is that an \ic{ArrayLists} is dynamically resized. Notice that when we created an \ic{ArrayLists}, we did not specify a size. But when we create an array, we must:
+
+\begin{code}
+int[] numbers1 = new int[10];
+ArrayList<Integer> numbers2 = new ArrayList<Integer>();
+\end{code}
+
+In the first line of code, we create an array of length 10, and we cannot add more than 10 elements to \ic{numbers1}. In the second line of code, we create an \ic{ArrayList}, but we do not need to specify a size.
+
+The second distinction between arrays and \ic{ArrayLists} is syntax. In Java, nearly everything is a class. An \ic{ArrayList} is a class with useful methods such as \ic{get()} and \ic{contains()} and is therefore more ``Java-like''. Arrays are not quite primitives such as \ic{ints} and note quite classes. Most likely, their syntax was borrowed from the C or C++ programming languages.
+
+\exercisesection
+
+\begin{exercise} Write a class BlueBook that tells the user the price of their car, depending on the make, model, and year. You should use Car.java and the stencil file provided, BlueBook.java. Your program depends on what cars your BlueBook supports, but here is an example program:
+
+\begin{monospace}
+What is your car's make?
+Toyota
+What is your Toyota's model?
+Corolla
+What is your Toyota Corolla's year?
+1999
+
+Your 1999 Toyota Corolla is worth \$2000.
+\end{monospace}
+
+\end{exercise}
+
+\begin{exercise}
+Notify the user if the car is not in your BlueBook.
+\end{exercise}
+
+\begin{exercise}
+Clean up main by putting your code for creating the ArrayList in a separate method. What type should the method return?
+\end{exercise}
+
+\begin{exercise}
+If the car is not in the BlueBook, ask the user to input the relevant data, construct a new Car instance, add it to your ArrayList.
+\end{exercise}
+
+\referencessection
+
+1. \url{https://github.com/accesscode-2-1/unit-0/blob/master/lessons/week-3/2015-03-24_arraylists.md}

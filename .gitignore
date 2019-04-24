@@ -1,6 +1,10 @@
 *~
-build/
 \#*\#
 .DS_Store
-*.log
-*.aux
+lectures/*.aux
+lectures/*.bbl
+lectures/*.blg
+lectures/*.log
+lectures/*.toc
+lectures/*.out
+

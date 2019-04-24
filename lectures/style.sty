@@ -6,6 +6,11 @@
 \usepackage{color}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
+
+% Allow line breaks in URLs.
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 \usepackage{listings}
@@ -166,6 +171,35 @@
     stringstyle=\color{pred},
     moredelim=[il][\textcolor{pgrey}]{$$},
     moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+    % Configure font size, 
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    stepnumber=1,
+    numberstyle=\tiny,
+    xleftmargin=\codePadding{},
+    framexleftmargin=\codePadding{},
+    framextopmargin=6pt,
+    framexbottommargin=6pt, 
+    frame=tb,
+    rulecolor=\color{lightgray},
+    showspaces=false,
+    backgroundcolor=\color{verylightgray},
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    % Padding above and below frame.
+    aboveskip=1.5em
+  }
+}{}
+
+
+% Define monospace code without highlighting.
+% ------------------------------------------------------------------------------
+
+\lstnewenvironment{monospace}{
+  \lstset{
+    % Language and syntax highlighting
     % Configure font size, 
     basicstyle=\footnotesize\ttfamily,
     numbers=left,
