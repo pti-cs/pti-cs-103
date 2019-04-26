@@ -2,6 +2,8 @@
 
 So far, we have seen programs in which each statement is executed in order, one by one. Today we will learn about \emph{conditionals}, which allow us to execute statements depending on certain conditions. This is our first exposure to the idea of \emph{control flow}, which refers to the order (or sequence) in which statements of a program are executed.
 
+In this chapter, we will first learn about \ic{if} statements, which allow us to write programs based on conditions. Then we will learn about \ic{else} statements. We will combine these \ic{if} and \ic{else} statements into more complex nested structures, and then finally learn about \ic{else if} statements. Lastly, this chapter ends with a list a common mistakes to avoid when writing conditionals.
+
 \section{The \ic{if} statement}
 
 \begin{definition}
@@ -16,7 +18,7 @@ if (count > 20) {
 }
 \end{code}
 
-The condition in this example is \ic{count > 20}. It is a boolean expression that evaluates to either true or false. That is, \ic{count} is either greater than \ic{20} or not. If it is, "Count exceeded" is printed. Otherwise, the \ic{println} statement is skipped. 
+\noindent The condition in this example is \ic{count > 20}. It is a boolean expression that evaluates to either true or false. That is, \ic{count} is either greater than \ic{20} or not. If it is, ``Count exceeded" is printed. Otherwise, the \ic{println} statement is skipped. 
 
 \begin{example}
 What does the following piece of code print if \ic{x} is 101? What about if \ic{x} is 200? What about if \ic{x} is 8?
@@ -26,20 +28,30 @@ if (x > 100) {
     System.out.println("Big number!");
 } 
 System.out.println("Hi there");
-if (x % 2 == 0) {
+if (x % 2 == 0) { // checks if a number is even*
     System.out.println("Even number!");
 }
 \end{code}
+
+* Recall that the modulo operator (\%) computes the remainder of some number. By checking if the remainder of some number when divided by 2 is 0, we are checking if that number is even. \\
+
+\emph{Answer}: If \ic{x} is 101, the first boolean expression will evaluate to true, so the program will print ``Big number!" Then the program will print ``Hi there" regardless of any condition. Finally, since 101 is not even, the program will not print ``Even number!"
+
+Using the same reasoning to trace the execution with \ic{x} as 200, the following statements will be printed: ``Big number! Hi there! Even number!"
+
+When \ic{x} is 8, the output is ``Hi there! Even number!"
 \end{example}
 
 \begin{example}
-How would you fill in the blank below to take the absolute value of an integer \ic{x}?
+How would you fill in the boolean expression below to take the absolute value of an integer \ic{x}? (Hint: to take an absolute value of a negative number, you must negate it).
 
 \begin{code}
-if (___________) {
+if (/* Insert boolean expression here */) {
     x = -x;
 } 
 \end{code}
+
+\emph{Answer}: Insert the boolean expression x $<$ 0.
 \end{example}
 
 \section{The \ic{else} statement}
@@ -53,7 +65,7 @@ if (price > 20) {
 }
 \end{code}
 
-This example prints either "Too expensive" or "Affordable", depending on whether \ic{price} is greater than 20. Only one or the other is ever executed, never both. This is because boolean conditions only evaluate to either true or false.
+\noindent This example prints either ``Too expensive" or ``Affordable", depending on whether \ic{price} is greater than 20. Only one or the other is ever executed, never both. This is because boolean conditions only evaluate to either true or false.
 
 Note that it is not possible to have an \ic{else} statement without having a corresponding \ic{if} statement. Any \ic{else} statement must be attached to a preceding \ic{if} statement. 
 
@@ -67,6 +79,8 @@ if (balance <= 0) {
     System.out.println("Withdraw successful");
 }
 \end{code}
+
+\emph{Answer}: It prints ``Unable to withdraw" if balance is 0 or lower. Otherwise, it prints ``Withdraw successful".
 \end{example}
 
 \begin{example}
@@ -75,8 +89,16 @@ Rewrite the code below using an \ic{else} statement.
 \begin{code}
 if (rating >= 4) {
     System.out.println("Would recommend");
-} 
-if (rating < 4) {
+} if (rating < 4) {
+    System.out.println("Would not recommend")
+}
+\end{code}
+
+\emph{Answer}: Since the second boolean expression is the negation of the first boolean expression, we can replace the second \ic{if} statement with an \ic{else}.
+\begin{code}
+if (rating >= 4) {
+    System.out.println("Would recommend");
+} else {
     System.out.println("Would not recommend")
 }
 \end{code}
@@ -90,6 +112,8 @@ else {
     System.out.println("Hello");
 }
 \end{code}
+
+\emph{Answer}: No, since an \ic{else} statement must have a corresponding \ic{if} statement.
 \end{example}
 
 \begin{example}
@@ -98,13 +122,14 @@ Does the following code compile?
 \begin{code}
 if (duration > 60) {
     System.out.println("Sorry, that's too long");
-}
-else {
+} else {
     System.out.println("I can fit that in my schedule");
 } else {
     System.out.println("Let me know when you are free")
 }
 \end{code}
+
+\emph{Answer}: No, since an \ic{if} statement may only have at most 1 corresponding \ic{else} statement.
 \end{example}
 
 \section{Nested conditionals}
@@ -122,22 +147,24 @@ if (x < y) {
 }
 \end{code}
 
-This example correctly prints out the relationship between two integer variables \ic{x} and \ic{y} using nested conditionals. No matter what the values of \ic{x} and \ic{y} are, only a single statement will be printed. 
+\noindent This example correctly prints out the relationship between two integer variables \ic{x} and \ic{y} using nested conditionals. No matter what the values of \ic{x} and \ic{y} are, only a single statement will be printed. 
 
 \begin{example}
-Fill in the blanks below to describe a person's height.
+Fill in each blank below with \ic{if} or \ic{else} to describe a person's height.
 
 \begin{code}
-______ (height < 60) {
+/*__________*/ (height < 60) {
     System.out.println("Relatively short")
-} ______ {
-    ______ (height > 72) {
+} /*__________*/ {
+    /*__________*/ (height > 72) {
         System.out.println("Relatively tall");
-    } ______ {
+    } /*__________*/ {
         System.out.println("Pretty average");
     }
 }
 \end{code}
+
+\emph{Answer}: The four blanks should contain \ic{if}, \ic{else}, \ic{if}, and \ic{else}, in that order.
 \end{example}
 
 \begin{example}
@@ -155,6 +182,25 @@ if (a > b) {
     }
 }
 \end{code}
+
+\emph{Answer}: The larger of the two variables, \ic{a} and \ic{b}, gets stored in \ic{c}. If \ic{a} and \ic{b} are equal, 0 gets stored in \ic{c}.
+\end{example}
+
+\begin{example}
+Imagine that the following program represents the person's reaction to different types of food. Given a pizza (\ic{green} = false, \ic{bitter} = false, \ic{warm} = true, \ic{cheesy} = true), how will this person respond? What about when given a kiwi (\ic{green} = true, \ic{bitter} = false, \ic{warm} = false, \ic{cheesy} = false)? What about a strawberry (\ic{green} = false, \ic{bitter} = false, \ic{warm} = false, \ic{cheesy} = false)?
+
+\begin{code}
+if (green || bitter) {
+    System.out.println("No thank you");
+} else {
+    if (warm && cheesy) {
+        System.out.println("Yum, yes please!");
+    } else {
+        System.out.println("Thank you, I'll take some");
+    }
+}
+\end{code}
+\emph{Answer}: The person reponds ``Yum, yes please!" to pizza, ``No thank you" to kiwi, and ``Thank you, I'll take some" to strawberry.
 \end{example}
 
 \section{The \ic{else if} statement}
@@ -180,7 +226,7 @@ if (grade > 90) {
 }
 \end{code}
 
-To avoid having such deeply nested conditionals, we introduce the \ic{else if} clause. Using \ic{else if} statements, we can rewrite the above program as:
+\noindent To avoid having such deeply nested conditionals, we introduce the \ic{else if} clause. Using \ic{else if} statements, we can rewrite the above program as:
 
 \begin{code}
 if (grade > 90) {
@@ -235,9 +281,25 @@ if (A) {
 } 
 System.out.println("dragonfruit");
 \end{code}
+
+\emph{Answer}: The code will print ``apple" and then ``dragonfruit". Notice that ``banana" does not get printed even though \ic{B} is true since the entire \ic{if}, \ic{else if}, \ic{else} chain will only ever print one of ``apple", ``banana", and ``carrot". 
 \end{example}
 
-\section{Curly brackets}
+\begin{example}
+Imagine \ic{X}, \ic{Y}, and \ic{Z} are boolean expressions. If \ic{X} evaluates to true, but \ic{Y} and \ic{Z} evaluate to false, what does the following code print out?
+
+\begin{code}
+if (X && Y) {
+    System.out.println("xylophone");
+} else if (!Z) {
+    System.out.println("zoo");
+}
+\end{code}
+
+\emph{Answer}: This code will print ``zoo". Notice that the boolean expressions used with \ic{if} statements can be complex and contain boolean operators such as \ic{&&} and \ic{||} and \ic{!}, as long as the expression evaluates to a true or false.
+\end{example}
+
+\section{Curly braces}
 So far, we have been using curly braces to enclose each of our \ic{if}, \ic{else if}, and \ic{else} statements. These curly braces can be omitted if there is only a single statement. For example, in the snippet of code below, the first set of curly braces can be omitted, while the second cannot.
 
 \begin{code}
@@ -249,7 +311,7 @@ if (guess == answer) {
 } 
 \end{code}
 
-If all the curly braces were left out (as in the code below), the program would first either print "You guessed correctly!" or "Sorry, you guessed incorrectly.", but then also print "The answer was ..." in all cases, regardless of the condition.
+\noindent If all the curly braces were left out (as in the code below), the program would first either print ``You guessed correctly!" or ``Sorry, you guessed incorrectly.", but then also print ``The answer was ..." in all cases, regardless of the condition.
 
 \begin{code}
 if (guess == answer)
@@ -271,6 +333,8 @@ else {
 System.out.println("b");
 }
 \end{code}
+
+\emph{Answer}: Yes! Even though the whitespacing and indentation look funny, this piece of code compiles correctly.
 \end{example}
 
 \section{Common mistakes}
@@ -290,7 +354,7 @@ if (count > 10);
     System.out.println("So many!");
 \end{code}
 
-The code above is misleading because it is identical to the following:
+\noindent The code above is misleading because it is identical to the following:
 \begin{code}
 if (count > 10) {
     ;
@@ -298,7 +362,7 @@ if (count > 10) {
 System.out.println("So many!");
 \end{code}
 
-The accidental semi-colon is treated as a single, "do-nothing" statement.
+\noindent The accidental semi-colon is treated as a single, ``do-nothing" statement.
 
 \subsection{Missing curly braces}
 As mentioned before, indentation helps make code more readable to humans, but it can also make code more confusing if used incorrectly. It is a common mistake to accidentally forget curly braces.
@@ -311,7 +375,7 @@ if (leaves = 4) {
     System.out.println("Keep looking!");
 \end{code}
 
-This code above is misleading because it prints "Keep looking!" regardless of whether a four-leaf clover was found. The writer of this program probably meant to add curly braces around the \ic{else} clause.
+\noindent This code above is misleading because it prints ``Keep looking!" regardless of whether a four-leaf clover was found. The writer of this program probably meant to add curly braces around the \ic{else} clause.
 
 \subsection{\ic{else} without an \ic{if}}
 
@@ -326,7 +390,7 @@ if (chanceOfRain > 50) {
 }
 \end{code}
 
-To fix the code above, move the \ic{else} statement \emph{outside} of the \ic{if} as below:
+\noindent To fix the code above, move the \ic{else} statement \emph{outside} of the \ic{if} as below:
 
 \begin{code}
 if (chanceOfRain > 50) {
@@ -345,9 +409,7 @@ if (temperature = 0) {
 }
 \end{code}
 
-The assignment operator cannot be used here because conditional structures require a boolean expression (i.e. something that evaluates to either true or false). 
-
-% \section{The \ic{switch} statement}
+\noindent The assignment operator cannot be used here because conditional structures require a boolean expression (i.e. something that evaluates to either true or false). 
 
 \exercisesection
 
@@ -362,6 +424,8 @@ if (num >= max*2)
     System.out.println("orange");
 System.out.println("pear");
 \end{code}
+
+TODO: modify this exercise, or make sure we can reference the Java Foundations textbook
 \end{exercise}
 
 \begin{exercise}
@@ -378,10 +442,31 @@ if (limit <= limit) {
 }
 System.out.println ("grape");
 \end{code}
+
+TODO: modify this exercise, or make sure we can reference the Java Foundations textbook
+\end{exercise}
+
+
+\begin{exercise}
+Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are on vacation, we need to decide when to set our alarm clock to ring. We want to wake up at ``7:00" on weekdays and ``10:00" on weekends. However, if we are on vacation, it should be ``10:00" on weekdays" and ``off" on weekends. Imagine you are given an integer variable \ic{day} and a boolean variable \ic{vacation}. Write a program that prints out the appropriate alarm time.
+
+TODO: modify this exercise, or make sure we can reference codingbat.com
 \end{exercise}
 
 \begin{exercise}
-Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are on vacation, we need to decide when to set our alarm clock to ring. We want to wake up at "7:00" on weekdays and "10:00" on weekends. However, if we are on vacation, it should be "10:00" on weekdays" and "off" on weekends. Imagine you are given an integer variable \ic{day} and a boolean variable \ic{vacation}. Write a program that prints out the appropriate alarm time.
+Your cell phone rings. Normally you answer, except in the morning you only answer if it is your mom calling. In all cases, if you are asleep, you do not answer. Given three booleans, \ic{isMorning}, \ic{isMom}, and \ic{isAsleep}, write a program that correctly prints out whether or not you will pick up your phone (``Answer" or ``Do not answer"). 
+
+For example, if \ic{isMorning}, \ic{isMom}, and \ic{isAsleep} are all false, print ``Answer". 
+
+TODO: modify this exercise, or make sure we can reference codingbat.com
+\end{exercise}
+
+\begin{exercise}
+You have a lottery ticket with a 3-digit number. If your ticket has the number 777, you win \$100. If your ticket has a number with the same 3 digits (like 222, for example), then you win \$10. Otherwise, you don't earn any money. Given three integers, \ic{a}, \ic{b}, and \ic{c}, that represent the digits of your lottery ticket, write a program that prints out how much money you earn.
+
+For example, if your ticket number is 123 (\ic{a} = 1, \ic{b} = 2, \ic{c} = 3), print ``\$0". 
+
+TODO: modify this exercise, or make sure we can reference codingbat.com
 \end{exercise}
 
 \referencessection
