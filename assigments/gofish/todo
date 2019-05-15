@@ -1,0 +1,11 @@
+// Criteria:
+//
+// 1. Comprehensible: students can read / understand brief on their own.
+// 2. Modular:        students can complete discrete chunks each lab.
+// 3. Relevant:       leverage ArrayLists (arrays with changing size).
+//
+// Mini-assignments
+//
+// a. Initialize `Deck`; `Deck.draw()`.
+// b. Initialize `Hand`;
+// c. x.
