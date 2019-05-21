@@ -8,4 +8,4 @@ lectures/*.log
 lectures/*.toc
 lectures/*.out
 lectures/*.synctex.gz
-assignments/*.class
+*.class
