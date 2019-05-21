@@ -49,20 +49,6 @@ We will now look at the benefits of this modularity in car design:
 	\item \textbf{Updateability}: Modularity allows car enthusiasts to upgrade and customize their vehicles without having to redesign the whole thing. If a vehicle owner wants to replace their V6 with a V8, they can do that as long as the connections between the motor and the rest of the vehicle are the same (i.e. the connection to the axle, to the fuel source, etc). If a vehicle owner wants to replace their all season tires for snow tires in the winter, they can do that as long as the connection with the rest of the vehicle is the same (i.e. the connection to the axle is the same). 
 \end{itemize}
 
-\begin{example}
-Consider a small project team in a large company with two people: Alice and Bob. They are creating a food ordering system to replace waiters at a restaurant, which will present resturant-goers with a menu and allow them to directly place their order by clicking on their food choice. What are the components of such a system? How might Alice and Bob divide up the labor? 
-\end{example}
-
-As with many systems and apps, we can consider this system to have 2 primary components: a \textbf{frontend}, and a \textbf{backend}. The frontend is what the customer interacts with (the buttons and graphics). The backend is the behind-the-scenes computation and processing necessary so that the frontend functions as the user expects (e.g. transmitting information to be presented to users or doing mathematical calculations). In our example of writing a food delivery system, this might look like:
-\begin{itemize}
-	\item \textbf{Frontend}: Presents a scrollable list of menu options to the user. Allows users to click on any option, and sends that info to the backend. 
-	\item \textbf{Backend}: Takes in a food choice from the frontend, and generates and sends a notification to the chef in the kitchen to "start preparing the choice." 
-\end{itemize}
-
-In our example, Bob might work on the frontend: making a beautiful menu with pictures of food, good descriptions, and a nice "order" button. 
-
-Alice might work on the backend: ensuring that whatever food choice is chosen gets reliably transmitted to the kitchen and presented to the chef. 
-
 \subsection{APIs}
 \begin{definition}
 An \textbf{Application Programming Interface}, or API, is a contract between components in a system, expressing what each component can expect from the others. 
@@ -168,6 +154,7 @@ The components of waterfall design, adapted from https://airbrake.io/blog/sdlc/w
 	\item Requirements: define what the application should do (essentially, write the API between a user and your product)
 	\item Design: decide what the product will look like based on the requirements, and how it will be implemented
 	\item Implementation: build the product based on the design
+	\item Test: ensure the product works as expected
 	\item Deployment: release the product to the users
 \end{enumerate}
 
@@ -193,3 +180,14 @@ Iterative design is also used in drawing. As shown in \autoref{fig:owl}, profess
 	\caption{Iterative drawing of an owl. https://www.pinterest.com/pin/469289223655955022/}
 	\label{fig:owl}
 \end{figure}
+
+\section{Testing}
+Code rarely works the way we would like it to the first time around. 
+
+\begin{definition}
+A \textbf{software bug}, is an error in a computer program which causes an incorrect or unexpected result, or to behave in unintended way (Wikipedia). 
+\end{definition} 
+
+Medium estimated that in 2016 approximately a trillion dollars was lost to the US economy due to software bugs. As one tangible example of the cost of bugs, in 1962 NASA's 18 million dollar Mariner 1 had to be self-destructed mid-flight because of a missing hyphen in the control code (https://medium.com/@ryancohane/financial-cost-of-software-bugs-51b4d193f107). 
+
+For this reason, developers are always expected to carefully test the code they write to ensure there are no bugs. In addition, even relatively small software firms often have an entire team whose sole job is to test code written by the developers. Their job is to use the product in a variety of potentially unexpected ways. In essence, they try their best to break the code. The product is not ready for the market until the testing team is unable to break it, and all of its behaviors are as expected by the API for the product. 
