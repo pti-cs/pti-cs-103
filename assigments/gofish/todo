@@ -9,3 +9,5 @@
 // a. Initialize `Deck`; `Deck.draw()`.
 // b. Initialize `Hand`;
 // c. x.
+
+- Computer should not make same guess twice.

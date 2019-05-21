@@ -10,7 +10,33 @@ public class Card {
 		this.rank = rank;
 	}
 
+	public String getSuit() {
+		return this.suit;
+	}
+
+	public String getRank() {
+		return this.rank;
+	}
+
 	public String toString() {
-		return this.suit + " " + this.rank;
+		return this.rank + this.suit;
+	}
+
+    public boolean equals(Card other) {
+    	return this.suit.equals(other.getSuit()) && this.rank.equals(other.getRank());
+	}
+
+	public int getRankAsInt() {
+		if (this.rank.equals("J")) {
+			return 11;
+		} else if (this.rank.equals("Q")) {
+			return 12;
+		} else if (this.rank.equals("K")) {
+			return 13;
+		} else if (this.rank.equals("A")) {
+			return 14;
+		} else {
+			return Integer.parseInt(this.rank);
+		}
 	}
 }
