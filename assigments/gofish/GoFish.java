@@ -41,6 +41,7 @@ public class GoFish {
 		Scanner scanner = new Scanner(System.in);
 		GoFish game     = new GoFish();
 
+		// use addToHand to 
 		computer.addToHand(deck.deal(5));
 		human.addToHand(deck.deal(5));
 
@@ -56,7 +57,7 @@ public class GoFish {
 
 		int i = 0;
 
-		while (!deck.isEmpty()) {
+		while (/* fill me in */) {
 
 			System.out.println("** Your hand       ("
 				+ human.getNumCards() + " / "
@@ -72,7 +73,7 @@ public class GoFish {
 				System.out.println("COMPUTER : Do you have a " + guessedRank + "? (yes / go fish)");
 				System.out.print("YOU      : ");
 				String answer = scanner.nextLine();
-				if (answer.equals("yes")) {
+				if (answer.equals("yes") && ) {
 					List<Card> cardsToSwap = human.giveAll(guessedRank);
 					computer.addToHand(cardsToSwap);
 					Card book = computer.checkForBooks();

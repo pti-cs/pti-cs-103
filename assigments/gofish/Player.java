@@ -60,7 +60,6 @@ public class Player {
 		for (Card c : this.hand) {
 			int num = 0;
 			for (Card d : this.hand) {
-
 				if (c == d) {
 					num++;
 				}

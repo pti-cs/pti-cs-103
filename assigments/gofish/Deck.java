@@ -33,7 +33,7 @@ public class Deck {
 
 	public void shuffle() {
 		// TODO: Implement simpler shuffling algorithm.
-		Collections.shuffle(this.cards); 
+		Collections.shuffle(this.cards);
 	}
 
 	public boolean isEmpty() {
