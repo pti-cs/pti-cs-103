@@ -1,6 +1,15 @@
+/**
+ *
+ *----------------------------------------------------------------------------*/
+
+package gofish;
+
+import gofish.Card;
+
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -9,6 +18,7 @@ public class Player {
 	private List<Card> hand;
 	private int numBooks;
 	private Random rand = new Random();
+	private String prevGuess = null;
 
 	public Player() {
 		this.hand = new ArrayList<Card>();
@@ -24,9 +34,14 @@ public class Player {
 	}
 
 	public String guessRank() {
-		int r = this.rand.nextInt(this.hand.size());
-		Card guessedCard = this.hand.get(r);
-		return guessedCard.getRank();
+		String newGuess;
+		do {
+			int r = this.rand.nextInt(this.hand.size());
+			Card guessedCard = this.hand.get(r);
+			newGuess = guessedCard.getRank();
+		} while (newGuess.equals(this.prevGuess));
+		this.prevGuess = newGuess;
+		return newGuess;
 	}
 
 	public List<Card> giveAll(String rank) {
@@ -38,6 +53,10 @@ public class Player {
 		}
 		this.hand.removeAll(cardsToRemove);
 		return cardsToRemove;
+	}
+
+	public Iterator<Card> getHand() {
+		return this.hand.iterator();
 	}
 
 	public void addToHand(Card newCard) {
@@ -57,17 +76,21 @@ public class Player {
 	}
 
 	public Card checkForBooks() {
+		int NUM_FOR_BOOK = 4;
 		for (Card c : this.hand) {
 			int num = 0;
 			for (Card d : this.hand) {
-				if (c == d) {
+				if (c.equalsRank(d)) {
 					num++;
 				}
 			}
-			if (num == 2) {
-				System.out.println("num books == 2");
-				for (Card d : this.hand) {
-					if (c == d) this.hand.remove(d);
+			if (num >= NUM_FOR_BOOK) {
+				Iterator<Card> iterator = this.hand.iterator();
+				while (iterator.hasNext()) {
+					Card d = iterator.next();
+					if (c.equalsRank(d)) {
+						iterator.remove();
+					}
 				}
 				this.numBooks++;
 				return c;
