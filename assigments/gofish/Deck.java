@@ -1,3 +1,11 @@
+/**
+ * Represents 52-card deck.
+ *----------------------------------------------------------------------------*/
+
+package gofish;
+
+import gofish.Card;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

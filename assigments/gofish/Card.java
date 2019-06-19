@@ -1,3 +1,9 @@
+/**
+ * Represents card with suit and rank.
+ *----------------------------------------------------------------------------*/
+
+package gofish;
+
 import java.util.ArrayList;
 
 public class Card {
@@ -22,8 +28,26 @@ public class Card {
 		return this.rank + this.suit;
 	}
 
-    public boolean equals(Card other) {
-    	return this.suit.equals(other.getSuit()) && this.rank.equals(other.getRank());
+	public boolean equalsRank(Card other) {
+		return this.rank.equals(other.getRank());
+	}
+
+	public String getRankAsWord() {
+		String[] numNames = {
+			"one", "two", "three", "four", "five",
+			"six", "seven", "eight", "nine", "ten"
+		};
+		if (this.rank.equals("J")) {
+			return "jack";
+		} else if (this.rank.equals("Q")) {
+			return "queen";
+		} else if (this.rank.equals("K")) {
+			return "king";
+		} else if (this.rank.equals("A")) {
+			return "ace";
+		} else {
+			return numNames[Integer.parseInt(this.rank) - 1];
+		}
 	}
 
 	public int getRankAsInt() {
