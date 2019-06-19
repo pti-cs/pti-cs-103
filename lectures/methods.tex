@@ -115,7 +115,7 @@ To fix our code, we would not only have to replace \ic{group1s3 < group1Max} wit
 \ic{group1s3 > group1Max}, but we would also need to replace \ic{group2s3 < group2Max} with
 \ic{group2s3 > group2Max} and \ic{group3s3 < group3Max} with \ic{group3s3 < group3Max}.
 
-\section{Methods}
+\section{Methods}\label{sec:methods}
 In Java, we can use abstractions in our code in the form of \emph{methods}.
 Methods contain bits of code that may compute things using \emph{arguments}
 that are passed into the method.
@@ -518,7 +518,7 @@ expression of the method's return type (unless the return type is \ic{void})
 \end{itemize}
 Each method is identified by its signature, so you may have methods with the same name but different parameter lists.
 
-\section{Abstraction}
+\section{Abstraction}\label{sec:abstraction}
 Let us now return to our problem of finding the maximum scores for each
 of the three groups.
 The code for each of the three groups, though similar, have different variable names;
@@ -604,7 +604,7 @@ for computing \ic{group1Max}, \ic{group2Max},
 or \ic{group3Max} in order to use the method
 \ic{max2}. The changes to \ic{max3} are sufficient.
 
-\section{Modularity}
+\section{Modularity}\label{sec:modularity}
 Let us again consider the case in which our calculation of the maximum
 score is incorrect because we used \ic{<} instead of \ic{>} in
 the last comparison. Let us assume that we are still using the
