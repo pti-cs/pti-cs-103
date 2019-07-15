@@ -1,0 +1,789 @@
+\chapter{Methods}
+
+% Abstraction, modularity, code-reuse, syntax, arguments and calling
+
+Sometimes it is useful to abstract certain computations into methods.
+In this chapter, we will be looking at how and why we can use methods to
+achieve more concise and easily-maintainable code.
+
+We will first look at some code that does not use methods and identify some
+problems with this code. We will then, in Section \ref{sec:methods},
+introduce what a method is, including how to define and use them.
+In Sections \ref{sec:abstraction} and \ref{sec:modularity}, we will
+then talk about how we can use methods to improve the problems that
+we noticed with our code. In particular, in Section \ref{sec:abstraction},
+we talk about how methods allow us to abstract some of our code to get
+more concise and maintainable code, and in Section \ref{sec:modularity},
+we talk about how methods allow us to divide our code up into chunks
+that we can consider in isolation, allowing us to manage and maintain
+our code more easily.
+
+Let us consider the following problem:
+
+We have a class of nine students, split up into three groups of three.
+For each group, we want to report the maximum score for each group.
+%as well as the maximum score for the students overall.
+We will use the variable names \ic{group1s1}, \ic{group1s2}, and \ic{group1s3}
+to refer to the three scores achieved by the students in Group 1, and we will use
+a similar naming convention for the variable names for the scores achieved by
+students in Group 2 and Group 3.
+
+The following snippet of code computes the maximum score in Group 1, storing
+the result in \ic{group1Max}.
+\begin{code}
+int group1Max = group1s1;
+if (group1s2 > group1Max) {
+  group1Max = group1s2; 
+}
+if (group1s3 > group1Max) {
+  group1Max = group1s3; 
+}
+\end{code}
+
+If we now wish to extend this to compute the maximum score for each group,
+we can copy the code and rename the variables to achieve the following
+code:
+\begin{code}
+int group1Max = group1s1;
+if (group1s2 > group1Max) {
+  group1Max = group1s2; 
+}
+if (group1s3 > group1Max) {
+  group1Max = group1s3; 
+}
+
+int group2Max = group2s1;
+if (group2s2 > group1Max) {
+  group2Max = group2s2; 
+}
+if (group2s3 > group2Max) {
+  group2Max = group2s3; 
+}
+
+int group3Max = group3s1;
+if (group3s2 > group3Max) {
+  group3Max = group3s2; 
+}
+if (group3s3 > group3Max) {
+  group3Max = group3s3; 
+}
+\end{code}
+
+\noindent There are a couple of things about the process of getting this resulting code
+that aren't particularly ideal.
+The first is that it is very easy to make a mistake when copying the code and renaming
+the variables. For example, we might have missed renaming \ic{group1Max} to \ic{group3Max}
+in the computation of the maximum score for Group 3, leading us to compute an incorrect maximum
+value in some cases.
+
+The second issue is that there is a lot of redundancy.
+If we look at the code, we can notice that there seem to be a lot of redundant parts
+across the code for the three different groups.
+If we had ended up with the wrong computation initially and needed to fix it
+later, then we would have to make sure we fixed it everywhere, leading to repeated work and the
+possibility that we didn't fix one of the copies. For example, if we initially started out with
+\ic{group1s3 < group1Max} instead of \ic{group1s3 > group1Max}, and then copied and renamed variables
+to compute the maximum scores for the other groups, we would end up with the code below:
+
+\begin{code}
+int group1Max = group1s1;
+if (group1s2 > group1Max) {
+  group1Max = group1s2;
+}
+if (group1s3 < group1Max) {
+  group1Max = group1s3;
+}
+
+int group2Max = group2s1;
+if (group2s2 > group1Max) {
+  group2Max = group2s2;
+}
+if (group2s3 < group2Max) {
+  group2Max = group2s3;
+}
+
+int group3Max = group3s1;
+if (group3s2 > group3Max) {
+  group3Max = group3s2;
+}
+if (group3s3 < group3Max) {
+  group3Max = group3s3;
+}
+\end{code}
+
+To fix our code, we would not only have to replace \ic{group1s3 < group1Max} with
+\ic{group1s3 > group1Max}, but we would also need to replace \ic{group2s3 < group2Max} with
+\ic{group2s3 > group2Max} and \ic{group3s3 < group3Max} with \ic{group3s3 < group3Max}.
+
+\section{Methods}\label{sec:methods}
+In Java, we can use abstractions in our code in the form of \emph{methods}.
+Methods contain bits of code that may compute things using \emph{arguments}
+that are passed into the method.
+
+An example of the syntax for a \emph{method definition} is given below:
+\begin{code}
+public bool negate(bool arg) {
+  return !arg; // method body
+}
+\end{code}
+We can identify the different components of the method definition:
+\begin{itemize}
+\item  The \emph{access modifier} of the method is \ic{public},
+\item the \ic{bool} before \ic{negate} gives the \emph{return type} of the method
+\item \ic{negate} is the \emph{name of the method},
+\item \ic{arg} is the \emph{name of the first argument/parameter} of the method,
+\item the \ic{bool} before \ic{arg} it is the \emph{type} of the \ic{arg} parameter,
+\item and the code between the curly braces is the method \emph{body}.
+\end{itemize}
+Inside the method body, there is code that may use the arguments of the method.
+In the example above, the body only consists of the \ic{return} statement.
+The \ic{return} statement is followed by something of the return type of the method.
+This expression, after being evaluated, gives the \emph{return value} of the method.
+As soon as a \ic{return} statement is encountered, a method finishes its execution.
+\emph{Access modifiers} will be described later on when we talk about Classes,
+but note that if an access modifier is omitted, it the method has the \emph{default} modifier.
+
+Other important terms to note are as follows:
+The \emph{parameter list} of a method consists of the types of its parameters in the
+order they are given in the method definition.
+For the above method, it is simply \ic{bool}.
+The \emph{method signature} consists of the method name and parameter list.
+For the above method, it is \ic{negate(bool)}.
+A method is identified by its method signature.
+
+\begin{example}
+Consider the following method:
+\begin{code}
+int squareSum(int arg0, int arg1) {
+  int res = arg0 + arg1;
+  return res * res;
+}
+\end{code}
+Give the following for the method:
+\begin{itemize}
+\item Access modifier
+\item Return type
+\item Arguments
+\item Method signature
+\end{itemize}
+
+\noindent \emph{Answer}: 
+\begin{itemize}
+\item Access modifier: default
+\item Return type: \ic{int}
+\item Arguments: \ic{arg0}, \ic{arg1}
+\item Method signature: \ic{squareSum(int, int)}
+\end{itemize}
+\end{example}
+
+\begin{example}
+Consider the following method:
+\begin{code}
+private void mystery (int age, String name) {
+  if (age >= 18) {
+    System.out.println(name);
+  }
+}
+\end{code} 
+Give the following for the method:
+\begin{itemize}
+\item Access modifier
+\item Return type
+\item Name
+\item Parameter list
+\end{itemize}
+
+\noindent \emph{Answer:}
+\begin{itemize}
+\item Access modifier: \ic{private}
+\item Return type: \ic{void}
+\item Name: \ic{mystery}
+\item Parameter list: \ic{int, String}
+\end{itemize}
+
+\end{example}
+
+We may \emph{call} or \emph{invoke} the above \ic{negate} method from elsewhere in the code by,
+for example, using \ic{negate(true)} if we want to call \ic{negate} with argument
+\ic{true}.
+We must specify the name of the method that we wish to call, followed by the arguments
+that we wish to call it on, separated by commas if there are more than one.
+The arguments provided in the call must correspond to the types of the arguments
+specified in the method definition: if the method definition has the type \ic{bool}
+for its first argument, then the first argument supplied in the call should also be
+of type \ic{bool}, and if the definition has the type \ic{int} for its second argument,
+then the first argument in the call should also be of type \ic{int}, and so on.
+A method invocation evaluates to the return value it computes, where this
+computation happens with the actual arguments
+given in the call substituted for the arguments specified in the definition, so in
+this case, the invocation \ic{id(true)} evaluates to \ic{false}.
+A method invocation has the same type as its return type, which in this case, is \ic{bool}.
+
+So, for example, we can do something like in following code snippet:
+\begin{code}
+  bool f = negate(true);
+  bool t = negate(negate(true));
+\end{code}
+After executing the above code, the variable \ic{f} contains the value \ic{false}
+and the variable \ic{t} contains the value \ic{true}.
+
+Note that we can also have methods that do not return anything. Such
+methods have \ic{void} return types. They may contain a \ic{return}
+statement with no expression following \ic{return}.
+Calls to these methods cannot be used inside of other expressions.
+Two examples of methods with \ic{void} return types are below:
+\begin{code}
+public void printSum(double a, double b) {
+  System.out.println(a + b);
+}
+\end{code}
+
+\begin{code}
+public void printBigger(double a, double b) {
+  if (a > b) {
+    System.out.println(a);
+    return;
+  }
+  System.out.println(b);
+}
+\end{code}
+Note that the latter example only ever prints the value of either \ic{a} or \ic{b} but
+never both because
+the \ic{return} statement finishes the execution of the method.
+
+Some methods also do not take any arguments at all. One such example is below:
+\begin{code}
+public int constantOne() {
+  return 1;
+}
+\end{code}
+\noindent This method can be called using \ic{constantOne()}.
+
+\begin{example}
+What value does \ic{res} have after the following code snippet is executed?
+\begin{code}
+int res = constantOne() + constantOne();
+\end{code}
+\emph{Answer}: The value of \ic{res} is 2.
+\end{example}.
+
+Note that for every method that does not have a \ic{void} return type,
+for every possible control-flow path through the method body,
+there must be a \ic{return} statement that is eventually reached.
+For example, the following method does not meet this requirement
+because when \ic{arg} is \ic{false}, the \ic{return} statement is not
+reached:
+\begin{code}
+public int twoIfTrue(bool arg) {
+  if (arg) {
+    return 2;
+  }
+}
+\end{code}
+
+\begin{example}
+Consider the following method:
+\begin{code}
+public void mystery (bool arg0, int arg1) {
+  if (arg0) {
+    return -1 * arg1;
+  }
+  return arg0;
+}
+\end{code}
+
+\noindent What do each of the following evaluate to?
+\begin{itemize}
+\item \ic{mystery(true, -2)}
+\item \ic{mystery(true, 0)}
+\item \ic{mystery(true, 4)}
+\item \ic{mystery(false, -2)}
+\item \ic{mystery(false, 0)}
+\item \ic{mystery(false, 4)}
+\end{itemize}
+
+\noindent \emph{Answer:}
+\begin{itemize}
+\item \ic{mystery(true, -2)} evaluates to 2
+\item \ic{mystery(true, 0)} evaluates to 0
+\item \ic{mystery(true, 4)} evaluates to $-4$
+\item \ic{mystery(false, -2)} evaluates to $-2$
+\item \ic{mystery(false, 0)} evalutes to 0
+\item \ic{mystery(false, 4)} evalutates to 4
+\end{itemize}
+
+\noindent What does the method do?
+
+\noindent \emph{Answer:} It negates its second argument
+\ic{arg1} whenever its first argument \ic{arg0} is
+\ic{true} and otherwise just returns its second argument
+\ic{arg1}.
+\end{example}
+
+\begin{example}
+How many methods can be called by the following method?
+What do you think each of their return types and parameter lists are?
+
+\begin{code}
+public void sayHello(int times, String name, String day) {
+  if (shouldStop(times))
+    return;
+  String hello = getHelloStr(name, day);
+  System.out.print.ln(hello);
+  sayHello(times - 1, name, day);
+}
+\end{code}
+\noindent \emph{Answer:}
+Three methods can be called: \ic{shouldStop}, \ic{getHelloStr} and \ic{sayHello}.
+
+The return type of \ic{shouldStop} is \ic{bool}, and it has parameter list \ic{int}.
+The return type of \ic{getHelloStr} is \ic{String}, and it has parameter list \ic{String, String}.
+The return type of \ic{sayHello} is \ic{void}, and it has parameter list \ic{int, String, String}.
+\end{example}
+
+\begin{example}
+Write a method with signature \ic{printInOrder(int, int, int)} that takes
+three \ic{int}s \ic{a}, \ic{b}, and \ic{c} as arguments and prints them out,
+one per line, in increasing order. E.g. \ic{printInOrder(5, 9, 7)} should output the following:
+\begin{code}
+5
+7
+9
+\end{code}
+
+\noindent \emph{Answer:}
+A possible solution is the following:
+\begin{code}
+public void printInOrder(int a, int b, int c) {
+  int smallest = a;
+  int middle = b;
+  int biggest = c;
+  if (smallest > middle) {
+    int tmp = smallest;
+    smallest = middle;
+    middle = tmp;
+  }
+  if (smallest > biggest) {
+    int tmp = smallest;
+    smallest = biggest;
+    biggest = tmp;
+  }
+  if (middle > biggest) {
+    int tmp = middle;
+    middle = biggest;
+    biggest = tmp;
+  }
+  System.out.println(smallest);
+  System.out.println(middle);
+  System.out.println(biggest);
+}
+\end{code}
+\end{example}
+
+\subsection{Overloading}
+As mentioned above, methods are identified by their signature, not just their names.
+Because of this, we can actually have methods with the same name (in the same
+Class) as long as they have different parameter lists.
+
+For example, we can have the following two methods because
+one has signature \ic{printBigger(double, double)} and the other
+has signature \ic{printBigger(int, int)}:
+\begin{code}
+public void printBigger(double a, double b) {
+  if (a > b) {
+    System.out.println(a);
+    return;
+  }
+  System.out.println(b);
+}
+public void printBigger(int a, int b) {
+  if (a > b) {
+    System.out.println(a);
+    return;
+  }
+  System.out.println(b);
+}
+\end{code}
+In this case, we say that the \ic{printBigger} method is \emph{overloaded}.
+
+However, we cannot have the following two methods because they both have the
+same signature \ic{twoIfTrue(bool)}:
+\begin{code}
+public int twoIfTrue(bool arg) {
+  if (arg) {
+    return 2;
+  }
+}
+public double twoIfTrue(bool arg) {
+  if (arg) {
+    return 2.0;
+  }
+}
+\end{code}
+
+\begin{example}
+Consider the following two methods that we have seen in previous
+examples:
+\begin{code}
+private void mystery (int age, String name) {
+  if (age >= 18) {
+    System.out.println(name);
+  }
+}
+public void mystery (bool arg0, int arg1) {
+  if (arg0) {
+    return -1 * arg1;
+  }
+  return arg0;
+}
+\end{code}
+Are we allowed to have both of these methods together (in the same Class)?
+Why or why not?
+
+\noindent \emph{Answer:}
+We are allowed to have both of these methods together because they have
+different signatures. One has signature \ic{mystery(int, String)}
+and the other has signature \ic{mystery(bool, int)}.
+\end{example}
+
+\begin{example}
+Which of the following are valid overloadings?
+
+\noindent A:
+\begin{code}
+public int absValue(int x) {
+  if (x < 0) {
+    return x * -1;
+  }
+  return x;
+}
+public double absValue(int x) {
+  if (x < 0) {
+    return 0.0 - x;
+  }
+  return x - 0.0;
+}
+\end{code}
+
+\noindent B:
+\begin{code}
+public int absValue(int x) {
+  if (x < 0) {
+    return x * -1;
+  }
+  return x;
+}
+public double absValue(double x) {
+  if (x < 0) {
+    x = 0.0 - x;
+  }
+  return x;
+}
+\end{code}
+
+\noindent C:
+\begin{code}
+public int absValue(int x) {
+  if (x < 0) {
+    return x * -1;
+  }
+  return x;
+}
+public int absValueX(int x) {
+  if (x < 0) {
+    return x * -1;
+  }
+  return x;
+}
+\end{code}
+
+\noindent \emph{Answer:}
+\begin{itemize}
+\item A is not a valid overloading because both methods have the same signature.
+\item B is a valid overloading because both methods have different signatures.
+\item C is valid code, but this is not a valid overloading. It is not overloading at all because the methods have different names.
+\end{itemize}
+\end{example}
+
+\subsection{Methods Summary}
+In summary, every method definition has the following:
+\begin{itemize}
+\item An access modifier (if not explicitly stated, this will be the \emph{default} modifier)
+\item A return type (possibly \ic{void})
+\item A name
+\item A (possibly empty) list of parameter types and names that can be passed to the method when it is called
+\item A body
+\item A return statement reached on every control path in the body, where each \ic{return} is followed by an
+expression of the method's return type (unless the return type is \ic{void})
+\end{itemize}
+Each method is identified by its signature, so you may have methods with the same name but different parameter lists.
+
+\section{Abstraction}\label{sec:abstraction}
+Let us now return to our problem of finding the maximum scores for each
+of the three groups.
+The code for each of the three groups, though similar, have different variable names;
+however, this is the only way in which they are different.
+The process of distilling the similarity among different pieces of code is
+the process of \emph{abstraction}.
+In this case, we would like to \emph{abstract} away the details of
+each copy to achieve a piece of code that describes all of their behavior.
+
+After abstracting away the variable names, the code for each group is such that,
+if we use the appropriate variable names for the students in the group
+instead of \ic{x}, \ic{y}, and \ic{z}, that the following code snippet
+would describe all of the three different operations, with
+\ic{max} storing the desired result:
+\begin{code}
+int max = x;
+if (y > max) {
+  max = y; 
+}
+if (z > max) {
+  max = z;
+}
+\end{code}
+We can wrap this code snippet up in a method definition
+that returns the value we care about:
+\begin{code}
+public int max3(int x, int y, int z) {
+  int max = x;
+  if (y > max) {
+    max = y;
+  }
+  if (z > max) {
+    max = z;
+  }
+  return max;
+}
+\end{code}
+
+If we use this method in place of the redundant code,
+our original code that compute the maximum scores for each of the three
+groups then becomes as follows:
+\begin{code}
+int group1Max = max3(group1s1, group1s2, group1s3);
+int group2Max = max3(group2s1, group2s2, group2s3);
+int group3Max = max3(group3s1, group3s2, group3s3);
+\end{code}
+This resulting code is much more concise and is an example
+of \emph{code reuse}, where the same exact code
+(i.e. the code inside the body of \ic{max3}) is being reused
+in several places. This code is also perhaps easier to understand
+if you know that \ic{max3} simply calculates the maximum
+of its three arguments. In the original code, after
+going through the code for one of the groups
+and realizing that it computes a maximum, you
+would have to go through the calculations of the other
+groups to make sure that they also compute a maximum.
+Here, it is easy to see that the same computation is happening
+for each group (but with different inputs).
+
+We might further notice that both of the conditional statements
+in the \ic{max3} method
+compute very similar things (i.e. the maximum of two numbers),
+and might perform further abstraction to achieve the following
+method:
+\begin{code}
+int max2(int x, int y) {
+  int max = x;
+  if (y > max) {
+    max = y; 
+  }
+}
+\end{code}
+
+We can then adjust our \ic{max3} method to call this one:
+\begin{code}
+int max3(int x, int y, int z) {
+  return max2(max2(x, y), z);
+}
+\end{code}
+
+Note that we do not need to change our code
+for computing \ic{group1Max}, \ic{group2Max},
+or \ic{group3Max} in order to use the method
+\ic{max2}. The changes to \ic{max3} are sufficient.
+
+\section{Modularity}\label{sec:modularity}
+Let us again consider the case in which our calculation of the maximum
+score is incorrect because we used \ic{<} instead of \ic{>} in
+the last comparison. Let us assume that we are still using the
+version of \ic{max3} that does not call \ic{max2}, but
+we mistakenly have the comparison \ic{z < max} instead of
+\ic{z > max} in our method:
+\begin{code}
+public int max3(int x, int y, int z) {
+  int max = x;
+  if (y > max) {
+    max = y;
+  }
+  if (z < max) {
+    max = z;
+  }
+  return max;
+}
+\end{code}
+
+In order to fix, this we simply need to change \ic{z < max}
+to \ic{z > max} once. The code that calculates
+the values of \ic{group1Max}, \ic{group2Max},
+and \ic{group3Max} by calling \ic{max3} is fixed by this
+one change because for all the groups, we call the
+same method. Here we have achieved a \emph{separation of concerns}
+in the two parts of our code:
+\begin{itemize}
+\item We have one part of our code (the \ic{max3} method)
+that is concerned with finding the maximum of three \emph{arbitrary}
+numbers, but it is not concerned with \emph{which} numbers
+specifically for which it is finding the maximum.
+\item We have another part that
+is concerned with computing the maximum scores for each group,
+\emph{given that} we have some other code that
+can calculate the maximum of three numbers, but it is
+not concerned with \emph{how} this maximum is found,
+as long as it is done correctly
+\end{itemize}
+
+This separation of concerns is referred to as \emph{modularity},
+and we can regard the code inside of different methods as
+being in different \emph{modules}.
+We have already seen that modularity can allow us to do
+things like fix bugs in one part of our code without having
+to touch other parts of our code.
+
+Modularity also lets us do other things, like naturally
+divide up labor. If you wanted to split up the work
+of writing a program that finds the maximum of each
+group's three scores with a friend,
+you might volunteer to write the code that deals with
+finding the maximum scores for each group provided that
+your friend writes code that finds the maximum of three numbers
+contained in a method with signature \ic{max3(int, int int)} that returns
+an \ic{int} that is the maximum of its three \ic{int} arguments.
+
+Given that you know your friend will write such a \ic{max3}
+method, you can, without seeing your friend's code,
+write the following code (that we have already seen):
+\begin{code}
+int group1Max = max3(group1s1, group1s2, group1s3);
+int group2Max = max3(group2s1, group2s2, group2s3);
+int group3Max = max3(group3s1, group3s2, group3s3);
+\end{code}
+
+\noindent Once your friend finishes writing \ic{max3}, then your code
+should work as expected. 
+
+An advantage of modularity is that it is not necessary
+to know the details of how the modules that you use
+are implemented nor used.
+In the above example, you do not need to know how exactly your
+friend implements \ic{max3} (maybe it calls \ic{max2}
+and maybe it does not) and your friend does not need to
+know how you use \ic{max3} (maybe you also use it to
+find the maximum of the three maximum scores and maybe
+you do not).
+
+\begin{example}
+What would you add to the following code to calculate
+the maximum of \ic{group1Max}, \ic{group2Max},
+and \ic{group3Max} and store it in \ic{allGroupMax}?
+
+\begin{code}
+int group1Max = max3(group1s1, group1s2, group1s3);
+int group2Max = max3(group2s1, group2s2, group2s3);
+int group3Max = max3(group3s1, group3s2, group3s3);
+\end{code}
+
+\noindent \emph{Answer:}
+\begin{code}
+int group1Max = max3(group1s1, group1s2, group1s3);
+int group2Max = max3(group2s1, group2s2, group2s3);
+int group3Max = max3(group3s1, group3s2, group3s3);
+// added code below:
+int allGroupMax = max3(group1Max, group2Max, group3Max);
+\end{code}
+\end{example}
+
+\begin{example}
+Consider the case where not only do you
+want to compute the maximum scores for each group
+for Group 1, Group 2, and Group 3, but you
+also want to do the same for Group 4 and Group 5.
+Unfortunately, while Group 4 and Group 5 also have
+three scores per group (\ic{group4s1}, \ic{group4s2},
+\ic{group4s3}, \ic{group5s1}, \ic{group5s2},
+and \ic{group5s3}), these scores are all \ic{double}s
+rather than \ic{int}s.
+
+You want write the following code:
+\begin{code}
+int group1Max = max3(group1s1, group1s2, group1s3);
+int group2Max = max3(group2s1, group2s2, group2s3);
+int group3Max = max3(group3s1, group3s2, group3s3);
+double group4Max = max3(group4s1, group4s2, group4s3);
+double group5Max = max3(group5s1, group5s2, group5s3);
+\end{code}
+
+What code do you ask your friend to write
+so that your code works?
+
+\noindent \emph{Answer:} You can ask your friend to write
+an overloaded \ic{max3}: one overloading (the one
+we have seen so far) should return an
+\ic{int} and have method signature \ic{max3(int, int, int)}
+and the other should return a \ic{double} and have
+method signature \ic{max3(double, double, double)}.
+Both versions of \ic{max3} should return the maximum value
+of their three arguments.
+\end{example}
+
+\begin{example}
+Give the signatures of methods that you would need to write
+to make the following code work:
+\begin{code}
+int computeAverages(int a, int b, int c, int d, int e, int f, int g, int h) {
+  int avg0 = sum(a, b) / 2;
+  int avg1 = sum(c, d, e) / 3;
+  int avg2 = sum(f, g, h) / 3;
+  int avgAvg = sum(avg0, avg1, avg2) / 3;
+  return avgAvg;
+}
+\end{code}
+
+\noindent \emph{Answer:}
+\ic{sum(int, int)} and \ic{sum(int, int, int)}
+\end{example}
+
+\begin{example}
+This is the same code as in the previous example, but
+someone made a mistake and divided by 4 instead of 3
+when taking the average of three numbers:
+\begin{code}
+int computeAverages(int a, int b, int c, int d, int e, int f, int g, int h) {
+  int avg0 = sum(a, b) / 2;
+  int avg1 = sum(c, d, e) / 4;
+  int avg2 = sum(f, g, h) / 4;
+  int avgAvg = sum(avg0, avg1, avg2) / 4;
+  return avgAvg;
+}
+\end{code}
+Improve the original code by using abstraction.
+
+\noindent \emph{Answer:}
+\begin{code}
+int avg(int a, int b) {
+  return sum(a, b) / 2;
+}
+int avg(int a, int b, int c) {
+  return sum(a, b, c) / 3;
+}
+int computeAverages(int a, int b, int c, int d, int e, int f, int g, int h) {
+  int avg0 = avg(a, b);
+  int avg1 = avg(c, d, e);
+  int avg2 = avg(f, g, h);
+  int avgAvg = sum(avg0, avg1, avg2) / 4;
+  return avgAvg;
+}
+\end{code}
+
+\end{example}

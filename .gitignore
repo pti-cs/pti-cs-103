@@ -7,4 +7,5 @@ lectures/*.blg
 lectures/*.log
 lectures/*.toc
 lectures/*.out
-
+lectures/*.synctex.gz
+*.class

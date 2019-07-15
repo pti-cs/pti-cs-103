@@ -14,16 +14,23 @@
 	% \listoftables
 	% \lstlistoflistings
 
+
 \mainmatter
 	\input{introduction.tex}
 	\pagebreak
 	\input{hardware.tex}
 	\pagebreak
+	\input{proglang_linux.tex}
+    \pagebreak
+	% \input{protocols.tex}
+	% \pagebreak
 	\input{networks.tex}
 	\pagebreak
 	\input{control_structures.tex}
 	\pagebreak
-	\input{productivity.text}
+	\input{productivity.tex}
+	\pagebreak
+	\input{methods.tex}
 	\pagebreak
 	\input{arrays.tex}
 	\pagebreak
@@ -31,5 +38,10 @@
 	\pagebreak
 	\input{systems_development.tex}
 	\pagebreak
+
+\appendix
+\addappheadtotoc
+\appendixpage
+	\input{appendix.tex}
 
 \end{document}
