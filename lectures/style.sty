@@ -133,9 +133,14 @@
 \newenvironment{exercise}{%
   \refstepcounter{exercisecounter}
   \begin{mdframed}[style=exerciseframe]
-  \noindent\textbf{\theexercisecounter}
+  \noindent\textbf{Exercise~\thedefexmpexrccounter:}
   }{\end{mdframed}}
-  \numberwithin{exercisecounter}{chapter}
+\numberwithin{exercisecounter}{chapter}
+
+\newenvironment{exercise*}{%
+  \par\medskip
+  \noindent\emph{Exercise:} \rmfamily}
+  {\medskip}
 
 
 % Define references title class.
@@ -222,3 +227,8 @@
     aboveskip=1.5em
   }
 }{}
+
+% helper utilities for anders :)
+\newcommand{\COMMENT}[3]{\ifdraft\textcolor{#1}{[\textbf{#2}:
+\textnormal{#3}]}\fi}
+\newcommand{\afm}[1]{\COMMENT{blue}{AFM}{#1}}
