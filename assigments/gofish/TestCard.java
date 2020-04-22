@@ -1,16 +1,16 @@
-import gofish.Card;
+package gofish;
 
 public class TestCard {
   public static void main(String[] args) {
     boolean allGood = true; 
     
     /*-------------  SUPPLIED TESTS  -------------*/
-    if (!cardGetsSuit()) {
+    if (!testGetSuit()) {
       System.out.println("Failed to properly get suit");
       allGood=false;
     }
     
-    if (!cardRejectsBadSuit()) {
+    if (!testRejectBadSuit()) {
       System.out.println("Failed to reject bad suit");
       allGood=false;
     }
@@ -22,20 +22,20 @@ public class TestCard {
     
   }
   
-  public static boolean cardGetsSuit() {
+  public static boolean testGetSuit() {
     String suit = "S";
     String rank = "10";
     Card card = new Card(suit, rank);
-    return card.getSuit()==suit;
+    return card.getSuit().equals(suit);
   }
 
-  public static boolean cardRejectsBadSuit() {
+  public static boolean testRejectBadSuit() {
     String suit = "A"; // A is not a suit
     String rank = "10";
     try {
       Card card = new Card(suit, rank);
     }
-    catch (Exception e) {
+    catch (IllegalArgumentException e) {
       return true; 
     }
     

@@ -1,18 +1,25 @@
-import gofish.Card;
+package gofish;
+import java.util.Collection;
+import java.util.Random;
 
 public class TestDeck {
   public static void main(String[] args) {
     boolean allGood = true; 
     
     /*-------------  SUPPLIED TESTS  -------------*/
-    if (!cardGetsSuit()) {
-      System.out.println("Failed to properly get suit");
-      allGood=false;
+    if (!testSize()) {
+      System.out.println("Failed to test size");
+      allGood = false;
     }
     
-    if (!cardRejectsBadSuit()) {
-      System.out.println("Failed to reject bad suit");
-      allGood=false;
+    if (!testDrawEmpty()) {
+      System.out.println("Failed to test drawing from empty deck");
+      allGood = false;
+    }
+
+    if (!testDeal()){
+      System.out.println("Failed to test dealing cards");
+      allGood = false;
     }
     /*--------------------------------------------*/
     
@@ -21,24 +28,42 @@ public class TestDeck {
     }
     
   }
-  
-  public static boolean cardGetsSuit() {
-    String suit = "S";
-    String rank = "10";
-    Card card = new Card(suit, rank);
-    return card.getSuit()==suit;
+
+  public static boolean testSize(){
+    Deck deck = new Deck();
+    for (int i = 52; i > 0; i--) {
+      if(deck.size() != i){
+        return false;
+      }
+      deck.draw();
+    }
+    return true;
   }
 
-  public static boolean cardRejectsBadSuit() {
-    String suit = "A"; // A is not a suit
-    String rank = "10";
-    try {
-      Card card = new Card(suit, rank);
+  public static boolean testDeal(){
+    Deck deck = new Deck();
+    Random rand = new Random();
+    int drawAmount = rand.nextInt(52) + 1;
+    Collection<Card> dealtCards = deck.deal(drawAmount);
+    if(dealtCards.size() != drawAmount){
+      return false;
     }
-    catch (Exception e) {
-      return true; 
+    if(deck.size() != 52 - drawAmount){
+      return false;
     }
-    
-    return false; 
+    return true;
   }
+
+  public static boolean testDrawEmpty(){
+    Deck deck = new Deck();
+    deck.deal(52);
+    try {
+      deck.draw();
+    }
+    catch (IllegalStateException e) {
+      return true;
+    }
+    return false;
+  }
+
 }

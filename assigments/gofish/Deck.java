@@ -1,12 +1,9 @@
-/**
- * Represents 52-card deck.
- *----------------------------------------------------------------------------*/
-
 package gofish;
 
 import gofish.Card;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 //import java.util.List;
 import java.util.Random;
@@ -39,15 +36,10 @@ public class Deck {
   }
  }
 
- public void shuffle() {
-  // TODO: Implement simpler shuffling algorithm.
-  Collections.shuffle(this.cards);
- }
-
  public boolean isEmpty() {
   return this.cards.size() == 0;
  }
- 
+
  public int size() {
    return this.cards.size();
  }
@@ -59,12 +51,12 @@ public class Deck {
    return this.cards.remove(r);
  }
  
- public ArrayList<Card> deal(int nCards) {
+ public Collection<Card> deal(int nCards) {
    if (this.cards.size()<nCards)
      throw new IllegalStateException("Not enough cards to deal!");
    ArrayList<Card> dealtCards = new ArrayList<Card>();
    for (int i = 0; i < nCards; i++) {
-     // replace this with "draw"
+     // TODO: replace this with "draw"
      int r = this.rand.nextInt(this.cards.size());
      dealtCards.add(this.cards.remove(r));
    }

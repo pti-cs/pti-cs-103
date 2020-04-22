@@ -1,17 +1,11 @@
-/**
- *
- *----------------------------------------------------------------------------*/
-
 package gofish;
 
 import gofish.Card;
 
 //import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.*;
 //import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+
 
 public class Player {
 
@@ -63,7 +57,7 @@ public class Player {
   this.hand.add(newCard);
  }
 
- public void addToHand(List<Card> newCards) {
+ public void addToHand(Collection<Card> newCards) {
   this.hand.addAll(newCards);
  }
 
@@ -114,3 +108,4 @@ public class Player {
   return s;
  }
 }
+
