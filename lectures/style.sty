@@ -234,3 +234,19 @@
 \newcommand{\COMMENT}[3]{\ifdraft\textcolor{#1}{[\textbf{#2}:
 \textnormal{#3}]}\fi}
 \newcommand{\afm}[1]{\COMMENT{blue}{AFM}{#1}}
+
+% Define generic framed environment
+% ------------------------------------------------------------------------------
+
+\mdfdefinestyle{genericframe}{%
+  linecolor=black,
+  innertopmargin=.4cm,
+  innerbottommargin=.4cm,
+  innerrightmargin=.4cm,
+  innerleftmargin=.4cm,
+  backgroundcolor=lightgray
+}
+
+\newenvironment{graybox}{%
+  \begin{mdframed}[style=genericframe]
+}{\end{mdframed}}
