@@ -3,35 +3,32 @@
 \begin{figure}
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/computer_system.png}
-	\caption{A variety of computer systems: desktops, laptops, tablet,
-                 and smart phone.}
+	\caption{A variety of computer systems: desktops, a laptop, a tablet, and a
+    smart phone. \afm{Source for pic.}}
 	\label{fig:hardware:computers}
 \end{figure}
 
-Today's lecture will focus on computer systems, a complex group of
-devices working together to perform a common task (or tasks). A user
-will interact with a computer through a variety of input and output
-devices (e.g. keyboards, mice, speakers, microphone, and monitors). A
-user's input will be processed, some computations will be performed,
-and then the resulting output will be displayed to the user. When most
-of us thinking about computers, we often think of a desktop or laptop
-computer, that come equipped with a keyboard, mouse, and monitor as
-seen in Figure~\ref{fig:hardware:computers};
-however, many things we interact with daily are computerized,
-including cell phones, cars, traffic lights, smart watches,
-televisions, and manufacturing lines. Today each of these items
-have sensors to perceive the real world, use an embedded computing
-device to understand the sensory input, and use a combination of
-display and mechanical devices to interact with the real world.
+Today's lecture will focus on \emph{computer systems} \afm{should we change the title
+  to systems, this is funky to say the chapter is hardware, and then say we
+  focus on systems}, groupings of devices that work together to perform a common
+task (or tasks). A user will interact with a computer through a variety of input
+and output devices (e.g. keyboards, mice, speakers, microphone, and monitors). A
+user's input will be processed, some computations will be performed, and then
+the resulting output will be displayed to the user. When most of us think about
+computers, we often think of a desktop or laptop computer, equipped with a
+keyboard, mouse, and monitor as seen in Figure~\ref{fig:hardware:computers}.
+However, many things we interact with daily are computerized, including cell
+phones, cars, traffic lights, smart watches, televisions, and manufacturing
+lines. Today each of these items have sensors to perceive the real world, use an
+embedded computing device to understand the sensory input, and use a combination
+of display and mechanical devices to interact with the real world.
 
 \begin{example}
-For intersections across busy roadways, some traffic lights are
-computerized to optimize road traffic. These lights will stay
-green along the busier of the two roads, and use cameras or
-pressure sensors to detect the presence of cars along the less
-busy of the two roads, thus switching to allowing the cars on
-the less busy road to cross when it arrives. Overall, providing
-a less congested intersection by relying on an embedded computer.
+  For intersections across busy roadways, some traffic lights are computerized
+  to optimize road traffic. These lights will stay green along the busier of the
+  two roads, and use cameras or pressure sensors to detect the presence of cars
+  along the less busy of the two roads. When cars arrive, the lights switch,
+  allowing the cars on the less busy road to cross.
 \end{example}
 
 Today we will introduce three fundamental parts of computer systems:
@@ -40,52 +37,51 @@ These components work together to perform the basic building blocks of
 input processing, storage, control, and output. Understanding how the
 three parts work together will allow us to create powerful information
 processing tools. We will introduce each of these parts in turn.
-In figure~\ref{fig:hardware:overview}, we see how these parts come
-together to form a computer system (similar to the ones you'll use
-to program in this course).
+In Figure~\ref{fig:hardware:overview}, we see how these parts come
+together to form a computer system.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/cs_intro_hardware_overview.png}
 	\caption{Interconnected parts of a computer system (keyboard, mouse,
-                 monitor, DVD player / burner, speaker, hard drive, CPU).}
+                 monitor, DVD player / burner, speaker, hard drive, CPU).
+                 \afm{source for pic}}
 	\label{fig:hardware:overview}
 \end{figure}
 
 \section{Input and Output Devices}
 
-We will begin by discussing input and output devices. These devices
-allow the computer to interact with users and the world directly. Without
-these devices, a computer system would be very boring, always performing
-the same computation each time it's used. Even if it did compute a different
-value we would be unable to examine the value. A computer needs to be
-able to accept input and allow output. The first computers would occupy
-a large room in an office building and connect to a terminal
-(a keyboard and a text screen) in another room for users to interact
-with. Thanks to Moore's Law, computers many orders of magnituted more
-powerful can fit in the palm of your hand. Likewise, the variety of input
-and output devices has multipled. We still have the keyboard and monitor,
-we've added the mouse for interacting with graphical displays. Today's
-phones are more computer than phone, coming equipped with: speakers,
-microphones, touch screens, cameras, fingerprint scanners, radio transmitters,
-and much more. Computers even come embedded in other devices like cars,
-traffic lights, X-ray machines, and thermostats to both control and
-monitor the devices. As shown in Figure~\ref{fig:hardware:overview},
+Input and output (IO) devices allow the computer to interact with users and the world
+directly. Without these devices, a computer system would be very boring, always
+performing the same computation each time it's used. Even if it did compute a
+different value we would be unable to examine the value. A computer needs to be
+able to accept input and provide output. The first computers would occupy a
+large room in an office building and connect to a terminal (a keyboard and a
+text screen) in another room for users to interact with. Thanks to the hard work
+of electrical engineers,
+computers can now fit in the palm of your hand while being much more powerful.
+Likewise, many more types of input and output devices are now available. We
+still have the keyboard and monitor, and the mouse was invented for interacting
+with graphical displays. Today's phones are more computer than phone, coming
+equipped with speakers, microphones, touch screens, cameras, fingerprint
+scanners, radio transmitters, and much more. Computers even come embedded in
+other devices like cars, traffic lights, X-ray machines, and thermostats to both
+control and monitor the devices. As shown in Figure~\ref{fig:hardware:overview},
 these devices connect to the rest of the computer through the computer's memory.
 This kind of input and output is called memory mapped I/O (input and output).
-Creaters of input (or output) devices are assigned a section of the
-computer's memory to write (read resp.) data. The computer will then read
-(write resp.) data to those locations to communicate with the given device.
-The creaters of these devices, agree upon a known format to read and write data.
+Creaters of input (or output) devices are assigned a section of the computer's
+memory to write (read resp.) data. The computer will then read (write resp.)
+data to those locations to communicate with the given device. The creaters of
+these devices, agree upon a known format to read and write data.
 
 \begin{example}
-You can think of this communication between devices and computer similar to
-leaving messages for a friend in a locker. Only you and your friend have
-access to this locker, which only holds space for one message. The format
-you agree upon is which language you'll use to speak (e.g. English) and any
-special keywords or phrases. You might agree with your friend, that if either
-of you write a message saying ``The morning is upon us'' that the other will
-wait until ``The night has come'' before leaving any new messages.
+  You can think of communication between devices and computer as similar to
+  leaving messages for a friend in a locker. Only you and your friend have
+  access to this locker, which only holds space for one message. The format you
+  agree upon is which language you'll use to speak (e.g. English) and any
+  special keywords or phrases. You might agree with your friend that if either
+  of you write a message saying ``The morning is upon us'' that the other will
+  wait until ``The night has come'' before leaving any new messages.
 \end {example}
 
 The format that devices and computers communicate in are generally very simple
@@ -106,8 +102,8 @@ and the monitor will read the image and display the image on it's screen.
 Figure~\ref{fig:hardware:monitor_image} displays an example image, a 
 20 x 20 chekerboard with its encoding.
 
-\emph{Note: while this is a simplified example, this is similar to how modern
-graphical displays communicate with computers}.
+\emph{Note: While this is a simplified example, this is similar to how modern
+  graphical displays communicate with computers}.
 \end{example}
 
 \begin{figure}
@@ -147,36 +143,34 @@ graphical displays communicate with computers}.
 
 \section{Memory}
 
-Another fundamental part of a computer, is the memory. By memory, we mean the
-ability to store and recall data. This is very similar to physical storage of
-items. Figure~\ref{fig:hardware:storage} shows three storage locations ---
-a storage closet, a garage, and a warehouse. Each of the three locations
-have tradeoff between convenience of location and storage capacity. The
-closet can contain a few things and is the same room you need it. The garage
-can fit even more things and is only a walk outside (or through) your home,
-and the warehouse can fit practically anything you would want to store but you
-have to drive to the warehouse to pick-up or store your items.
-Similarly, a computer's memory makes the same trade-offs.
+With \emph{memory}, computers gain the ability to store and recall data. This is very
+similar to physical storage of items. Figure~\ref{fig:hardware:storage} shows
+three storage locations --- a storage closet, a garage, and a warehouse. Each of
+the three locations make a tradeoff between convenience of location and storage
+capacity. The closet can contain a few things and is the same room you need it.
+The garage can fit even more things and is only a walk outside (or through) your
+home, and the warehouse can fit practically anything you would want to store but
+you have to drive to the warehouse to pick-up or store your items. Similarly, a
+computer's memory makes the same trade-offs.
 
-There are two major types
-of memory, Main Memory (RAM), and Secondary Memory (e.g. hard disks, solid-state
-drves, tape drives, etc.) Main memory is volatile, meaning that the contents
-of the memory is not preserved when a computer is turned off and back on. On the
-other hand Secondary Memory, is meant to be persistent (the opposite of volatile).
-Main Memory can be thought of as the ``scratch paper'' the computer uses for
-computations. Computers will also use Main Memory as a conduit for communicating
-between the CPU and all other parts of the computer. Staying with the analogy
-from Figure~\ref{fig:hardware:storage} main memory is closer to a garage
-(where you can lose items when you turn off the lights) --- there is enough
-room to fit most items you use regularly and is close enough to not worry
-about the time it takes to get to the garage.
+There are two major types of memory, \emph{Main Memory} (RAM) and \emph{Secondary Memory},
+like hard disks, solid-state drves, tape drives, and more. Main memory is \emph{volatile},
+meaning that the contents of the memory is not preserved when a computer is
+turned off and back on. On the other hand Secondary Memory is meant to be
+\emph{persistent} or \emph{nonvolatile}, and does not go away when the computer is turned off. Main Memory
+can be thought of as the ``scratch paper'' the computer uses for computations.
+Computers will also use Main Memory as a conduit for communicating between the
+CPU and all other parts of the computer. Main memory is closer to a garage
+(where you can lose items when you turn off the lights) --- there is enough room
+to fit most items you use regularly and is close enough to not worry about the
+time it takes to get to the garage.
 
 In most modern computers,
-programs are treated as data. That is the individual instructions that combine
+programs are treated as data. The individual instructions that combine
 to form a program are stored in memory just as data is. It is the job of the
 computer to properly understand if a segment of memory is data or a program.
 The computer is able to fetch data from Secondary Memory to Main Memory or
-persist data in Main Memory to Secondary Memory when needed; however,
+persist data in Main Memory to Secondary Memory when needed. However,
 this process of transferring data between Secondary and Main Memory can
 cost a lot of time relative to keeping data in Main Memory only.
 
@@ -184,14 +178,14 @@ cost a lot of time relative to keeping data in Main Memory only.
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/storage.png}
 	\caption{Storage closet, garage, and warehouse trading off between
-                 capacity and locality.}
+                 capacity and locality. \afm{picture references}}
 	\label{fig:hardware:storage}
 \end{figure}
 
 \section {Central Processing Unit}
 
-The final part of a computer we will introduce today is the central processing
-unit (CPU) --- processor, main processor, etc. The CPU is the physical
+The final part of a computer we will introduce today is the \emph{central processing
+unit} (CPU), also known as the \emph{processor} or \emph{main processor}. The CPU is the physical
 circuitry of a computer that performs instructions. The CPU has several key
 components: the control logic, arithmetic and logic unit (ALU), registers,
 program counter (PC), and clock. These components work together to 
@@ -220,7 +214,7 @@ A key component of a CPU is its clock. The clock allows the CPU to progress in t
 triggering the time to progress from time \ic{t} to time \ic{t + 1}. A single time
 segment is referred to a clock cycle. You might have heard about a computer's CPU
 speed (e.g. my computer runs at 2.4 GHz = 2.4 billion clock cycles a second). This
-is determined by how fast the clock transitions from one time to the next. This
+is determined by how fast the clock transitions from one time step to the next. This
 clock drives the progress of the CPU. The time an instruction takes is measured
 in instruction cycles. The rate of the CPU's clock is determined by the slowest
 operation of the CPU (e.g. fetch, decode, execute stage).
@@ -259,11 +253,11 @@ being executed, the next instruction can be decoded. Figure~\ref{fig:hardware:pi
 shows how pipelining is peformed by executing the different parts of the pipeline
 in parallel for five consecutive instructions.
 
-Due toe the decline of Moore's Law in recent years, many CPU designers focus on
+Due to the decline of Moore's Law in recent years, many CPU designers focus on
 increasing processing power by improving parallelism (i.e. being able to execute
 multiple instructions at a time). This allows instructions that do not depend
 on each other to be executed at a time. These CPU are refered to as multi-core,
-as they have multiple cores that each have thier own set of registers, control unit,
+as they have multiple cores that each have their own set of registers, control unit,
 ALU, and PC but share main memory and a single clock. In this class we, will not
 teach how to effectively harness parallel programming, but note that this is
 an important progress in how hardware has evolved.
@@ -271,10 +265,9 @@ an important progress in how hardware has evolved.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/pipeline.png}
-	\caption{Instruction Pipelining}
+	\caption{Instruction Pipelining. \afm{citation}}
 	\label{fig:hardware:pipeline}
 \end{figure}
-
 
 
 \section {Conclusion}
@@ -288,7 +281,7 @@ similarities and differences to hardware and where the boundary between the two
 lies.
 
 \section {Learning Objectives}
-After covering this chapter, you should be able to answer the following questions:
+\afm{weird to have this at the end} After covering this chapter, you should be able to answer the following questions:
 
 \begin{enumerate}
 \item What three parts comprise a computer system?

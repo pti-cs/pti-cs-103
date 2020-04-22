@@ -2,11 +2,19 @@
 
 \section{Overview of course}
 
-Knowing just a little bit of computer science can get you started right away in actual applications. One of the goals of this course is to learn about the fascinating subject of computer science. Another is to develop algorithmic thinking skills that will help with day-to-day critical problem-solving skills. But perhaps the most important goal of the course is to develop coding skills, which will not only open up new job opportunities but also make you more effective in most areas of business. 
+Knowing just a little bit of computer science can get you started right away in
+writing code for real-world applications. In this course, you will learn about
+the fascinating subject of computer science. You will develop algorithmic
+thinking skills that will imporove day-to-day critical thinking and
+problem-solving. Perhaps most importantly, you will learn to code, which will
+not only open up new job opportunities but also make you more effective in most
+areas of business.
 
-In the first semester, we will spend the first two classes of each week on computer science theory and special topics. The final day of each week will be a lab day, where we actually start practicing coding skills. 
+\afm{Is this still true?} In the first semester, the first two classes of each
+week focus on computer science theory and special topics. The final day of each
+week will be a lab day, where we actually start practicing coding skills.
 
-In the second semester, we will start focusing more on practical coding, with a single day a week for theory and 2 lab periods per week for coding. 
+In the second semester, we will focus more on practical coding, with a single day a week for theory and 2 lab periods per week for coding. 
 
 Broadly, we will cover the following topics:
 \begin{itemize}
@@ -31,11 +39,36 @@ Broadly, we will cover the following topics:
        		\item Basic coding in Java
        		\item How to use productivity software
     	\end{itemize}
-\end{itemize}
+    \end{itemize}
+    
+\begin{figure}
+  \centering
+    \includegraphics[scale=.4]{graph-paper.png}
+    \caption{An example maze. The input is in the lower left, the output is in
+      the upper right.}
+    \label{fig:graph-paper}
+\end{figure}
+
+\begin{exercise}
+  Get a piece of graph paper, and build a maze on it. Your maze should have one
+  input, and one output. An example maze is shown on
+  Figure~\ref{fig:graph-paper}.
+
+  Next, get another student's maze. You are programming a robot that can solve
+  this maze. These robots can take a sequence of commands, where each command is
+  ``Turn Left [number]'' (TL[n]) and ``Move Forwards [number]'' (MF[n]). Create
+  a sequence of inputs to the robots that would solve that maze. For example,
+  the following robot completes the provided maze: MF[3], TL[3], MF[6], TL[1],
+  MF[4], TL[3], MF[3], TL[1], MF[4].
+
+  What types of commands could have made this easier? Could your robot solve
+  arbitrary mazes? What types of commands would be helpful for making your robot
+  solve any maze?
+\end{exercise}
 
 \section{Brief history of computer science}
 
-Timeline (credit: https://www.worldsciencefestival.com/infographics/a\_history\_of\_computer\_science/):
+Timeline:\footnote{https://www.worldsciencefestival.com/infographics/a\_history\_of\_computer\_science/}
 \begin{itemize}
 \item Invention of the abacus (2700-2300 BC, Sumerians)
 \item Design of first modern-style computer (Charles Babbage, 1837)
@@ -49,13 +82,13 @@ Timeline (credit: https://www.worldsciencefestival.com/infographics/a\_history\_
 \begin{figure}
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/z1.jpg}
-	\caption{Construction of Konrad Zuse's Z1, the first modern computer, in his parents' apartment. Credit: https://history-computer.com/ModernComputer/Relays/Zuse.html}
+	\caption{Construction of Konrad Zuse's Z1, the first modern computer, in his
+    parents' apartment.
+    https://history-computer.com/ModernComputer/Relays/Zuse.html}
 	\label{fig:z1}
 \end{figure}
 
 \section{Components of a computer}
-
-A computer is an electronic device used to process data. Its basic role is to convert data into information that is useful to people.
 
 There are 4 primary components of a computer:
 
@@ -85,7 +118,7 @@ Computer hardware consists of physical, electronic devices. These are the parts 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/hardware.png}
-	\caption{Examples of hardware components of a personal computer. Credit: https://www5.cob.ilstu.edu/dsmath1/tag/computer-hardware/}
+	\caption{Examples of hardware components of a personal computer. https://www5.cob.ilstu.edu/dsmath1/tag/computer-hardware/}
 	\label{fig:hardware}
 \end{figure}
 
@@ -93,7 +126,7 @@ We will discuss these components in more detail in lecture 3.
 
 \subsection{Software}
 
-Software (otherwise known as "programs" or "applications") are organized sets of instructions for controlling the computer.
+Software (otherwise known as \textit{programs}, \textit{applications}, or \textit{apps}) are organized sets of instructions for controlling the computer.
 
 There are two main classes of software:
 
@@ -117,11 +150,14 @@ We will dive deeper into the details of both applications and systems software i
 \subsection{Data}
 Data is fundamentally information of any kind. One key benefit of computers is their ability to reliably store massive quantities of data for a long time. Another is the speed with which they can do calculations on data once they receive instructions from a human user.
 
-While humans can understand data with a wide variety of perceptions (taste, smell, hearing, touch, sight), computers read and write everything internally as "bits", or 0s and 1s.
+While humans can understand data with a wide variety of perceptions (taste,
+smell, hearing, touch, sight), computers read and write everything internally as
+\textit{bits}, sequences of 0s and 1s.
 
 Computers have software and hardware which allow them to convert their internal 0s and 1s into text, numerals, and images displayed on the monitor; and sounds which can be played through the speaker.
 
-Similarly, humans have hardware and software used for converting human signals into computer-readable signals: a microphone converts sound, a camera converts pictures, and a text editor converts character symbols.
+Similarly, computers have hardware and software that convert information from
+the real world into bits: a microphone converts sound, a camera converts pictures, and a text editor converts character symbols.
 
 \subsection{Users}
 Of course, there would be no data and no meaningful calculations without the human user. Computers are ultimately tools for making humans more powerful.
@@ -139,7 +175,7 @@ The user of a supercomputer typically gives the computer a list of instructions,
 \begin{figure}
 	\centering
 	\includegraphics[width=0.85\textwidth]{images/supercomputer.jpg}
-	\caption{Summit, a world-class supercomputing cluster at Oak Ridge National Laboratory in Tennessee. Credit: https://insidehpc.com/2018/11/new-top500-list-lead-doe-supercomputers/}
+	\caption{Summit, a world-class supercomputing cluster at Oak Ridge National Laboratory in Tennessee. https://insidehpc.com/2018/11/new-top500-list-lead-doe-supercomputers/}
 	\label{fig:supercomputer}
 \end{figure}
 
@@ -150,34 +186,34 @@ Although not as powerful as supercomputers, mainframe computers can handle more 
 These are the familiar computers we use to interact with applications every day. Full-size desktop computers and laptop computers are examples
 
 \subsection{Embedded computers}
-In the modern "digital" age, nearly all devices we use have computers embedded within them. From cars to washing machines to watches to heating systems, most everyday appliances have a computer within them that allows them to function.
+In the modern ``digital'' age, nearly all devices we use have computers embedded within them. From cars to washing machines to watches to heating systems, most everyday appliances have a computer within them that allows them to function.
 
 \subsection{Mobile computers}
 In the past 2 decades, mobile devices have exploded onto the scene, and smartphones have essentially become as capable as standalone personal computers for many tasks.
 
 \section{Why computers are useful}
 
-Computers help us in most tasks in the modern age. We can use them, for example, to
+Computers help us in most tasks in the modern age. We can use them, for example, to:
 
 \begin{itemize}
-	\item write a letter
-	\item do our taxes
-	\item play video games
-	\item watch videos
-	\item surf the internet
-	\item keep in touch with friends
-	\item date
-	\item order food
-	\item control robots and self-driving cars
+	\item Write a letter.
+	\item Do our taxes.
+	\item Play video games.
+	\item Watch videos.
+	\item Surf the internet.
+	\item Keep in touch with friends.
+	\item Date.
+	\item Order food.
+	\item Control robots and self-driving cars.
 \end{itemize}
 
-\begin{example}
-What are some other tasks a computer can accomplish? 
-\end{example}
+\begin{exercise}
+What are some other tasks a computer can accomplish?
+\end{exercise}
 
 This is why the job market for computer scientists continues to expand, and why computer skills are more and more necessary even in non-computational jobs.
 
-According to a Stackoverflow survey from 2018 (https://insights.stackoverflow.com/survey/2018/), 9\% of professional coders on the online developer community have only been coding for 0-2 years. This demonstrates two things:
+According to a Stackoverflow survey from 2018,\footnote{https://insights.stackoverflow.com/survey/2018/} 9\% of professional coders on the online developer community have only been coding for 0-2 years. This demonstrates two things:
 
 \begin{enumerate}
 	\item The job market for people with coding skills is continually expanding
@@ -195,9 +231,18 @@ Some examples of careers in computer science include
 \item Database manager
 \end{itemize}
 
+\begin{exercise}
+  Think about building a simple video game. What are the hardware, software,
+  data needed for this game? What would be the minimal hardware, and what
+  hardware would you need to add features like voice chat or online play. What
+  types of computers would best run this game? Why?
+
+  Do the same for a text editor.
+\end{exercise}
+
 
 \referencessection
 
 Computer Science: An Interdisciplinary Approach, Robert Sedgewick and Kevin Wayne.
 
-University of Wisconsin-Madison CS 202 Lectures, Andrea Arpaci-Dusseau. (http://pages.cs.wisc.edu/~dusseau/Classes/CS202-F11/)
+University of Wisconsin-Madison CS 202 Lectures, Andrea Arpaci-Dusseau.\\http://pages.cs.wisc.edu/~dusseau/Classes/CS202-F11/

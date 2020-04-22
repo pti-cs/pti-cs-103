@@ -2,6 +2,9 @@
 
 \usepackage{style}
 
+\newif\ifdraft\drafttrue      % Uncomment to turn on comments
+%\newif\ifdraft\draftfalse   % Uncomment to turn off comments
+
 \begin{document}
 
 \frontmatter
@@ -18,10 +21,14 @@
 \mainmatter
 	\input{introduction.tex}
 	\pagebreak
+        \input{hello_world.tex}
+        \pagebreak
 	\input{hardware.tex}
 	\pagebreak
+        \input{numbering_systems}
+        \pagebreak
 	\input{proglang_linux.tex}
-    \pagebreak
+        \pagebreak
 	% \input{protocols.tex}
 	% \pagebreak
 	\input{networks.tex}
