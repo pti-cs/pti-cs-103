@@ -34,6 +34,7 @@ public class Deck {
     this.cards.add(newCard);
    }
   }
+  Collections.shuffle(this.cards);
  }
 
  public boolean isEmpty() {
@@ -47,8 +48,7 @@ public class Deck {
  public Card draw() {
    if (this.isEmpty())
      throw new IllegalStateException("No cards left to draw!");
-   int r = this.rand.nextInt(this.cards.size());
-   return this.cards.remove(r);
+   return this.cards.remove(this.cards.size() - 1);
  }
  
  public Collection<Card> deal(int nCards) {
@@ -56,12 +56,9 @@ public class Deck {
      throw new IllegalStateException("Not enough cards to deal!");
    ArrayList<Card> dealtCards = new ArrayList<Card>();
    for (int i = 0; i < nCards; i++) {
-     // TODO: replace this with "draw"
-     int r = this.rand.nextInt(this.cards.size());
-     dealtCards.add(this.cards.remove(r));
+     dealtCards.add(this.draw());
    }
    assert dealtCards.size() == nCards;
    return dealtCards;
-
  }
 }
