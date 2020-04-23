@@ -1,6 +1,6 @@
 \chapter{Types and Variables}
 
-We have seen a program that can print a simple ``Hello World" message to the screen. Next we will learn about basic types of data that can be used in a Java program to perform calculations. 
+We have seen a program that can print a simple ``Hello World'' message to the screen. Next we will learn about basic types of data that can be used in a Java program to perform calculations.
 
 In this chapter, we will first learn about different types of data, focusing on five Java data types: \ic{int}, \ic{double}, \ic{boolean}, \ic{char}, and \ic{String}. Then we will learn about arithmetic, comparison, and logical operators over those types. Finally, we will learn about variables.
 
@@ -11,15 +11,15 @@ Imagine the data you would find on a report card. It would probably have a lot o
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ |c|c|c| } 
+\begin{tabular}{ |c|c|c| }
  \hline
  Item & Example & Type of data \\
  \hline
  \hline
- Student name & John Doe & Text \\ 
+ Student name & John Doe & Text \\
  Course name & Honors Physics & Text \\
  Age & 17 & Integer (whole number) \\
- GPA & 3.75 & Floating point number\\ 
+ GPA & 3.75 & Floating point number\\
  \hline
 \end{tabular}
 \caption{Examples of pieces and types of data typically found on a report card.}
@@ -30,7 +30,7 @@ Now imagine an ice cream menu. It might have pictures of different flavors, alon
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ |c|c|c| } 
+\begin{tabular}{ |c|c|c| }
  \hline
  Item & Example & Type of data \\
  \hline
@@ -57,7 +57,7 @@ Take a look at the New Jersey driver's license in \autoref{fig:drivers_license}.
   \label{fig:drivers_license}
 \end{figure}
 
-We are surrounded by different types of data every day. We intuitively understand that different types of data interact in different ways. For example, you can add up the prices of multiple flavors of ice cream, but you cannot divide a student's name by their GPA. The same is true of data types in a Java program. 
+We are surrounded by different types of data every day. We intuitively understand that different types of data interact in different ways. For example, you can add up the prices of multiple flavors of ice cream, but you cannot divide a student's name by their GPA. The same is true of data types in a Java program.
 
 \begin{definition}
 A \emph{data type} is a set of values and a set of operations defined on them.
@@ -70,7 +70,7 @@ Representing numbers on a computer requires physical memory. For this reason, Ja
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ |c|c|p{4.5cm}|p{4.5cm}| } 
+\begin{tabular}{ |c|c|p{4.5cm}|p{4.5cm}| }
  \hline
  Type & Storage & Minimum Value & Maximum Value \\
  \hline
@@ -92,7 +92,7 @@ Representing numbers on a computer requires physical memory. For this reason, Ja
 \label{table:numeric_types}
 \end{table}
 
-In this course, we will focus on two of these numeric types: \ic{int} for integers and \ic{double} and floating-point numbers. We use \ic{int}s frequently in Java programs because integers, or whole numbers, show up naturally in everyday life. We also \ic{double}s frequently in Java programs because floating point numbers often show up naturally in scientific applications. A \ic{double} in Java can either be written as a number with a decimal point (e.g. \ic{3.1415} or \ic{4.0}) or using scientific notation (e.g. \ic{6.022e23}). The \ic{e} in this notation is shorthand for ``times 10 to the power of \_\_\_\_". For example, \ic{6.022e23} is equivalent to $6.022 \times 10^{23}$. 
+In this course, we will focus on two of these numeric types: \ic{int} for integers and \ic{double} and floating-point numbers. We use \ic{int}s frequently in Java programs because integers, or whole numbers, show up naturally in everyday life. We also \ic{double}s frequently in Java programs because floating point numbers often show up naturally in scientific applications. A \ic{double} in Java can either be written as a number with a decimal point (e.g. \ic{3.1415} or \ic{4.0}) or using scientific notation (e.g. \ic{6.022e23}). The \ic{e} in this notation is shorthand for ``times 10 to the power of \_\_\_\_''. For example, \ic{6.022e23} is equivalent to $6.022 \times 10^{23}$.
 
 \begin{example}
 What are examples of integers in everyday life? \\
@@ -110,44 +110,44 @@ What are examples of floating point numbers in everyday life? \\
 What is the value of \ic{1.23e3}? \\
 
 \noindent \emph{Answer}: It is $1.23 \times 10^3 = 1.23 \times 1000 = 1230$.
-\end{example} 
+\end{example}
 
 \subsection{True/false data}
-To represent true/false, yes/no, or on/off data, Java uses \ic{boolean}s. A \ic{boolean} can only be one of two possible values: \ic{true} or \ic{false}. For example, the statement ``The sky is blue right now" can only either be true or false. If it is daytime, it is most likely true. If it is nighttime or if the sun is currently setting, then it is most likely false. Similarly the statement ``2 plus 2 equals 4" is clearly true, so we can represent this as a \ic{boolean}. In the same way, we can see that ``3 times 4 is 11" is false. \ic{boolean}s may seem simple, but we will see soon how to combine them in complex and powerful ways.
+To represent true/false, yes/no, or on/off data, Java uses \ic{boolean}s. A \ic{boolean} can only be one of two possible values: \ic{true} or \ic{false}. For example, the statement ``The sky is blue right now'' can only either be true or false. If it is daytime, it is most likely true. If it is nighttime or if the sun is currently setting, then it is most likely false. Similarly the statement ``2 plus 2 equals 4'' is clearly true, so we can represent this as a \ic{boolean}. In the same way, we can see that ``3 times 4 is 11'' is false. \ic{boolean}s may seem simple, but we will see soon how to combine them in complex and powerful ways.
 
 \subsection{Textual data}
-In general, Java has two main types to represent textual data: a (1) \ic{char} for a single letter or symbol or a (2) \ic{String} for a sequence of multiple letters. A \ic{char} is a single alphanumeric character or symbol, like the ones you can type on your keyboard, that is expressed in Java using single quotes. \ic{'A'}, \ic{'z'}, and \ic{'\$'} are all examples of chars in Java. A \ic{String} is a sequence of characters that is expressed in Java using double quotes. \ic{"Hello World"} is an example of \ic{String}. 
+In general, Java has two main types to represent textual data: a (1) \ic{char} for a single letter or symbol or a (2) \ic{String} for a sequence of multiple letters. A \ic{char} is a single alphanumeric character or symbol, like the ones you can type on your keyboard, that is expressed in Java using single quotes. \ic{'A'}, \ic{'z'}, and \ic{'\$'} are all examples of chars in Java. A \ic{String} is a sequence of characters that is expressed in Java using double quotes. \ic{``Hello World''} is an example of \ic{String}.
 
 \begin{example}
 Is \ic{'@'} a valid \ic{char}? \\
 
 \noindent \emph{Answer}: Yes!
-\end{example} 
+\end{example}
 
 \begin{example}
-Is \ic{"P"} a valid \ic{char}? \\
+Is \ic{``P''} a valid \ic{char}? \\
 
 \noindent \emph{Answer}: No. A \ic{char} must use single quotes.
-\end{example} 
+\end{example}
 
 \begin{example}
 Is \ic{'ABC'} a valid \ic{char}? \\
 
 \noindent \emph{Answer}: No. A \ic{char} must only be a single character.
-\end{example} 
+\end{example}
 
 \begin{example}
 What are some examples of \ic{String}s in everyday life? \\
 
 \noindent \emph{Answer}: Text messages, names of friends, email addresses, a poem
-\end{example} 
+\end{example}
 
 \subsection{Summary of five types}
 Java has many built-in data types for different types of data: numeric, true/false, and text. In this section, we have focused on five of these types: \ic{int} for integers, \ic{double} for floating point numbers, \ic{boolean} for true/false values, \ic{char} for single characters, and \ic{String} for a sequence of characters. \autoref{table:types_summary} summarizes these five types.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ |c|c|c| } 
+\begin{tabular}{ |c|c|c| }
  \hline
  Type & Description & Examples \\
  \hline
@@ -156,11 +156,11 @@ Java has many built-in data types for different types of data: numeric, true/fal
  \hline
  \ic{double} & floating point number & 3.75, 6.022e23 \\
  \hline
- \ic{boolean} & true/false value & \ic{true}, \ic{false}, ``2 plus 2 equals 4" \\
+ \ic{boolean} & true/false value & \ic{true}, \ic{false} \\
  \hline
  \ic{char} & characters & \ic{'A'}, \ic{'\%'}, \ic{'5'} \\
  \hline
- \ic{String} & sequences of characters & \ic{"Hello"}, \ic{"123 Happy St."} \\
+ \ic{String} & sequences of characters & \ic{``Hello''}, \ic{``123 Happy St.''} \\
  \hline
 \end{tabular}
 \caption{A summary of five of Java's built-in types}
@@ -181,24 +181,24 @@ What is \ic{2 / 2}? What about \ic{3 / 2}? What about \ic{4 / 2}? \\
 \noindent \emph{Answer}: \ic{2 / 2} equals {1}. \\
 \ic{3 / 2} also equals {1} (after dropping the \ic{.5} from the answer \ic{1.5}). \\
 \ic{4 / 2} equals {2}.
-\end{example} 
+\end{example}
 
-Java also has an extra arithmetic operator, called the ``modulo" operator (or ``mod" for short), that looks like a percent symbol \ic{\%}. Its purpose is to compute the remainder when dividing two numbers. For example, \ic{13 \% 3}, which we pronounce as ``ten mod three", is equal to \ic{1} because 13 divided by 3 gives us 4, remainder 1. 
+Java also has an extra arithmetic operator, called the ``modulo'' operator (or ``mod'' for short), that looks like a percent symbol \ic{\%}. Its purpose is to compute the remainder when dividing two numbers. For example, \ic{13 \% 3}, which we pronounce as ``ten mod three'', is equal to \ic{1} because 13 divided by 3 gives us 4, remainder 1.
 
 \begin{example}
 What is \ic{15 \% 10}? What about \ic{6.25 \% 3}? \\
 
 \noindent \emph{Answer}: \ic{15 \% 10} equals \ic{5}. \\
 \ic{6.25 \% 3} equals \ic{0.25}.
-\end{example} 
+\end{example}
 
 TODO: Table of arithemic operators \\
 
-In addition to these five arithmetic operators, Java also provides additional mathematical functions that you might find on a basic scientific calculator, such as square root, absolute value, logarithms, etc. For example, \ic{Math.sqrt(25)} equals \ic{5} and \ic{Math.abs(-10)} equals \ic{10}. \autoref{table:math_functions} lists a few examples of mathematical functions provided by Java. 
+In addition to these five arithmetic operators, Java also provides additional mathematical functions that you might find on a basic scientific calculator, such as square root, absolute value, logarithms, etc. For example, \ic{Math.sqrt(25)} equals \ic{5} and \ic{Math.abs(-10)} equals \ic{10}. \autoref{table:math_functions} lists a few examples of mathematical functions provided by Java.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ |c|c|c| } 
+\begin{tabular}{ |c|c|c| }
  \hline
  Function & Description & Example \\
  \hline
@@ -220,14 +220,14 @@ Of course, we can combine all of these arithmetic operators and mathematical fun
 What is the result of \ic{Math.sqrt(9) + (5 * 2) - Math.abs(-3)}? \\
 
 \noindent \emph{Answer}: \ic{Math.sqrt(9) + (5 * 2) - Math.abs(-3)} equals \ic{3 + 10 - 3} which is equal to \ic{10}.
-\end{example} 
+\end{example}
 
 \subsection{Comparison operators}
 Comparison operators are operators that compare numeric data. You are probably familiar with the following comparison symbols from math class: $=, <, \leq, >$, and $\geq$. In Java, we use the symbols \ic{==}, \ic{!=}, \ic{<}, \ic{<=}, \ic{>}, \ic{>=}. The result of any comparison operation is a \ic{boolean}. For example, the result of \ic{5 >= 3} is \ic{true}. \autoref{table:comparison_ops} summarizes a list of these comparison operators along with examples.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ |c|c|c|c| } 
+\begin{tabular}{ |c|c|c|c| }
  \hline
  Operator & Description & Example 1 & Example 2 \\
  \hline
@@ -250,31 +250,102 @@ Comparison operators are operators that compare numeric data. You are probably f
 \end{table}
 
 \subsection{Logical operators}
-TODO: Logical operators \ic{\&\&}, \ic{\textbar\textbar}, and \ic{!}. \\
-TODO: Truth tables
-TODO: Boolean algebra (maybe)
+
+Logical operators are used to manipulate boolean values. Like comparison operators, the result of an expression with logical operators is a boolean. The three most common logical operators in Java are \ic{\&\&} (logical And), \ic{||} (logical Or) and \ic{!} (logical Not). There are also other operators (|, \&, \^) that we will not cover. Finally, the equality and inequality operators (==, !=) can be applied on boolean values too.
+
+The logical And takes two boolean values and returns true exactly when both values are true. To use it, write the operator between the values. For example, \ic{false \&\& true} applies And to false and true, and the result is false. The following table summarizes the values of And for every input:
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c|c| }
+ \hline
+ A & B & \ic{And (A \&\& B)} \\
+ \hline
+ \hline
+ false & false & false \\
+ \hline
+ false & true & false \\
+ \hline
+ true & false & false \\
+ \hline
+ true & true & true\\
+ \hline
+\end{tabular}
+\caption{The truth table of And}
+\label{table:And}
+\end{table}
+
+The logical Or takes two boolean values and returns true when at least one of them is true. Notice that, unlike its usage in language, Or is not exclusive - \ic{A || B} does not mean ``either A or B'' but ``at least one of the two - A, B''. The following table summarizes the values of Or for every input:
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{ |c|c|c| }
+ \hline
+ A & B & \ic{Or (A || B)} \\
+ \hline
+ \hline
+ false & false & false \\
+ \hline
+ false & true & true \\
+ \hline
+ true & false & true \\
+ \hline
+ true & true & true\\
+ \hline
+\end{tabular}
+\caption{The truth table of Or}
+\label{table:Or}
+\end{table}
+
+The logical Not operates on one boolean value, and inverts it. It is written before the value, so for example \ic{!false} is equal to true. 
+
+Like arithmetic and comparison operators, we can combine different logic operators, and even comparison operators, in the same expression.
+
+\begin{example}
+What is the result of \ic{(!(2 > 3)) || (0 == 1)}? \\
+
+\noindent \emph{Answer}: \ic{2 > 3} is false. Therefore, \ic{!(2 > 3)} is true. Since at least one of \ic{!(2 > 3)}, \ic{0 == 1} is true, the whole expression is true.
+\end{example}
+
+\subsection{Operator Precedence}
+
+We already saw that parentheses can be used to mark the order in which we want to apply operators. What happens, however, when we do not specify the order ourselves? For example, what is the value of \ic{2 > 3 || 0 == 1}? It turns out that in this case, the order of operation the Java language will choose is the same as for the expression \ic{(2 > 3) || (0 == 1)}. This is because some operators take precedence, and are computed before others. In this case, the first operator to be computed is >, and it interprets its arguments as the nearest, 2 and 3. Then == is executed, interpreting its arguments as 0 and 1. Only then || is executed, and the arguments it recognizes are the results of the previous comparisons.
+
+We will not cover the complete order of precedence (that also includes many operators not covered here), and the way ties are broken (for example, in \ic{A || B || C}). Important rules to remember are:
+
+\begin{itemize}
+\item Parentheses take precedence over any other operator.
+\item Logical And takes precedence over logical Or. 
+\item Multiplication takes precedence over addition.
+\item Arithmetic operation take precedence over comparisons, who take precedence over logical operators.
+\end{itemize}
+
+When in doubt, use parentheses. Even if the result is the same, this can help a reader follow your code more easily. 
+
 
 \subsection{\ic{String} methods}
 TODO: Concatenation, String methods (like .equals())
 
 \section{Variables}
-We have now seen data types and operators. So far, we have only worked with \emph{literals}, meaning we have given \emph{literal} examples of values of data types, such as \ic{5} for \ic{int}s or \ic{"Hello World"} for \ic{String}s. 
+We have now seen data types and operators. So far, we have only worked with \emph{literals}, meaning we have given \emph{literal} examples of values of data types, such as \ic{5} for \ic{int}s or \ic{``Hello World''} for \ic{String}s.
 
 \begin{definition}
 A \emph{literal} is an explicit data value used in a program.
 \end{definition}
 
-Sometimes, however, we might want to use a \emph{placeholder} to refer to an item of data. This often allows our Java programs to be more general. For example, instead of typing \ic{"John Doe"} literally in our program, we might use \ic{fullname} as a \emph{variable}, or a placeholder, to refer to a person's name on a document.
+Sometimes, however, we might want to use a \emph{placeholder} to refer to an item of data. This often allows our Java programs to be more general. For example, instead of typing \ic{``John Doe''} literally in our program, we might use \ic{fullname} as a \emph{variable}, or a placeholder, to refer to a person's name on a document.
 
 \begin{definition}
 A \emph{variable} is a name for a location in memory used to hold a data value.
 \end{definition}
 
-\noindent To create and use a variable, we typically need to do three main things: 
+\noindent To create and use a variable, we typically need to do three main things:
 \begin{enumerate}
  \item Choose what type of data it will represent (e.g. \ic{int} or \ic{boolean})
- \item Choose what we want to call it (e.g. \ic{name} or \ic{fullname} or \ic{person}) 
- \item Store a value into the variable (e.g \ic{"John Doe"} or \ic{"Mary Jane"})
+ \item Choose what we want to call it (e.g. \ic{name} or \ic{fullname} or \ic{person})
+ \item Store a value into the variable (e.g \ic{``John Doe''} or \ic{``Mary Jane''})
 \end{enumerate}
 We can accomplish these three tasks in two main steps: \emph{declaration} and \emph{assignment}.
 
@@ -447,21 +518,40 @@ Programming is often a collaborative process, in which different people work on 
 \begin{exercise}
 Which of the following lines is a valid Java code? Assume that no variable has been previously defined. If a line is incorrect, explain which rules are violated in it. Remember that naming conventions are not rules of the langauge, but (important) recommentations.
 \begin{itemize}
-\item \ic{String String = "Hello World!";}
+\item \ic{String String = ``Hello World!'';}
 \item \ic{String Songname;}
 \item \ic{String first paragraph;}
 \item \ic{short numerator = 20;}
 \item \ic{int STREET\_NAME;}
 \item \ic{Short index;}
 \item \ic{String message = "String";}
+\item \ic{char firstLetter = "c";}
 \item \ic{int MAX\_VALUE = "10";}
 \end{itemize}
 \end{exercise}
 
 \begin{exercise}
-TODO: Quadratic formula
+Which of the following expressions is a valid Java code? If an expression is valid, determine the result of it. Otherwise, explain why it is not valid.
+\begin{itemize}
+\item \ic{1 * 2 * 3}
+\item \ic{(1 * 2) * 3}
+\item \ic{1 < 2 < 3}
+\item \ic{2 - 1 + 3}
+\item \ic{2 - (1 + 3)}
+\item \ic{(2 - 1) + 3}
+\item \ic{true || 2 == 3}
+\item \ic{(true || 2) == 3}
+\item \ic{(true || 2) == 3}
+\item \ic{3 / 2 + 1}
+\item \ic{3 / (2 + 1)}
+\item \ic{true \&\& false \&\& true}
+\item \ic{!((true == false) \&\& !(2 > 3))}
+\end{itemize}
 \end{exercise}
 
+TODO: complex logical operations.
+TODO: logical operations and comparisons.
+TODO: Answers?
 \referencessection
 
 Computer Science: An Interdisciplinary Approach, Robert Sedgewick and Kevin Wayne.
