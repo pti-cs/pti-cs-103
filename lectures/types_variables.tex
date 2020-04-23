@@ -290,8 +290,6 @@ An \emph{declaration statement} (1) reserves a portion of memory space large eno
  \item \ic{boolean isOrganDonor;}
 \end{itemize}
 
-TODO: Explain scoping (declaration of a variable determines its scope).
-
 \begin{definition}
 An \emph{assignment statement} sets and/or resets the value stored in the storage location denoted by a variable name; in simpler terms, it stores, or \emph{assigns}, a value to a variable.
 \end{definition}
@@ -311,6 +309,18 @@ TODO: Example with ==
 TODO: The "direction" of the = is important. We don't write "5 = x;"
 TODO: Declare and assign in the same line of code.
 
+
+A declaration can also be combined with an assignment. This is convenient when we already know what value we want our variable to hold, when declaring it. The following two lines,
+
+\ic{String name;}
+\ic{name = \"John Doe\";}
+
+are equivalent to this single line:
+
+\ic{String name = \"John Doe\"}
+
+TODO: Explain scoping (declaration of a variable determines its scope).
+
 Previously we saw that we can combine multiple operations with literals to perform more complex computation. In the same way, we can combine literals and variables and operators altogether.
 
 \begin{definition}
@@ -323,11 +333,44 @@ TODO: Example of variable updating itself (x = x + 3, x += 2, x++, etc).
 TODO: Type conversion (promotion, casting, functions)
 
 \subsection{Variable names}
-TODO: Naming rules (can't start with number, can't be a reserved key word, etc)
-TODO: Naming conventions (camelCase for most variables, UPPER_CASE for constants)
+
+There are some rules variable names need to follow (with some exceptions omitted):
+
+\begin{itemize}
+\item A variable name must begin with a letter.
+\item The digits 0-9 and the character _ can appear in a variable name, as long as it does not begins with them. 
+\item Spaces and other special characters (like \%, # and ^) cannot appear in a variable name.
+\item A keyword used for the Java language itself cannot be used as a variable name (for example, "String").
+\end{itemize}
+
+Lower- and upper-case letters are considered different in variable names, and so "name" and "Name" are considered different names. There are naming conventions for variables, that help us read code easily and understand what the function of each variable is:
+
+\begin{itemize}
+\item Variables should have short, meaningful names. Limit variable names to a few short words, and make sure that a reader unfamiliar with the code could easily understand what the purpose of each variable is. 
+\item Most variable names should start with a lower-case letter, and each new word after the first should start with an upper-case letter (for example, "firstName"). This naming pattern is called camel case, and is used for many other languages.
+\item Constant variables, whose value should not change, should be written with all caps (upper-case letters), and different words should be separated by an underscore (for example, "MAXIMAL_WEIGHT").
+\item Temporary variables, that are only used for a short part of the code, can have single letter names. Typically, i, j, k, m, and n are used for integer values, and c, d and e for characters.
+\end{itemize}
+
+Programming is often a collaborative process, in which different people work on the same body of code. This makes good naming conventions, and good code writing habits in general, an extremely important part of programming. In fact, you might find yourself going back to code you have written a while ago, and find that you are unfamiliar with it.
+
 TODO: Add list of Java reserved key words in Appendix
 
 \exercisesection
+
+\begin{exercise}
+Which of the following lines is a valid Java code? Assume that no variable has been previously defined. If a line is incorrect, explain which rules are violated in it. Remember that naming conventions are not rules of the langauge, but (important) recommentations.
+\begin{itemize}
+\item \ic{String String = "Hello World!";}
+\item \ic{String Songname;}
+\item \ic{String first paragraph;}
+\item \ic{short numerator = 20;}
+\item \ic{int STREET_NAME;}
+\item \ic{Short index;}
+\item \ic{String message = "String";}
+\item \ic{int MAX_VALUE = "10";}
+\end{itemize}
+\end{exercise}
 
 \begin{exercise}
 TODO: Quadratic formula
@@ -340,3 +383,5 @@ Computer Science: An Interdisciplinary Approach, Robert Sedgewick and Kevin Wayn
 Lewis, John, Peter DePasquale, and Joseph Chase. Java Foundations: Introduction to Program Design and Data Structures. Addison-Wesley Publishing Company, 2010.
 
 Wikipedia
+
+\ab{How do I reference https://www.geeksforgeeks.org/java-naming-conventions? (and should I?)}
