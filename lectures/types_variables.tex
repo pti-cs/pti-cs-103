@@ -296,41 +296,129 @@ An \emph{assignment statement} sets and/or resets the value stored in the storag
 
 \noindent Examples of assignment statements include:
 \begin{itemize}
- \item \ic{name = \"John Doe\";}
+ \item \ic{name = "John Doe";}
  \item \ic{age = 17;}
  \item \ic{gpa = 3.75;}
  \item \ic{isOrganDonor = true;}
 \end{itemize}
-Of course, the values you store into variables must match the type you declared them to be. Otherwise, you will encounter a compiler error. 
+Of course, the values you store into variables must match the type you declared them to be. Otherwise, you will encounter a compiler error. For example, \ic{int x = "x";} would lead to an error.
 
-It is important to note the difference between the single equals sign here and the double equals sign we saw earlier. In \ic{age = 17;} the single equals sign represents an \emph{assignment statement}, meaning we are storing the value 17 into a variable named \ic{age}. In contrast, in \ic{age == 17}, the double equals sign represents the fact that we are comparing the value of age to 17, meaning we are asking a yes/no question, whether or not \ic{age} is equal to 17. 
+In Java, you are allowed to combine a declaration statement and an assignment statement into a single line. For example, instead of a line \ic{String name;} followed by another line \ic{name = "John Doe";}, you can write a single line, \ic{String name = "John Doe";}.
 
-TODO: Example with ==
-TODO: The "direction" of the = is important. We don't write "5 = x;"
-TODO: Declare and assign in the same line of code.
+\begin{exercise}
+  What will the following code snippet print out?
+  \begin{code}
+    String a = "computer  science ";
+    int b = 4;
+    String c = " ever";
+    System.out.print(a);
+    System.out.print(b);
+    System.out.print(c);
+    System.out.println();
 
+    c = " life";
+    System.out.print(a);
+    System.out.print(b);
+    System.out.print(c);
+    System.out.println();
+  \end{code}
+\end{exercise}
 
-A declaration can also be combined with an assignment. This is convenient when we already know what value we want our variable to hold, when declaring it. The following two lines,
+It is important to note the difference between the single equals sign used for assignment and the double equals sign used for comparison. In \ic{age = 17;} the single equals sign represents an \emph{assignment statement}, meaning we are storing the value 17 into a variable named \ic{age}. In contrast, in \ic{age == 17}, the double equals sign represents the fact that we are comparing the value of age to 17, meaning we are asking a yes/no question, whether or not \ic{age} is equal to 17. Look at the following code snippet and make sure you understand the difference between \ic{=} and \ic{==}.
 
-\ic{String name;}
-\ic{name = \"John Doe\";}
+\begin{code}
+  int a = 5;
+  int b = 3;
+  System.out.println(a == b);   // prints false
+  a = b;                        // now a is 3
+  System.out.println(a == b);   // prints true
+\end{code}
 
-are equivalent to this single line:
+When using the \ic{=} operator to assign to a variable, the variable you are assigning to should always go on the left. For example, we can write \ic{x = 5;} to assign \ic{5} to \ic{x}, but \ic{5 = x;} is not valid Java code, since we can't assign to a literal. If we have two different variables, say \ic{x} and \ic{y}, then \ic{x = y;} and \ic{y = x;} are both valid lines of code, but they do different things. If we write \ic{x = y;}, then the value of \ic{x} changes to become the value of \ic{y}. If we write \ic{y = x;}, then the value of \ic{y} changes to become the value of \ic{x}.
 
-\ic{String name = \"John Doe\"}
+\begin{exercise}
+  Fill in some code in the middle of the following snippet to swap the values of \texttt{a} and \texttt{b}. The code should print \ic{ABBA} if you do this correctly. \emph{Hint:} you may need to define a third variable!
+  \begin{code}
+    String a = "A";
+    String b = "B";
+    System.out.print(a);
+    System.out.print(b);
 
-TODO: Explain scoping (declaration of a variable determines its scope).
+    // Your code here
+    // Swap the values of a and b
+
+    System.out.print(a);
+    System.out.println(b);
+  \end{code}
+\end{exercise}
+
+A declaration statement will also lead to a compiler error if the variable has already been declared. For example, if we have a line \ic{int x = 5;} followed by another line \ic{int x = 7;}, the compiler will see the second line and complain that the variable \ic{x} has already been declared. You might imagine that this could cause some difficulties: in a large program, we might want to use the variable \ic{x} to mean different things at different points, without worrying about whether \ic{x} has been declared earlier. Luckily, Java and most other programming languages provide a tool to manage this, called \emph{scope}.
+\begin{definition}
+  The \emph{scope} of a variable is the section of code where it can be referenced.
+\end{definition}
+In all of the examples we have seen so far, the scope of a variable consists of all lines after the declaration statement for that variable. In later lectures, we will see how more advanced tools can restrict the scope of variables.
 
 Previously we saw that we can combine multiple operations with literals to perform more complex computation. In the same way, we can combine literals and variables and operators altogether.
-
 \begin{definition}
 An \emph{expression} is a combination of one or more operators and operands that usually performs a calculation.
 \end{definition}
+For example, look at the following code snippet for computing the area of a circle.
+\begin{code}
+  double radius = 4.5;
+  double area = 3.14*radius*radius;
 
-TODO: Example of assigning variable to the result of an expression
-TODO: Example of exchanging values of variables (swap, introducing temp variable)
-TODO: Example of variable updating itself (x = x + 3, x += 2, x++, etc).
-TODO: Type conversion (promotion, casting, functions)
+  System.out.print("Radius: ");
+  System.out.println(radius);
+  System.out.print("Area: ");
+  System.out.println(area);
+\end{code}
+
+We can even update the value of a variable with an expression that includes that same variable. For example, \ic{x = x + 5;} will increase the value of \ic{x} by 5.
+
+\begin{exercise}
+  To convert from Celsius to Fahrenheit, multiply by 1.8 and then add 32. Fill in a single line of code below to convert \ic{temp} from Celsius to Fahrenheit;
+
+  \begin{code}
+    double temp = 12;
+    System.out.print("The temperature is ");
+    System.out.print(temp);
+    System.out.println(" degrees Celsius");
+
+    // Your code here
+
+    System.out.print("The temperature is ");
+    System.out.print(temp);
+    System.out.println(" degrees Fahrenheit");
+  \end{code}
+\end{exercise}
+
+There are a few shorthand notations for updating variables. If you want to act on a variable \ic{var} with a single operator, such as \ic{var = var - 7;} or \ic{var = var * 2.3;}, you can abbreviate this as \ic{var -= 7;} or \ic{var *= 2.3} respectively. This works for any of the arithmetic operators: you can use \ic{+=}, \ic{-=}, \ic{*=}, \ic{/=}, or \ic{\%=}.
+
+When mixing variables in expressions, it is important to be aware of their types and to know how variables of different types combine together. When working with numeric types, if you combine two values of the same type with an operator, the result will also be of that type. A common pitfall for this rule is division: if you divide two \ic{int}s, the result will be an \ic{int}.
+\begin{code}
+  int x = 8;
+  int y = 5;
+  System.out.println(x/y); // prints 1
+\end{code}
+Even though 8/5 = 1.6, Java will interpret \ic{x/y} as another \ic{int}, so it becomes \ic{1}. This is just like dividing integer literals, but with variables, you have to keep in mind what the variable types are so you will know if division will be truncated.
+
+When you combine two different numeric types, the result will be a value of the more precise type. The most common example of this is combining an \ic{int} with a \ic{double}, which will result in a \ic{double}.
+
+You can also override Java's default rules for assigning types to expressions by using \emph{casting}. Casting allows you to tell Java to interpret an expression as a given type by putting the desired type in front of the expression in parentheses: for example, \ic{(int) x} casts \ic{x} to an \ic{int}. For now, we will only use casting to convert between different numeric types. Later on we will learn more detailed rules for casting.
+
+\begin{example}
+  Look at the following examples and make sure you understand how Java assigns a type to each expression. Keep track of the parentheses so you know what is being casted.
+  \begin{code}
+    double eight = 8.0;
+    int five = 5;
+
+    System.out.println(eight/five); // prints 1.6
+    System.out.println((int)(eight/five)); // prints 1
+    System.out.println(eight/((double)five)); // prints 1.6
+    System.out.println(((int) eight)/five); // prints 1
+    System.out.println(((int) eight)/((double) five)); // prints 1.6
+  \end{code}
+\end{example}
 
 \subsection{Variable names}
 
@@ -338,23 +426,21 @@ There are some rules variable names need to follow (with some exceptions omitted
 
 \begin{itemize}
 \item A variable name must begin with a letter.
-\item The digits 0-9 and the character _ can appear in a variable name, as long as it does not begins with them. 
-\item Spaces and other special characters (like \%, # and ^) cannot appear in a variable name.
-\item A keyword used for the Java language itself cannot be used as a variable name (for example, "String").
+\item The digits 0--9 and the character \_ can appear in a variable name, as long as it does not begins with them. 
+\item Spaces and other special characters (like \%, \#, and \textasciicircum) cannot appear in a variable name.
+\item A keyword used for the Java language itself cannot be used as a variable name (for example, \ic{String}).
 \end{itemize}
 
-Lower- and upper-case letters are considered different in variable names, and so "name" and "Name" are considered different names. There are naming conventions for variables, that help us read code easily and understand what the function of each variable is:
+Lower- and upper-case letters are considered different in variable names, and so \ic{name} and \ic{Name} are considered different names. There are naming conventions for variables, that help us read code easily and understand what the function of each variable is:
 
 \begin{itemize}
 \item Variables should have short, meaningful names. Limit variable names to a few short words, and make sure that a reader unfamiliar with the code could easily understand what the purpose of each variable is. 
-\item Most variable names should start with a lower-case letter, and each new word after the first should start with an upper-case letter (for example, "firstName"). This naming pattern is called camel case, and is used for many other languages.
-\item Constant variables, whose value should not change, should be written with all caps (upper-case letters), and different words should be separated by an underscore (for example, "MAXIMAL_WEIGHT").
-\item Temporary variables, that are only used for a short part of the code, can have single letter names. Typically, i, j, k, m, and n are used for integer values, and c, d and e for characters.
+\item Most variable names should start with a lower-case letter, and each new word after the first should start with an upper-case letter (for example, \ic{firstName}). This naming pattern is called camel case, and is used for many other languages.
+\item Constant variables, whose value should not change, should be written with all caps (upper-case letters), and different words should be separated by an underscore (for example, \ic{MAXIMAL\_WEIGHT}).
+\item Temporary variables, that are only used for a short part of the code, can have single letter names. Typically, \ic{i}, \ic{j}, \ic{k}, \ic{m} and \ic{n} are used for integer values, and \ic{c}, \ic{d} and \ic{e} for characters.
 \end{itemize}
 
 Programming is often a collaborative process, in which different people work on the same body of code. This makes good naming conventions, and good code writing habits in general, an extremely important part of programming. In fact, you might find yourself going back to code you have written a while ago, and find that you are unfamiliar with it.
-
-TODO: Add list of Java reserved key words in Appendix
 
 \exercisesection
 
@@ -365,10 +451,10 @@ Which of the following lines is a valid Java code? Assume that no variable has b
 \item \ic{String Songname;}
 \item \ic{String first paragraph;}
 \item \ic{short numerator = 20;}
-\item \ic{int STREET_NAME;}
+\item \ic{int STREET\_NAME;}
 \item \ic{Short index;}
 \item \ic{String message = "String";}
-\item \ic{int MAX_VALUE = "10";}
+\item \ic{int MAX\_VALUE = "10";}
 \end{itemize}
 \end{exercise}
 
