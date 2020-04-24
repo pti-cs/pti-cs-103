@@ -433,15 +433,15 @@ TODO: Add list of Java reserved key words in Appendix
 \begin{exercise}
 Which of the following lines is a valid Java code? Assume that no variable has been previously defined. If a line is incorrect, explain which rules are violated in it. Remember that naming conventions are not rules of the langauge, but (important) recommentations.
 \begin{itemize}
-\item \ic{String String = ``Hello World!'';}
+\item \ic{String String = "Hello World!";}
 \item \ic{String Songname;}
 \item \ic{String first paragraph;}
 \item \ic{short numerator = 20;}
 \item \ic{int STREET\_NAME;}
 \item \ic{Short index;}
-\item \ic{String message = ``String'';}
+\item \ic{String message = "String";}
 \item \ic{char firstLetter = "c";}
-\item \ic{int MAX\_VALUE = ``10'';}
+\item \ic{int MAX\_VALUE = "10";}
 \end{itemize}
 \end{exercise}
 
@@ -456,12 +456,36 @@ Which of the following expressions is a valid Java code? If an expression is val
 \item \ic{(2 - 1) + 3}
 \item \ic{true || 2 == 3}
 \item \ic{(true || 2) == 3}
-\item \ic{(true || 2) == 3}
 \item \ic{3 / 2 + 1}
 \item \ic{3 / (2 + 1)}
 \item \ic{true \&\& false \&\& true}
 \item \ic{!((true == false) \&\& !(2 > 3))}
 \end{itemize}
+\end{exercise}
+
+\begin{exercise}
+If the assignment is valid, determine the value of the variable \ic{test}. Otherwise, explain why it is not valid.
+\begin{itemize}
+\item \ic{double test = 3/2.0;}
+\item \ic{int test = 3/2.0;}
+\item \ic{short test = 3/2.0;}
+\item \ic{short tmp = 3; double test = tmp;}
+\item \ic{double tmp = 3; short test = tmp;}
+\end{itemize}
+\end{exercise}
+
+What will be the value of the variable \ic{test} in each of these statements? 
+\begin{itemize}
+\item \ic{int tmp = 1; int test = (int) tmp}
+\item \ic{int tmp = 1; double test = (double) tmp}
+\item \ic{double tmp = 1.1; int test = (int) tmp}
+\item \ic{int tmp = 1.1; double test = (double) tmp}
+\item \ic{double tmp = 1.1; int test = (int) tmp}
+\item \ic{short tmp = 1.1; double test = (double) tmp}
+\item \ic{double tmp = 1.1; short test = (short) tmp}
+\end{itemize}
+\begin{exercise}
+
 \end{exercise}
 
 TODO: complex logical operations.
