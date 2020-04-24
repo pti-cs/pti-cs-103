@@ -485,6 +485,26 @@ You can also override Java's default rules for assigning types to expressions by
   \end{code}	
 \end{example}	
 
+Java will attempt ``automatic type conversion" in case you try to assign a lower-precision value to a type of higher precision without casting yourself. Java will throw an error, however, if you try to assign a higher-precision value to a lower-precision type. This can get very confusing. So it's always best to avoid type conversion in your code when you can, and explicitly cast the type when you must. 
+
+\begin{exercise}
+  What will happen if you compile and run this code? 
+  \begin{code}
+    int intEight = 8;
+   double doubleEight = intEight;
+   System.out.println(doubleEight);
+  \end{code}
+  
+  How about this code? 
+  \begin{code}
+  double doubleEight = 8.0;
+  int intEight = doubleEight; 
+  System.out.println(intEight);
+  \end{code}
+  
+\noindent \emph{Answer}: In the first example, Java will happily use automatic type conversion to convert the lower-precision int (intEight) to the higher-precision double (doubleEight). The output of the code is \ic{8.0}, the double version of \ic{8}. In the second example, however, Java cannot use automatic type conversion to go from a higher-precision double (doubleEight) to a lower-precision int (intEight). Java will throw an error when you try to compile this code. 
+\end{exercise}
+
 \subsection{Variable names}
 
 There are some rules variable names need to follow (with some exceptions omitted):
@@ -505,7 +525,7 @@ Lower- and upper-case letters are considered different in variable names, and so
 
 Programming is often a collaborative process, in which different people work on the same body of code. This makes good naming conventions, and good code writing habits in general, an extremely important part of programming. In fact, you might find yourself going back to code you have written a while ago, and find that you are unfamiliar with it.
 
-TODO: Add list of Java reserved key words in Appendix
+\ja{Add list of Java reserved key words in Appendix}
 
 \exercisesection
 
@@ -553,16 +573,17 @@ Which of the following expressions is a valid Java code? If an expression is val
 \end{exercise}
 
 \begin{exercise}
-If the assignment is valid, determine the value of the variable \ic{test}. Otherwise, explain why it is not valid.
+Determine the value of the variable \ic{test}. 
 \begin{itemize}
+\item \ic{int test = 4/2;}
+\item \ic{int test = 3/2;}
+\item \ic{double test =4.0/2}
+\item \ic{double test =3.0/2}
 \item \ic{double test = 3/2.0;}
-\item \ic{int test = 3/2.0;}
-\item \ic{short test = 3/2.0;}
-\item \ic{short tmp = 3; double test = tmp;}
-\item \ic{double tmp = 3; short test = tmp;}
 \end{itemize}
 \end{exercise}
 
+\begin{exercise}
 What will be the value of the variable \ic{test} in each of these statements? 
 \begin{itemize}
 \item \ic{int tmp = 1; int test = (int) tmp}
@@ -572,14 +593,12 @@ What will be the value of the variable \ic{test} in each of these statements?
 \item \ic{double tmp = 1.1; int test = (int) tmp}
 \item \ic{short tmp = 1.1; double test = (double) tmp}
 \item \ic{double tmp = 1.1; short test = (short) tmp}
+\item \ic{int tmp = 3; double test = tmp;}
+\item \ic{double tmp = 3; int test = tmp;}
 \end{itemize}
-\begin{exercise}
-
 \end{exercise}
 
-TODO: complex logical operations.
-TODO: logical operations and comparisons.
-TODO: Answers?
+
 \referencessection
 
 Computer Science: An Interdisciplinary Approach, Robert Sedgewick and Kevin Wayne.
