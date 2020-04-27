@@ -105,7 +105,122 @@ In Figure \ref{fig:linux:two}, the $\sim$ sign prepending the command represents
 
 If we want to create a file inside the commandLineLearning directory, we can use the ‘touch’ command to create a new file. If we want to see the files in the directory, we can use the ‘ls’ command to list all of the files inside the current directory. Finally, if we want to move back to the directory we were in before, we can use the ‘cd’ command with the parameters ‘..’ to move to the directory my current directory is contained within. In Linux, ‘..’ refers to the directory that contains the current directory, or the parent directory. These commands are summarized in Figure \ref{fig:linux:three}. \\
 
-Try these commands out! You can edit the contents of test using any file editing software. To view the contents of the test file after edit it, you can use the `cat` command (Figure \ref{fig:linux:four}). \\
+Try these commands out! You can edit the contents of test using any file editing software. To view the contents of the test file after you edit it, you can use the `cat` command (Figure \ref{fig:linux:four}). \\
+
+\section{Exercise: Running Hello World in the Command Line}
+
+In this exercise, we will create a ``Hello World'' program in Java and run it --- only using the command line.
+
+\begin{enumerate}
+\item 
+First, open the command line. 
+\item Run the command \codeblock{cd $\sim$} which will move you to inside the \codeblock{$\sim$} folder. The \codeblock{$\sim$}  folder refers to your home directory.
+\item 
+Run \codeblock{mkdir hello\_world}. This will create a folder called \codeblock{hello\_world}. 
+\item 
+To check that you ran these commands correctly, run the command \codeblock{ls}. This will display all of the folders and files in your directory. Check to see if there is a folder called \codeblock{hello\_world}. See Figure \ref{fig:linux:exercise:one}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_one}
+	\caption{Creating a folder called \codeblock{hello\_world} in your home directory. After running `ls`, there should be a folder called \codeblock{hello\_world}. (\codeblock{hello\_world} is listed first above.)}
+	\label{fig:linux:exercise:one}
+\end{figure}
+
+\item 
+Now that we created \codeblock{hello\_world}, let's go inside the folder. To do so, run \codeblock{cd hello\_world}. 
+
+There are two things to notice (see Figure \ref{fig:linux:exercise:two}). First, notice that the left side (before the \$ sign) changes. This is because the left side indicates your current directory, which has changed from \codeblock{$\sim$} to \codeblock{hello\_world}.
+
+Second, if you run \codeblock{ls} afterwards, nothing should show up. This is because the \codeblock{hello\_world} folder is currently empty.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_two}
+	\caption{Navigating to the \codeblock{hello\_world} folder.}
+	\label{fig:linux:exercise:two}
+\end{figure}
+
+\item Now run \codeblock{touch HelloWorld.java}. This will create a new (empty) file called \codeblock{HelloWorld.java}.
+
+\item Let's verify that the \codeblock{HelloWorld.java} file is empty. Run \codeblock{cat HelloWorld.java}. Nothing should appear, since \codeblock{HelloWorld.java} is empty. See Fig \ref{fig:linux:exercise:three}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_three}
+	\caption{Creating the \codeblock{HelloWorld.java} file using the \codeblock{touch} command, and verifying that the file is empty.}
+	\label{fig:linux:exercise:three}
+\end{figure}
+
+\item Now it's time to write in our file. Run \codeblock{nano HelloWorld.java}. This will open \codeblock{HelloWorld.java} using a text editor called nano. After running the command, your screen should look Figure \ref{fig:linux:exercise:four}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_four}
+	\caption{Screen after running \codeblock{nano HelloWorld.java}.}
+	\label{fig:linux:exercise:four}
+\end{figure}
+
+\item Write the following code in the file. For big spaces (e.g. the beginning of the second line), use the TAB button.
+
+\begin{code}
+class HelloWorld {
+        public static void main(String[] args) {
+                System.out.println("Hello World!");
+        }
+}
+\end{code}
+
+After writing the code, your screen should look like Figure \ref{fig:linux:exercise:five}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_five}
+	\caption{Screen after typing code into text editor for \codeblock{HelloWorld.java}.}
+	\label{fig:linux:exercise:five}
+\end{figure}
+
+\item Now let's save our work. Hit the CONTROL and X keys simultaneously. The bottom  of the screen will change to look like Figure \ref{fig:linux:exercise:six}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_six}
+	\caption{Screen after hitting CONTROL-X to exit the text editor.}
+	\label{fig:linux:exercise:six}
+\end{figure}
+
+Now hit Y to save (you might have to hit enter afterwards too). This should bring you back to the original command line screen, before you entered the text editor.
+
+\item Let's check that our work was saved. Run \codeblock{cat HelloWorld.java}. This will print out the contents of \codeblock{HelloWorld.java}. Verify that you get the code you entered. See Figure \ref{fig:linux:exercise:seven}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_seven}
+	\caption{Running \codeblock{cat HelloWorld.java} to verify that the \codeblock{HelloWorld.java} file contains our code.}
+	\label{fig:linux:exercise:seven}
+\end{figure}
+
+\item Now let's run our code! First, we have to compile the java file by running \codeblock{javac HelloWorld.java}. This will create a \codeblock{HelloWorld.class} file, which contains the bytecode instructions for the computer to run our program. See Figure \ref{fig:linux:exercise:eight}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_eight}
+	\caption{Running \codeblock{javac HelloWorld.java}. Running \codeblock{ls} afterwards shows that a \codeblock{HelloWorld.class} file was created.}
+	\label{fig:linux:exercise:eight}
+\end{figure}
+
+\item Next, run \codeblock{java HelloWorld}. Here, the \codeblock{HelloWorld} refers to the name of the ``class", a concept we will learn more about later. If everything is correct, the result should be the phrase ``Hello World!", as shown in Figure \ref{fig:linux:exercise:nine}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.85\textwidth]{images/commandLineExercise_nine}
+	\caption{Running \codeblock{java HelloWorld.java}. The output of our program, which prints ``Hello World!", should appear below.}
+	\label{fig:linux:exercise:nine}
+\end{figure}
+
+\end{enumerate}
+
+
 
 \referencessection
 
