@@ -309,7 +309,7 @@ What is the result of \ic{(!(2 > 3)) || (0 == 1)}? \\
 
 \subsection{Operator Precedence}
 
-We already saw that parentheses can be used to mark the order in which we want to apply operators. What happens, however, when we do not specify the order ourselves? For example, what is the value of \ic{2 > 3 || 0 == 1}? It turns out that in this case, the order of operation the Java language will choose is the same as for the expression \ic{(2 > 3) || (0 == 1)}. This is because some operators take precedence, and are computed before others. In this case, the first operator to be computed is >, and it interprets its arguments as the nearest, 2 and 3. Then == is executed, interpreting its arguments as 0 and 1. Only then || is executed, and the arguments it recognizes are the results of the previous comparisons.
+We already saw that parentheses can be used to mark the order in which we want to apply operators. What happens, however, when we do not specify the order ourselves? For example, what is the value of \ic{2 > 3 || 0 == 1}? It turns out that in this case, the order of operation the Java language will choose is the same as for the expression \ic{(2 > 3) || (0 == 1)}. This is because some operators take precedence, and are computed before others. In this case, the first operator to be computed is \ic{>}, and it interprets its arguments as the nearest, 2 and 3. Then \ic{==} is executed, interpreting its arguments as 0 and 1. Only then \ic{||} is executed, and the arguments it recognizes are the results of the previous comparisons.
 
 We will not cover the complete order of precedence (that also includes many operators not covered here), and the way ties are broken (for example, in \ic{A || B || C}). Important rules to remember are:
 
@@ -470,7 +470,7 @@ When mixing variables in expressions, it is important to be aware of their types
   System.out.println(x/y); // prints 1	
 \end{code}	
 Even though 8/5 = 1.6, Java will interpret \ic{x/y} as another \ic{int}, so it becomes \ic{1}. This is just like dividing integer literals, but with variables, you have to keep in mind what the variable types are so you will know if division will be truncated.	
-When you combine two different numeric types, the result will be a value of the more precise type. The most common example of this is combining an \ic{int} with a \ic{double}, which will result in a \ic{double}.	
+When you combine two different numeric types, the result will be a value of the more precise type. The most common example of this is combining an \ic{int} with a \ic{double}, which will result in a \ic{double}. This is called "automatic type conversion".
 You can also override Java's default rules for assigning types to expressions by using \emph{casting}. Casting allows you to tell Java to interpret an expression as a given type by putting the desired type in front of the expression in parentheses: for example, \ic{(int) x} casts \ic{x} to an \ic{int}. For now, we will only use casting to convert between different numeric types. Later on we will learn more detailed rules for casting.	
 \begin{example}	
   Look at the following examples and make sure you understand how Java assigns a type to each expression. Keep track of the parentheses so you know what is being casted.	
@@ -485,7 +485,7 @@ You can also override Java's default rules for assigning types to expressions by
   \end{code}	
 \end{example}	
 
-Java will attempt ``automatic type conversion" in case you try to assign a lower-precision value to a type of higher precision without casting yourself. Java will throw an error, however, if you try to assign a higher-precision value to a lower-precision type. This can get very confusing. So it's always best to avoid type conversion in your code when you can, and explicitly cast the type when you must. 
+As previously mentioned, Java will attempt ``automatic type conversion" in case you try to assign a lower-precision value to a type that has higher precision without casting yourself. Java will throw an error, however, if you try to assign a higher-precision value to a lower-precision type. This can get very confusing. So it's best to avoid type conversion in your code when you can, and explicitly cast the type when you must. 
 
 \begin{exercise}
   What will happen if you compile and run this code? 
@@ -598,6 +598,9 @@ What will be the value of the variable \ic{test} in each of these statements?
 \end{itemize}
 \end{exercise}
 
+\begin{exercise}
+Describe "automatic type conversion" in your own words. 
+\end{exercise}
 
 \referencessection
 
