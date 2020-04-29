@@ -63,9 +63,16 @@
   }}
 
 
-% Define counter shared between definitions and examples environment.
+% Define counters
 % ------------------------------------------------------------------------------
-\newcounter{defexmpexrccounter}[section]
+\newcounter{definitioncounter}[section]
+\numberwithin{definitioncounter}{section}
+
+\newcounter{examplecounter}[section]
+\numberwithin{examplecounter}{section}
+
+\newcounter{exercisecounter}[chapter]
+\numberwithin{exercisecounter}{chapter}
 
 
 % Define "definition" environment.
@@ -79,11 +86,11 @@
 }
 
 \newenvironment{definition}{%
-  \refstepcounter{defexmpexrccounter}
+  \refstepcounter{definitioncounter}
   \begin{mdframed}[style=defnframe]
-  \noindent\textbf{Definition~\thedefexmpexrccounter.}
+  \noindent\textbf{Definition~\thedefinitioncounter.}
   }{\end{mdframed}}
-  \numberwithin{defexmpexrccounter}{section}
+  %\numberwithin{definitioncounter}{section}
 
 
 % Define "example" environment.
@@ -99,12 +106,12 @@
   innerleftmargin=0
 }
 
-\renewcommand{\thedefexmpexrccounter}{\thesection.\arabic{defexmpexrccounter}}
+%\renewcommand{\theexamplecounter}{\thesection.\arabic{examplecounter}}
 \newenvironment{example}{%
   \begin{mdframed}[style=exmplframe]
   \par\medskip
-  \refstepcounter{defexmpexrccounter}%
-  \noindent\emph{Example~\thedefexmpexrccounter:} \rmfamily}
+  \refstepcounter{examplecounter}%
+  \noindent\emph{Example~\theexamplecounter:} \rmfamily}
   {\end{mdframed}\medskip}
 \newenvironment{example*}{%
   \par\medskip
@@ -122,8 +129,6 @@
   \vspace{1em}
 }
 
-\newcounter{exercisecounter}[chapter]
-
 \mdfdefinestyle{exerciseframe}{%
   linecolor=white,
   innertopmargin=0,
@@ -135,9 +140,8 @@
 \newenvironment{exercise}{%
   \refstepcounter{exercisecounter}
   \begin{mdframed}[style=exerciseframe]
-  \noindent\textbf{Exercise~\thedefexmpexrccounter:}
+  \noindent\textbf{Exercise~\theexercisecounter:}
   }{\end{mdframed}}
-\numberwithin{exercisecounter}{chapter}
 
 \newenvironment{exercise*}{%
   \par\medskip

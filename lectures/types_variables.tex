@@ -391,7 +391,7 @@ An \emph{assignment statement} sets and/or resets the value stored in the storag
 \end{itemize}
 	Of course, the values you store into variables must match the type you declared them to be. Otherwise, you will encounter a compiler error. For example, \ic{int x = "x";} would lead to an error.	
 In Java, you are allowed to combine a declaration statement and an assignment statement into a single line. For example, instead of a line \ic{String name;} followed by another line \ic{name = "John Doe";}, you can write a single line, \ic{String name = "John Doe";}.	
-\begin{exercise}	
+\begin{example}	
   What will the following code snippet print out?	
   \begin{code}	
     String a = "computer  science ";	
@@ -407,7 +407,7 @@ In Java, you are allowed to combine a declaration statement and an assignment st
     System.out.print(c);	
     System.out.println();	
   \end{code}	
-\end{exercise}	
+\end{example}	
 It is important to note the difference between the single equals sign used for assignment and the double equals sign used for comparison. In \ic{age = 17;} the single equals sign represents an \emph{assignment statement}, meaning we are storing the value 17 into a variable named \ic{age}. In contrast, in \ic{age == 17}, the double equals sign represents the fact that we are comparing the value of age to 17, meaning we are asking a yes/no question, whether or not \ic{age} is equal to 17. Look at the following code snippet and make sure you understand the difference between \ic{=} and \ic{==}.	
 \begin{code}	
   int a = 5;	
@@ -417,7 +417,7 @@ It is important to note the difference between the single equals sign used for a
   System.out.println(a == b);   // prints true	
 \end{code}	
 When using the \ic{=} operator to assign to a variable, the variable you are assigning to should always go on the left. For example, we can write \ic{x = 5;} to assign \ic{5} to \ic{x}, but \ic{5 = x;} is not valid Java code, since we can't assign to a literal. If we have two different variables, say \ic{x} and \ic{y}, then \ic{x = y;} and \ic{y = x;} are both valid lines of code, but they do different things. If we write \ic{x = y;}, then the value of \ic{x} changes to become the value of \ic{y}. If we write \ic{y = x;}, then the value of \ic{y} changes to become the value of \ic{x}.	
-\begin{exercise}	
+\begin{example}	
   Fill in some code in the middle of the following snippet to swap the values of \texttt{a} and \texttt{b}. The code should print \ic{ABBA} if you do this correctly. \emph{Hint:} you may need to define a third variable!	
   \begin{code}	
     String a = "A";	
@@ -429,7 +429,7 @@ When using the \ic{=} operator to assign to a variable, the variable you are ass
     System.out.print(a);	
     System.out.println(b);	
   \end{code}	
-\end{exercise}	
+\end{example}	
 A declaration statement will also lead to a compiler error if the variable has already been declared. For example, if we have a line \ic{int x = 5;} followed by another line \ic{int x = 7;}, the compiler will see the second line and complain that the variable \ic{x} has already been declared. You might imagine that this could cause some difficulties: in a large program, we might want to use the variable \ic{x} to mean different things at different points, without worrying about whether \ic{x} has been declared earlier. Luckily, Java and most other programming languages provide a tool to manage this, called \emph{scope}.	
 \begin{definition}	
   The \emph{scope} of a variable is the section of code where it can be referenced.	
@@ -449,7 +449,7 @@ For example, look at the following code snippet for computing the area of a circ
   System.out.println(area);	
 \end{code}	
 We can even update the value of a variable with an expression that includes that same variable. For example, \ic{x = x + 5;} will increase the value of \ic{x} by 5.	
-\begin{exercise}	
+\begin{example}	
   To convert from Celsius to Fahrenheit, multiply by 1.8 and then add 32. Fill in a single line of code below to convert \ic{temp} from Celsius to Fahrenheit;	
   \begin{code}	
     double temp = 12;	
@@ -461,7 +461,7 @@ We can even update the value of a variable with an expression that includes that
     System.out.print(temp);	
     System.out.println(" degrees Fahrenheit");	
   \end{code}	
-\end{exercise}	
+\end{example}	
 There are a few shorthand notations for updating variables. If you want to act on a variable \ic{var} with a single operator, such as \ic{var = var - 7;} or \ic{var = var * 2.3;}, you can abbreviate this as \ic{var -= 7;} or \ic{var *= 2.3} respectively. This works for any of the arithmetic operators: you can use \ic{+=}, \ic{-=}, \ic{*=}, \ic{/=}, or \ic{\%=}.	
 When mixing variables in expressions, it is important to be aware of their types and to know how variables of different types combine together. When working with numeric types, if you combine two values of the same type with an operator, the result will also be of that type. A common pitfall for this rule is division: if you divide two \ic{int}s, the result will be an \ic{int}.	
 \begin{code}	
@@ -487,7 +487,7 @@ You can also override Java's default rules for assigning types to expressions by
 
 As previously mentioned, Java will attempt ``automatic type conversion" in case you try to assign a lower-precision value to a type that has higher precision without casting yourself. Java will throw an error, however, if you try to assign a higher-precision value to a lower-precision type. This can get very confusing. So it's best to avoid type conversion in your code when you can, and explicitly cast the type when you must. 
 
-\begin{exercise}
+\begin{example}
   What will happen if you compile and run this code? 
   \begin{code}
     int intEight = 8;
@@ -503,7 +503,7 @@ As previously mentioned, Java will attempt ``automatic type conversion" in case 
   \end{code}
   
 \noindent \emph{Answer}: In the first example, Java will happily use automatic type conversion to convert the lower-precision int (intEight) to the higher-precision double (doubleEight). The output of the code is \ic{8.0}, the double version of \ic{8}. In the second example, however, Java cannot use automatic type conversion to go from a higher-precision double (doubleEight) to a lower-precision int (intEight). Java will throw an error when you try to compile this code. 
-\end{exercise}
+\end{example}
 
 \subsection{Variable names}
 
@@ -533,17 +533,19 @@ Programming is often a collaborative process, in which different people work on 
 
 \begin{exercise}
 Complete the blanks in the following variable declarations so that the variable type matches the value assigned to it. If multiple types can hold it, write the smallest type. \ja{we still need to explain that floating point numbers need an f after them, which is confusing and also probably not that important.}
+\begin{enumerate}
 \item \ic{\underline{\hspace{2cm}} isReal = false;}
 \item \ic{\underline{\hspace{2cm}} prefix = 'q';}
 \item \ic{\underline{\hspace{2cm}} ZERO = 0;}
 \item \ic{\underline{\hspace{2cm}} cap = 200;}
 \item \ic{\underline{\hspace{2cm}} velocity = 1.1e100;}
 \item \ic{\underline{\hspace{2cm}} mass = 1e5f;}
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
 Which of the following lines is a valid Java code? Assume that no variable has been previously defined. If a line is incorrect, explain which rules are violated in it. Remember that naming conventions are not rules of the langauge, but (important) recommentations.
-\begin{itemize}
+\begin{enumerate}
 \item \ic{String String = "Hello World!";}
 \item \ic{String Songname;}
 \item \ic{String first paragraph;}
@@ -553,12 +555,12 @@ Which of the following lines is a valid Java code? Assume that no variable has b
 \item \ic{String message = "String";}
 \item \ic{char firstLetter = "c";}
 \item \ic{int MAX\_VALUE = "10";}
-\end{itemize}
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
 Which of the following expressions is a valid Java code? If an expression is valid, determine the result of it. Otherwise, explain why it is not valid.
-\begin{itemize}
+\begin{enumerate}
 \item \ic{1 * 2 * 3}
 \item \ic{(1 * 2) * 3}
 \item \ic{1 < 2 < 3}
@@ -571,23 +573,23 @@ Which of the following expressions is a valid Java code? If an expression is val
 \item \ic{3 / (2 + 1)}
 \item \ic{true \&\& false \&\& true}
 \item \ic{!((true == false) \&\& !(2 > 3))}
-\end{itemize}
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
 Determine the value of the variable \ic{test}. 
-\begin{itemize}
+\begin{enumerate}
 \item \ic{int test = 4/2;}
 \item \ic{int test = 3/2;}
 \item \ic{double test =4.0/2}
 \item \ic{double test =3.0/2}
 \item \ic{double test = 3/2.0;}
-\end{itemize}
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
 Which of the following expressions is a valid Java code? If an expression is valid, determine the result of it. Otherwise, explain why it is not valid.
-\begin{itemize}
+\begin{enumerate}
 \item \ic{int tmp = 1; int test = (int) tmp;}
 \item \ic{int tmp = 1; double test = (double) tmp;}
 \item \ic{double tmp = 1.1; int test = (int) tmp;}
@@ -596,7 +598,7 @@ Which of the following expressions is a valid Java code? If an expression is val
 \item \ic{double tmp = 1.1; short test = (short) tmp;}
 \item \ic{int tmp = 3; double test = tmp;}
 \item \ic{double tmp = 3; int test = tmp;}
-\end{itemize}
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
