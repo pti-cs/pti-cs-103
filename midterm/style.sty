@@ -1,0 +1,258 @@
+\usepackage[a4paper, top=1in, bottom=1in, right=1.5in, left=1.5in]{geometry}
+
+\usepackage{appendix}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{subcaption}
+
+% Allow line breaks in URLs.
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{mdframed}
+
+\usepackage{pbox}
+\usepackage{tabularx}
+
+% Answer lines
+% ------------------------------------------------------------------------------
+\newcommand{\underlined}[1]{
+  \begin{tabularx}{\answerlinelength}{>{\centering\arraybackslash}X}
+    #1 \\[0.5ex] \hline
+  \end{tabularx}
+}
+
+\makeatletter
+\renewcommand\answerline[1][{}]{
+  \par \nobreak \vskip \answerskip
+  \hfill 
+  \ifprintanswers
+    \hbox to \answerlinelength{%
+      \CorrectChoice@Emphasis \hfil \pbox[t]{\answerlinelength}{\underlined{#1}}\hss}%
+  \else
+    \hbox to \answerlinelength{\hrulefill}%
+  \fi
+  \par
+}
+\makeatother
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0.1in}
+
+% Manage header
+% ------------------------------------------------------------------------------
+\pagestyle{headandfoot}
+\firstpageheader{}{}{}
+\runningheader{CS 103}{Midterm Exam}{Page \thepage\ of \numpages}
+\runningheadrule
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+
+% Define section styles.
+% ------------------------------------------------------------------------------
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+\setcounter{secnumdepth}{0}
+
+
+% Define counters
+% ------------------------------------------------------------------------------
+\newcounter{definitioncounter}[section]
+\numberwithin{definitioncounter}{section}
+
+\newcounter{examplecounter}[section]
+\numberwithin{examplecounter}{section}
+
+
+% Define "definition" environment.
+% ------------------------------------------------------------------------------
+\mdfdefinestyle{defnframe}{%
+  linecolor=black,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  innerrightmargin=8pt,
+  innerleftmargin=8pt
+}
+
+\newenvironment{definition}{%
+  \refstepcounter{definitioncounter}
+  \begin{mdframed}[style=defnframe]
+  \noindent\textbf{Definition~\thedefinitioncounter.}
+  }{\end{mdframed}}
+  %\numberwithin{definitioncounter}{section}
+
+
+% Define "example" environment.
+% ------------------------------------------------------------------------------
+
+% Define example frames
+\mdfdefinestyle{exmplframe}{%
+  bottomline=false,
+  leftline=false,
+  rightline=false,
+  topline=false,
+  innerrightmargin=0,
+  innerleftmargin=0
+}
+
+%\renewcommand{\theexamplecounter}{\thesection.\arabic{examplecounter}}
+\newenvironment{example}{%
+  \begin{mdframed}[style=exmplframe]
+  \par\medskip
+  \refstepcounter{examplecounter}%
+  \noindent\emph{Example~\theexamplecounter:} \rmfamily}
+  {\end{mdframed}\medskip}
+\newenvironment{example*}{%
+  \par\medskip
+  \noindent\emph{Example:} \rmfamily}
+  {\medskip}
+
+
+% Define "exercise" title class and environment.
+% ------------------------------------------------------------------------------
+\newcommand{\exercisesection}{%
+  \vspace{5em}
+  \noindent\rule{\textwidth}{1pt}
+  \\\\
+  \noindent {\bfseries \Large Exercises}
+  \vspace{1em}
+}
+
+\mdfdefinestyle{exerciseframe}{%
+  linecolor=white,
+  innertopmargin=0,
+  innerbottommargin=0,
+  innerrightmargin=0,
+  innerleftmargin=0
+}
+
+\newenvironment{exercise}{%
+  \refstepcounter{exercisecounter}
+  \begin{mdframed}[style=exerciseframe]
+  \noindent\textbf{Exercise~\theexercisecounter:}
+  }{\end{mdframed}}
+
+\newenvironment{exercise*}{%
+  \par\medskip
+  \noindent\emph{Exercise:} \rmfamily}
+  {\medskip}
+
+
+% Define references title class.
+% ------------------------------------------------------------------------------
+\newcommand{\referencessection}{%
+  \vspace{5em}
+  \noindent\rule{\textwidth}{1pt}
+  \\\\
+  \noindent {\bfseries \normalsize References}
+  \vspace{1em}
+}
+
+
+% Define code syntax highlighting.
+% ------------------------------------------------------------------------------
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{verylightgray}{rgb}{0.96,0.97,0.98}
+\definecolor{lightgray}{rgb}{0.8,0.8,0.8}
+
+\newcommand{\codePadding}{8pt}
+
+% Inline code command.
+\newcommand{\ic}{\texttt}
+
+\lstnewenvironment{code}{
+  \lstset{
+    % Language and syntax highlighting
+    language=Java,
+    commentstyle=\color{pgreen},
+    keywordstyle=\color{pblue},
+    stringstyle=\color{pred},
+    moredelim=[il][\textcolor{pgrey}]{$$},
+    moredelim=[is][\textcolor{pgrey}]{\%\%}{\%\%},
+    % Configure font size, 
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    stepnumber=1,
+    numberstyle=\tiny,
+    xleftmargin=\codePadding{},
+    framexleftmargin=\codePadding{},
+    framextopmargin=6pt,
+    framexbottommargin=6pt, 
+    frame=tb,
+    rulecolor=\color{lightgray},
+    showspaces=false,
+    backgroundcolor=\color{verylightgray},
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    % Padding above and below frame.
+    aboveskip=1.5em
+  }
+}{}
+
+
+% Define monospace code without highlighting.
+% ------------------------------------------------------------------------------
+
+\lstnewenvironment{monospace}{
+  \lstset{
+    % Language and syntax highlighting
+    % Configure font size, 
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    stepnumber=1,
+    numbers=none,
+    xleftmargin=\codePadding{},
+    framexleftmargin=\codePadding{},
+    framextopmargin=6pt,
+    framexbottommargin=6pt, 
+    frame=tb,
+    rulecolor=\color{lightgray},
+    showspaces=false,
+    backgroundcolor=\color{verylightgray},
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    % Padding above and below frame.
+    aboveskip=1.5em
+  }
+}{}
+
+% helper utilities for anders :)
+\newcommand{\COMMENT}[3]{\ifdraft\textcolor{#1}{[\textbf{#2}:
+\textnormal{#3}]}\fi}
+\newcommand{\afm}[1]{\COMMENT{blue}{AFM}{#1}}
+\newcommand{\ja}[1]{\COMMENT{red}{JA}{#1}}
+\newcommand{\ab}[1]{\COMMENT{purple}{AB}{#1}}
+
+% Define generic framed environment
+% ------------------------------------------------------------------------------
+
+\mdfdefinestyle{genericframe}{%
+  linecolor=black,
+  innertopmargin=.4cm,
+  innerbottommargin=.4cm,
+  innerrightmargin=.4cm,
+  innerleftmargin=.4cm,
+  backgroundcolor=lightgray
+}
+
+\newenvironment{graybox}{%
+  \begin{mdframed}[style=genericframe]
+}{\end{mdframed}}
