@@ -9,3 +9,4 @@ lectures/*.toc
 lectures/*.out
 lectures/*.synctex.gz
 *.class
+.vscode/*

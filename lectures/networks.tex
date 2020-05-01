@@ -1,69 +1,183 @@
-\chapter{Networks}
+\chapter{Networks II: The Internet}
 
-In this chapter, we'll learn about how the Internet and different kinds of networks work. The Internet is a giant network composed of many different smaller networks. Each of these networks have to link together various devices to allow devices within a network to communicate with each other and allow devices within one network to communicate with another network. There are complex protocols that dictate how different kinds of devices should communicate with each other, but you don’t have to understand the details of these protocols to understand how devices can communicate with each other.
-
-In addition to being interesting and important to understanding technology, understanding networks is very practical. Many companies look for Internet Technology or IT specialist that understand how networks work. Taking a test like the Network+ certification or A+ certification allows access to these jobs. These tests are knowledge based, so you don’t need practical experience to do well on them. They qualify you for entry level positions that pay around \$50,000 a year. If you’re interested in preparing for these exams, there are many books that can help you prepare. For instance, ``CompTIA A+ Certification All-in-One Exam Guide, Ninth Edition (Exams 220-901 \& 220-902).''
-
-In this section we'll start by examining how a device could communicate with another device in a small network and build up to understanding how a device can communicate to a device across the world.
+In the previous chapter, we delved into Internet protocols and learned how the layered architecture of the Internet enables messages to be carried reliably without any single protocol becoming too complex. Now that we understand how to network computers together, we can discuss how these networks are laid out in practice. The most important distinction is between Local Area Networks, used to network a single home or business together, and Wide Area Networks, used to network larger areas or even the whole world.
 
 \section{Local Area Networks}
 
-A local area network (LAN) is a relatively small network that is often used in homes, schools, individual office buildings, or another small building. In a local area network each computer connected to the network will be assigned an Internet Protocol Address (IP address) for use within the network. If computer A wants to send a message to computer B within the same address, computer A would refer to computer B by its IP address. IP addresses are 32 bit numbers that are written with dots between each byte. For instance, the address 192.168.0.1 usually refers to the machine that enters the address, a location known as ``local host.''
+The network used to connect computers within a single home, business, or organization is called a local area network, or a LAN. Even though most LANs are connected to the outside Internet, they can also be used to allow devices on the same network to connect with each other without going through the Internet. In this section, we will review some concepts of local area networking and discuss using switches to manage network traffic.
 
-If computer B wants to receive messages from computer A, it could want to receive messages for multiple reasons. To allow this, messages sent to another computer have to include what “port” they want to use. A port is a number used to identify a particular reason that another machine could want to receive a message. Many ports, especially ports with smaller numbers, have conventional services that they correspond to. For instance, port 80 corresponds to a web server, port 443 corresponds to a web server using encryption, and port 5432 corresponds to a particular kind of database.
+\subsection{Network Topology}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.85\textwidth]{images/lanExample.png}
-	\caption{Local Area Network Example}
-	\label{fig:windows:file}
-\end{figure}
+When building a LAN, a network engineer has to connect computers either via Ethernet cables or wireless connections. For simplicity, we will focus on wired connections in this section.
 
-The simplest way for multiple computers to communicate is to be connected together by a cable. If two machines want to talk with each other and the computers are connected to each other by a cable, a machine would broadcast the message to all other machines along with the address the machine was intended for. The machine the message was intended for would pick up the message and all others would hopefully discard it, although they could still see the contents if they wanted to.
+In order to allow for a group of computers to communicate with each other, each computer must be able to reach any other computer via some number of hops in the network. The \emph{topology} of the network is the layout of the connections in the network, and this sets how a pair of computers communicates. 
+
+One simple way to allow computers to communicate would be to connect all the computers in a line. Then each computer can communicate with the computers directly adjacent to it. This is called a linear topology, also known as daisy-chaining. Figure \ref{fig:daisy_chain} shows a network with linear topology.
 
 \begin{figure}
-	\centering
-	\includegraphics[width=0.85\textwidth]{images/ethernetExample.png}
-	\caption{Example of communicating over Ethernet}
-	\label{fig:windows:file}
+    \centering
+    \begin{tikzpicture}
+        \node at (0,0) (a) {\includegraphics[width=1cm]{images/computer.png}};
+        \node at (3,0) (b) {\includegraphics[width=1cm]{images/computer.png}};
+        \node at (6,0) (c) {\includegraphics[width=1cm]{images/computer.png}};
+        \node at (9,0) (d) {\includegraphics[width=1cm]{images/computer.png}};
+        \draw[dashed,very thick] (a) -- (b) (b) -- (c) (c) -- (d);
+    \end{tikzpicture}
+    \caption{A network with linear topology.}
+    \label{fig:daisy_chain}
 \end{figure}
 
-A switch is a more sophisticated way to route information between computers on the same network than an Ethernet cable. A switch knows how to allow machines on the same network to communicate. In larger local area networks many different switches could be used to carry messages between different sets of computers. In the case of wireless devices, the wireless’s devices signals are collected by an access point and then translated to signals that can be sent across a physical wire to switches.
+With a linear topology, if a computer wants to send a message to a computer which is not its neighbor, the intermediate computers have to carry the message along. In order to facilitate this, the destination address is included along with a packet. If a computer receives a packet and sees that the destination address is not its own, it will forward the packet along in the direction of the destination address.
+
+One limitation of a linear topology is the difficulty of adding new devices to the network. Every time a new computer is being set up, it would have to be inserted somewhere in the line, causing temporary disruptions in the network. A possible alternative is a bus topology, in which all computers are connected to a central bus line. This layout is shown in Figure \ref{fig:bus}.
 
 \begin{figure}
-	\centering
-	\includegraphics[width=0.85\textwidth]{images/switchExample.png}
-	\caption{Example of communicating over Ethernet}
-	\label{fig:windows:file}
+    \centering
+    \begin{tikzpicture}
+        \node at (0,0) (a) {\includegraphics[width=1cm]{images/computer.png}};
+        \node at (3,0) (b) {\includegraphics[width=1cm]{images/computer.png}};
+        \node at (6,0) (c) {\includegraphics[width=1cm]{images/computer.png}};
+        \node at (9,0) (d) {\includegraphics[width=1cm]{images/computer.png}};
+        \draw[dashed,very thick] (-1,-1) -- (10,-1);
+        \draw[dashed,very thick] (a) -- (0,-1) (b) -- (3,-1) (c) -- (6,-1) (d) -- (9,-1);
+    \end{tikzpicture}
+    \caption{A network with bus topology.}
+    \label{fig:bus}
 \end{figure}
 
-If devices within the local area network want to communicate with devices outside the local area network, they’ll need to go through a router. A router is the machine that assigns IP addresses to other machines in the same local area network. While these machines can use the IP addresses to communicate with other machine within the same local area network, they can’t use the IP address to communicate directly with machines outside the local area network. The router has an IP address that it uses to communicate with other devices outside of the LAN. If a device within the LAN wants to communicate with a device outside of the LAN, the router makes the request for the device inside the LAN and changes the IP address to the IP address of the router. It maintains state about the device that sent the request to the router so that when the target of the request replies, the router can forward the reply to the right device in the network.
+With a bus topology, a device can be added to the network simply by linking it to the bus line. When a computer wants to send a message on the network, it specifies the destination address and sends the message to the bus. All other computers receive the message, since they are also on the bus. The computer for which the message was intended can then read the message.
 
+A clear problem with the bus and linear topologies is that several computers on the network are involved whenever two computers have to communicate. In the bus topology in particular, every message is broadcast, so there can be competition for network resources when multiple devices try to send messages at once.
 
-Consider the example given in figure 7.4. If the machine with the IP address 192.168.100.3 wants to send a request to a machine with the IP address 209.131.36.158 using port 80, it will forward that request to the router. The router will then send change the requesting IP address to its IP address of 145.12.131.7 and when it receives the reply from 209.131.36.158, it will forward that reply to 192.168.100.3.
+In order to alleviate these difficulties, a network can be arranged in a star topology. In a star topology, shown in Figure \ref{fig:star} all computers are connected to one central device. When a computer wants to send a message, it will send it to the central device, which then forwards it on to the destination address. This way every communication happens with no more than two hops across the network, and only the central device is involved in facilitating communications.
 
 \begin{figure}
-	\centering
-	\includegraphics[width=0.85\textwidth]{images/routingExample.png}
-	\caption{Network routing}
-	\label{fig:windows:file}
+    \begin{subfigure}{0.45\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \node at (0,0) (a) {\includegraphics[width=1cm]{images/computer.png}};
+            \node at (90:2) (b) {\includegraphics[width=1cm]{images/computer.png}};
+            \node at (-30:2) (c) {\includegraphics[width=1cm]{images/computer.png}};
+            \node at (-150:2) (d) {\includegraphics[width=1cm]{images/computer.png}};
+            \draw[dashed,very thick] (a) -- (b) (a) -- (c) (a) -- (d);
+        \end{tikzpicture}
+        \caption{A network with star topology.}
+        \label{fig:star}
+    \end{subfigure}%
+    \hspace{.1\linewidth}%
+    \begin{subfigure}{0.45\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \node at (0,0) (a) {\includegraphics[width=1cm]{images/switch.jpg}};
+            \node at (90:2) (b) {\includegraphics[width=1cm]{images/computer.png}};
+            \node at (-30:2) (c) {\includegraphics[width=1cm]{images/computer.png}};
+            \node at (-150:2) (d) {\includegraphics[width=1cm]{images/computer.png}};
+            \draw[dashed,very thick] (a) -- (b) (a) -- (c) (a) -- (d);
+        \end{tikzpicture}
+        \caption{A switched network.}
+        \label{fig:switched}
+    \end{subfigure}
+    \caption{}
 \end{figure}
 
+In a star topology, the central device places an important and unique role. For this reason, it is very often replaced with a specialized network device called a switch. We will discuss switches in the following section.
 
-One of the primary reasons this process occurs is because there are only $2^{32}$ possible IP addresses in the most used version of the IP protocol (the number of numbers that can be created using 32 bits). This may seem like a lot, but $2^{32}$ is about 4.3 billion, and there are many more devices that can be connected to the Internet than this! This scheme allows many of the device addresses to be reused.
+\subsection{Switches}
 
-\section{Wide area networks}
+A \emph{switch} is a device dedicated to moving packets through a network. It is designed to play the role of the central device in the star topology in Figure \ref{fig:star}. A typical switch may have dozens of Ethernet ports used to connect devices to it. The switch can receive packets from devices through these ports, and knows how to read the destination address of each packet. It forwards every packet along the cable pointing to the destination address, and nowhere else. This way, an Ethernet cable connected to a device is only every carrying packets sent from that device or intended for that device. A switched network is depicted in Figure \ref{fig:switched}.
 
-Wide area networks refer to large networks that usually combine multiple local area network. The definition of what is considered a wide area network varies, but it usually involves connecting local area networks that are miles apart. In this section we’ll look at an outline of how large networks are connected to give an intuition for how devices in the modern world communicate.
+It is useful to think about a switch in terms of the network layers we covered in Section \ref{sec:network:layers}. A switch is typically an Internet layer device. The Internet layer runs on top of the link layer, and so switches have link layer technology as well: these are the Ethernet ports and cables which allow devices to connect. Once a packet arrives at the switch, it uses the IP protocol in order to forward that packet to the appropriate device on the network. The flow of data from device to device follows the pattern in Figure \ref{fig:switch_layers}.
 
-Almost all information between computers will travel through wires for a significant portion of the time, with the major exception being information that is beamed up to a satellite and then beamed down to another device. For two local area networks to communicate over large distances, they usually enlist the service of an Internet Service Provider (ISP). An ISP like Time Warner Cable or Comcast is responsible for ensuring that there is a path between two separate local area networks that want to contribute. When connecting to an ISP, the LAN would have a wire that connects the LAN to the network of wires the ISP uses to route information between different LANs.
+\begin{figure}
+    \centering
+    \begin{tikzpicture}[layer/.style={fill=blue!20,minimum width=3cm,align=center,text width=2.5cm,draw=black,solid,line width=.25mm},yscale=0.5]
+        \node[above] at (-4, 4.8) {\textbf{Source}};
+        \node[layer] at (-4, 4) (a1) {Application};
+        \node[layer] at (-4, 2) (a2) {Transport};
+        \node[layer] at (-4, 0) (a3) {Internet};
+        \node[layer] at (-4, -2) (a4) {Link};
 
-The ISP would make agreements with different autonomous systems (ASs) to be able to route traffic through the autonomous system so that it doesn’t have to own the cable used to route data between different places. These ASs advertise what other ASs they can communicate with using the Boarder Gateway Protocol. The protocol can allow ASs to figure out if there’s a path to another AS through an AS they’re directly connected to.
+        \node[above] at (0, 0.8) {\textbf{Switch}};
+        \node[layer] at (0, 0) (b1) {Internet};
+        \node[layer] at (0, -2) (b2) {Link};
 
-To send information across the world, there are cables running through the ocean operated by Internet Service Providers. There are cables acros mountains, deserts, and other challenging terrains to enable the flow of information.
+        \node[above] at (4, 4.8) {\textbf{Destination}};
+        \node[layer] at (4, 4) (c1) {Application};
+        \node[layer] at (4, 2) (c2) {Transport};
+        \node[layer] at (4, 0) (c3) {Internet};
+        \node[layer] at (4, -2) (c4) {Link};
 
-\referencessection
+        \draw[dashed,-latex] (a1) -- (a2);
+        \draw[dashed,-latex] (a2) -- (a3);
+        \draw[dashed,-latex] (a3) -- (a4);
+        \draw[dashed,-latex] (a4) -- (b2);
+        \draw[dashed,-latex,transform canvas={xshift=-.7cm}] (b2) -- (b1);
+        \draw[dashed,-latex,transform canvas={xshift=.7cm}] (b1) -- (b2);
+        \draw[dashed,-latex] (b2) -- (c4);
+        \draw[dashed,-latex] (c4) -- (c3);
+        \draw[dashed,-latex] (c3) -- (c2);
+        \draw[dashed,-latex] (c2) -- (c1);
+    \end{tikzpicture}
+    \caption{The flow of data through network layers in a switched network.}
+    \label{fig:switch_layers}
+\end{figure}
 
-Muhammadlilg. (2014, October 21). Retrieved June 16, 2019.\\
+Imagine a LAN with 50 devices connected to a switch. There are over a thousand different pairs of devices which may need to communicate with another, and the switch enables them to all communicate as if they had a dedicated cable between them, while actually using only 50 cables. This is the essential feature of any network: with relatively few physical connections, they enable an enormous number of potential communication channels. The Internet at large is designed in roughly the same way. We will discuss the details of the organization of the Internet, or more generally any wide area network, in the following section.
 
-Otome, S. O. (n.d.). What are the reasons for not putting multiple subnets on the same VLAN?
+\section{Wide Area Networks}
+
+Almost every LAN needs a way of communicating with the outside world. A network at a larger scale than a LAN is called a wide area network, or WAN. By far the most familiar example of a WAN is the Internet, but a WAN need not be this large. For example, a campus or metropolitan area may have its network organized as a WAN.
+
+The link layer technology which carries signals over a WAN is similar to that of a LAN. A WAN typically needs higher capacity Ethernet cables, but the general principles are the same. The primary difference between a LAN and a WAN comes in at the Internet layer, where the IP protocol distinguishes between public and private networks. In this section we will discuss this difference, and the systems and protocols used to connect public networks together.
+
+\subsection{Gateways and Routing}
+
+If you have used a home network, you may be more familiar with routers than switches. This is because a switch is designed to connect all the devices into an area into a local network, but typically we also want to connect a local network to the outside Internet. This is the role of a router. Routers are responsible for connecting different networks together into a larger network.
+
+In a typical setup, several devices on a local network will be connected to a router. The router assigns private IP addresses to each of these devices. Private IP addresses belong to one of three special blocks reserved for this purpose. The most common block is 192.168.*.*, any address ranging from 192.168.0.0 to 192.168.255.255. There are about 65,000 such addresses. A block like this can be written as 192.168.0.0/16, meaning the first 16 bits are fixed and the rest can change. The other private IP address ranges are 172.16.0.0/12, with about 1 million addresses, and 10.0.0.0/8, with about 16 million addresses.
+
+When a device (such as a switch) within the LAN receives a packet, it will look at the destination IP address. If it knows where to route the packet -- that is, if the packet is destined for another device on the local network -- then it will forward the packet appropriately. If it does not know where to route the packet, then it will forward it on to the device designated as the \emph{default gateway} for the network. The default gateway is typically the router.
+
+When the router receives a packet with a destination address outside the local network, it knows how to forward it appropriately. First, it will change the source address of the packet. The packet originated from a device on the private network, so its source address is a private address, such as 192.168.1.4. The router will replace this source address with its own address on the WAN. This will be a public IP address, such as 172.217.15.100. It then sends the packet out to the public Internet and awaits a reply. When it receives a reply, it will forward the packet on to the correct device on the network. This process is depicted in Figure \ref{fig:gateway}.
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+        \useasboundingbox (-8,-1.5) rectangle (5,2.5);
+        \begin{scope}[transform canvas={scale=.8}]
+        \node[label={[align=center]90:Private: 192.168.1.1\\Public: 172.217.15.100}] at (0,0) (a) {\includegraphics[width=1cm]{images/router.png}};
+        \node[label={180:192.168.1.2}] at (-5,2) (b) {\includegraphics[width=1cm]{images/computer.png}};
+        \node[label=180:{192.168.1.3}] at (-6,1) (c) {\includegraphics[width=1cm]{images/computer.png}};
+        \node[label=180:{192.168.1.4}] at (-7,0) (d) {\includegraphics[width=1cm]{images/computer.png}};
+        \draw[dashed,very thick] (b) -- (a) (c) -- (a) (d) -- (a);
+        \node[draw,thick,right,align=left] at (-6,-0.7) (packet) {\scriptsize Source: 192.168.1.4\\\scriptsize Destination: 208.80.153.224};
+        \draw[thick,->] (packet) -- (-1.5,-0.7);
+        \node[draw,thick,right,align=left] at (2,-0.7) (packet2) {\scriptsize Source: 172.217.15.100\\\scriptsize Destination: 208.80.153.224};
+        \draw[thick,->] (1,-0.7) -- (packet2);
+        \draw[dashed,very thick] (a) -- ++(5,0) node[above left] (cloud) {\includegraphics[width=2cm]{images/cloud.png}};
+        \node at (cloud) {Internet};
+        \end{scope}
+    \end{tikzpicture}
+    \caption{The default gateway forwards packets from a LAN to a WAN.}
+    \label{fig:gateway}
+\end{figure}
+
+\subsection{Autonomous Systems}
+
+Once a packet is routed to a wide area network, such as the Internet, it needs to be sent to the network which contains the destination address. Typically, the first destination for a packet is a router belonging to an Internet Service Provider (ISP). For example, in the \ic{traceroute} trace on page \pageref{code:traceroute}, the packet ends up at a router owned by Verizon, a popular ISP. This router belongs to an \emph{autonomous system} (AS) operated by Verizon. An autonomous system is simply a connection of routers on the Internet which are under some common administrative control, such as by an ISP.
+
+Autonomous systems are managed globally using autonomous system numbers, or ASNs, which are similar to IP addresses. These numbers are allocated by the Internet Assigned Numbers Authority (IANA) to Regional Internet Registries (RIRs), which then assign the numbers to autonomous systems.
+
+The routers in an autonomous system can forward packets to destinations within the same AS, but if a packet is destined for a network on another AS, it needs to be routed appropriately. This requires different ASs to communicate with one another. This can happen via \emph{peering}, in which two ASs mutually agree to carry traffic to one another free of charge, or via \emph{transit}, in which an AS charges a fee to carry traffic from other ASs.
+
+When two ASs need to communicate with one another, they use the Border Gateway Protocol (BGP). This is the core routing protocol of the Internet, and is responsible for making decisions on how to get packets to a destination in the quickest way possible. 
+
+\exercisesection
+
+\begin{exercise}
+    What is the difference between a switch and a router? On which type of network would each be used?
+\end{exercise}
+
+\begin{exercise}
+    Margaret has been hired as a network administrator to set up a network for Acme, Inc. Acme has 45 computers in their office, and there is no network in place. If Margaret wants to put a unique cable between every pair of computers, how many cables will she need? If Margaret wants to use the minimum number of cables to ensure every computer has a path in the network to every other computer, how many cables will she need?
+\end{exercise}

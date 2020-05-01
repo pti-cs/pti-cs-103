@@ -2,6 +2,9 @@
 
 \usepackage{style}
 
+% uthsav: adding to write code inline
+\newcommand{\codeblock}{\textcolor{blue}}
+
 \newif\ifdraft\drafttrue      % Uncomment to turn on comments
 %\newif\ifdraft\draftfalse   % Uncomment to turn off comments
 
@@ -21,17 +24,23 @@
 \mainmatter
 	\input{introduction}
 	\pagebreak
-	\input{hardware}
+        \input{hello_world.tex}
+        \pagebreak
+	\input{hardware.tex}
+	\pagebreak
+	\input{types_variables.tex}
 	\pagebreak
         \input{numbering_systems}
         \pagebreak
         \input{hardware_software}
         \pagebreak
-	\input{proglang_linux}
+        \input{input_output}
         \pagebreak
-	% \input{protocols.tex}
-	% \pagebreak
-	\input{networks}
+	\input{proglang_linux.tex}
+        \pagebreak
+	\input{protocols.tex}
+	\pagebreak
+	\input{networks.tex}
 	\pagebreak
 	\input{control_structures}
 	\pagebreak

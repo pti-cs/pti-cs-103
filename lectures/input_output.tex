@@ -1,0 +1,535 @@
+\chapter{Input and Output}
+
+Let's look at the ``Hello World'' program that we saw earlier:
+\begin{code}
+class HelloWorld {
+
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+
+}
+\end{code}
+
+When you ran this program, it produced the \emph{output} \ic{Hello World!} on a single line.
+Using \ic{System.out.println} is one way in which you can have your programs
+produce output. In particular, here \ic{System.out} refers to the \emph{output stream}
+that, in our case, is where you see output in the ``Interactions'' tab in DrJava.
+The \ic{println} part refers to printing (i.e., outputting) the argument
+--the String provided between the parentheses--followed by a linebreak (the \ic{ln} part).
+As you might imagine, there are ways to produce output in Java, ranging from printing
+to \ic{System.out} with and without linebreaks to writing out image files that
+plot data. We can also provide \emph{inputs} to a program in order
+to affect what is computed and ultimately outputted.
+
+In this chapter, we will be exploring different ways to produce program output
+as well as take program inputs.
+
+\section{Output}
+The output of a program is what lets the user who runs it
+see any results of the work done in the program.
+Consider the following program:
+\begin{code}
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String hi = "Hello";
+        String earth = "World";
+        String result = hi + " " + earth;
+    }
+
+}
+\end{code}
+This program has no output, so although it will compile and run, you won't
+be able to tell that it has done anything!
+If you added an output statement, then you'd be able to see that
+the program does something. We can try using \ic{System.out.println},
+which we've seen already.
+\begin{code}
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String hi = "Hello";
+        String earth = "World";
+        String result = hi + " " + earth;
+        System.out.println(result + "!");
+    }
+
+}
+\end{code}
+Now this program will produce the output as seen when we first ran Hello World program:
+\begin{code}
+> run HelloWorld
+Hello World!
+>
+\end{code}
+
+Let's take a look at some other ways of printing.
+Instead of \ic{System.out.println}, we can use \ic{System.out.print}, which
+doesn't print the linebreak after the String provided.
+If you change \ic{System.out.println} to \ic{System.out.print} above, and hit
+``Run'' in DrJava, you'll see something like this:
+\begin{code}
+> run HelloWorld
+Hello World!>
+\end{code}
+The \ic{>} that indicates that you can type input into the ``Interactions''
+tab is now on the same line as \ic{Hello World!} because the linebreak
+wasn't output.
+
+\ic{System.out.println} actually does not require a String to be provided,
+so we can actually get the linebreak back by adding a
+\ic{System.out.println} statement without the String provided:
+\begin{code}
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String hi = "Hello";
+        String earth = "World";
+        String result = hi + " " + earth;
+        System.out.print(result + "!");
+        System.out.println();
+    }
+
+}
+\end{code}
+We now have output that looks like this again:
+\begin{code}
+> run HelloWorld
+Hello World!
+>
+\end{code}
+
+An alternative is to use the \emph{newline} character \ic{\textbackslash n} that represents a
+linebreak:
+\begin{code}
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String hi = "Hello";
+        String earth = "World";
+        String result = hi + " " + earth;
+        System.out.print(result + "!\n");
+    }
+
+}
+\end{code}
+
+We can provide non-String arguments to \ic{System.out.print} and \ic{System.out.println} as well:
+\begin{code}
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String hi = "Hello";
+        String earth = "World";
+        String result = hi + " " + earth;
+        System.out.print(result + "!");
+        System.out.println();
+        System.out.println(1);
+        System.out.println(10/3.0);
+    }
+
+}
+\end{code}
+Try compiling and running the program above.
+Note that \ic{System.out.println(10/3.0);} ends up printing
+\ic{3.3333333333333335}, with 16 digits after the decimal point.
+
+We can specify how many digits after the decimal point as well
+as specifying a lot of other interesting formatting options
+using \ic{System.out.printf} (the \ic{f} here refers to formatting).
+
+When using \ic{System.out.printf}, we provide several arguments
+in between the parentheses, with the arguments being separated by
+commas.
+For example, we can replace \ic{System.out.println(10/3.0)} above
+with \ic{System.out.printf("\%f\textbackslash n", 10/3.0)}.
+The first argument \ic{"\%f\textbackslash n"} is a String that describes the format of the output.
+In this case, \ic{\%f} refers to a floating-point number (i.g. a \ic{float} or \ic{double}),
+and by default will print 6 places after the decimal point.
+The \ic{\textbackslash n} part is the newline character.
+Because we specified \ic{\%f} in the formatting String, we must also provide
+a floating point number to replace the \ic{\%f} in the output. Here,
+we have provided \ic{10/3.0}.
+If we perform this replacement, the output looks as follows:
+\begin{code}
+> run HelloWorld
+Hello World!
+1
+3.333333
+> 
+\end{code}
+
+We can specify only 3 decimal places by changing \ic{\%f} to \ic{\%.3f}.
+Note that the number is \emph{rounded}, not truncated, so if we have a value like
+3.3335 and format it with \ic{\%.3f}, it will be printed out as \ic{3.334}.
+The following table provides some common format specifiers (we have already seen
+\ic{\%f}):
+
+\begin{tabular}{|l|l|}
+\hline
+Format Specifier & Effect\\
+\hline
+\%s,\%S & Formats String\\
+\%f & Formats floating point (precision provided between \% and f)\\
+\%d & Formats integer\\
+\%c & Formats character\\
+\%b, \%B & Formats Boolean\\
+\hline
+\end{tabular}
+
+Using this table, we can actually get the same input that we've been getting
+with only one print statement:
+\begin{code}
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String hi = "Hello";
+        String earth = "World";
+        String result = hi + " " + earth;
+        System.out.printf("%s!\n%d\n%.3f\n", result, 1, 10/3.0);
+    }
+
+}
+\end{code}
+Look at the format String \ic{"\%s!\textbackslash n\%d\textbackslash n\%.3f\textbackslash n"}. There are three format
+specifiers: \ic{\%s}, \ic{\%d}, and \ic{\%.3f} that are respectively
+used to format the other arguments \ic{result}, \ic{1}, and \ic{10/3.0}.
+The format String also includes formatting around these arguments, such
+as the exclamation point after \ic{result} and the newline characters.
+ 
+\begin{example}
+Consider the following program:
+\begin{code}
+class Mystery {
+
+    public static void main(String[] args) {
+        System.out.printf("%.3f\n%.4f%d\n", 1.252525, 1.353535, 3);
+    }
+
+}
+\end{code}
+What is the output of the program?
+\noindent \emph{Answer}:
+\begin{code}
+1.253
+1.35353
+\end{code}
+\end{example}
+
+\section{Input}
+So far, each the program that we've seen produces the same output no
+matter how many times it is run. If we want to change the output,
+we have to edit the program, recompile it, and run it again.
+In practice, the user--the person who runs the program--will
+not be able to edit and recompile the program.
+We can enable a user to affect the result of the program
+by taking user \emph{input}.
+
+In order to take user input, we will be using the \ic{Scanner} class
+along with the \ic{System} class
+rather than just the \ic{System} class.
+Don't worry much about what classes are now; we'll cover
+them in depth later.
+
+A brief explanation follows for the interested:
+Classes can contain \emph{fields} and \emph{methods}.
+Fields are variables contained in a class and are used
+for storing data. The \ic{out} in \ic{System.out} is
+a field in the \ic{System} class
+that refers to where the output should go.
+Methods (which we will explain in more detail later) are named bits of code
+that are parameterizable by the provided arguments. These
+arguments are provided in between parentheses.
+For example, \ic{System.out.printf} above is a method.
+Fields and methods may be \ic{static}; static fields and methods
+of a class can be accessed by using the class name followed
+by a period and then the name of the field. For example,
+\ic{out} is a static field of \ic{System} and 
+so can be accessed by \ic{System.out}.
+Another example is that \ic{pow} is a static method
+of \ic{Math} and so can be accessed by \ic{Math.pow}.
+Non-static fields and methods must be accessed
+through an \ic{instance} of a class. For example,
+\ic{out} is an instance of another class.
+Since \ic{printf} and \ic{println} are non-static methods
+of that class, they are accessed
+by referring to the instance \ic{out} as in
+\ic{System.out.printf} or \ic{System.out.println}.
+We will need to make an \emph{instance} of the
+\ic{Scanner} class in order to take user input.
+
+To use the \ic{Scanner} class, we must first import it
+with the following statement:
+\begin{code}
+import java.util.Scanner;
+\end{code}
+The import statement should go \emph{before} the class declaration in your file, so
+if we were to add the import statement to the last ``Hello World'' program modification
+we've seen, it would look like this:
+
+\begin{code}
+import java.util.Scanner;
+
+class HelloWorld {
+
+    public static void main(String[] args) {
+        String hi = "Hello";
+        String earth = "World";
+        String result = hi + " " + earth;
+        System.out.printf("%s!\n%d\n%.3f\n", result, 1, 10/3.0);
+    }
+
+}
+\end{code}
+
+In order to use the \ic{Scanner} class, we must first \emph{create an instance} of it.
+We will cover what this means later, when we talk about classes in more detail.
+An instance of \ic{Scanner} named \ic{input} is created as follows:
+\begin{code}
+Scanner input = new Scanner(System.in);
+\end{code}
+Here, \ic{System.in} specifies that we want to take user input
+on the command line. (If you use DrJava, user input will be taken
+in the ``Interactions'' tab.) Each user input is followed by an enter/return.
+
+Here is an example program that takes user input:
+\begin{code}
+import java.util.Scanner;
+
+class HelloPlanet {
+
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter a planet name: ");
+    String planet = input.next(); // get next user input as a String
+    System.out.printf("Hello %s\n", planet);
+    input.close(); // close the Scanner
+  }
+
+}
+\end{code}
+
+Try running it and see what happens!
+Here we can see that \ic{input.next()} can be used to get the next
+user input as a \ic{String}. We can get user input of other types as well,
+which we will see briefly. Note that when we are done using a
+\ic{Scanner}, we close it. In this case, since our \ic{Scanner}
+instance is called \ic{input}, we close it with \ic{input.close()}.
+We cannot use \ic{input} to take input any more after it has been closed.
+Let's give it a try. Try running the following:
+\begin{code}
+import java.util.Scanner;
+
+class HelloPlanet {
+
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    input.close(); // close the Scanner too early
+    System.out.print("Enter a planet name: ");
+    String planet = input.next(); // get next user input as a String
+    System.out.printf("Hello %s\n", planet);
+  }
+
+}
+\end{code}
+You should get an error output: \ic{java.lang.IllegalStateException: Scanner closed}.
+
+Let's now look at how to take other kinds of input:
+\begin{code}
+import java.util.Scanner;
+
+class Adder {
+
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter an integer: ");
+    int first = input.nextInt(); // get next user input as an int
+    System.out.print("Enter an integer: ");
+    int second = input.nextInt(); // get next user input as an int
+    System.out.printf("The sum is %d.\n", first + second);
+    input.close();
+  }
+
+}
+\end{code}
+Try running the code!
+If you provide values that are integers, then it should sum these
+values and provide you with the result. An example of how this might look
+follows:
+\begin{code}
+> run Adder
+Enter an integer: -1
+Enter an integer: 2
+The sum is 1
+> 
+\end{code}
+
+If you try providing values that are not integers,
+then you will get an error:\\\ic{java.util.InputMismatchException}.
+The method \ic{nextInt} expects to see an integer value
+and cannot handle values of other types.
+
+In addition to \ic{nextInt()} which provides ways of
+getting \ic{int}s from user input, there is
+also \ic{nextDouble()} which gives a way of getting
+\ic{double}s from user input.
+
+\begin{example}
+Consider the following program:
+\begin{code}
+import java.util.Scanner;
+
+class Mystery {
+
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Enter a number: ");
+    double first = input.nextDouble();
+    System.out.print("Enter an number: ");
+    double second = input.nextDouble();
+    System.out.print("Enter an number: ");
+    double third = input.nextDouble();
+    System.out.printf("Result:%.3f\n", first + second - third);
+    input.close();
+  }
+
+}
+\end{code}
+\begin{itemize}
+\item
+What is the output of the program when the user gives inputs \ic{1}, \ic{3.5}, \ic{1.5}?
+\item
+What is the output of the program when the user gives inputs \ic{2.5555}, \ic{3.4444}, and \ic{1.1111}?
+\end{itemize}
+\noindent \emph{Answer}:
+\begin{itemize}
+\item
+The ouput of the program when the user gives inputs \ic{1}, \ic{3.5}, \ic{1.5}
+is \ic{3.000} (followed by a newline).
+\item
+The ouput of the program when the user gives inputs \ic{2.5555}, \ic{3.4444}, \ic{1.1111}
+is \ic{4.889} (followed by a newline).
+\end{itemize}
+\end{example}
+% not covering file I/O
+%\section{File I/O}
+%We've now seen a little bit of how to output results of a program
+%and how to take in user input.
+%All of this input and output (I/O) can be seen in text in the ``Interactions'' tab
+%of DrJava. There are, however, other ways of handling input.
+%In particular, we can use the content of files on the computer as input and
+%also output content to files on the computer.
+%Let's explore this a little bit here.
+%
+%\begin{code}
+%import java.io.FileReader;
+%import java.io.FileWriter;
+%import java.io.IOException;
+%
+%class Adder {
+%  public static void main(String[] args) throws IOException {
+%    FileReader input = new FileReader("numbers.txt");
+%    FileWriter output = new FileWriter("sums.txt");
+%    int first = input.read();
+%    int second = input.read();
+%    int third = input.read();
+%    int fourth = input.read();
+%    int fifth = input.read();
+%    output.write("Sum is " + first + second + third + fourth + fifth);
+%  }
+%}
+%\end{code}
+%
+%\begin{code}
+%import java.io.FileReader;
+%import java.io.FileWriter;
+%import java.io.IOException;
+%
+%class Adder {
+%
+%  public static void main(String[] args) throws IOException {
+%    FileReader input = new FileReader("numbers.txt"); 
+%    FileWriter output = new FileWriter("sums.txt");
+%    int first = input.read();
+%    int second = input.read();
+%    int third = input.read();
+%    int fourth = input.read();
+%    int fifth = input.read();
+%    output.write("Sum is " + first + second + third + fourth + fifth);
+%  }
+%
+%}
+%\end{code}
+%
+%\begin{code}
+%import java.io.FileReader;
+%import java.io.PrintWriter;
+%import java.io.IOException;
+%
+%class Adder {
+%
+%  public static void main(String[] args) throws IOException {
+%    FileReader input = new FileReader("numbers.txt");
+%    PrintWriter output = new PrintWriter("sums.txt");
+%    int first = input.read();
+%    int second = input.read();
+%    int third = input.read();
+%    int fourth = input.read();
+%    int fifth = input.read();
+%    output.printf("First:%d\n", first);
+%    output.printf("First two:%d\n", first + second);
+%    output.printf("First three:%d\n", first + second + third);
+%    output.printf("First four:%d\n", first + second + third + fourth);
+%    output.printf("First five:%d\n", first + second + third + fourth + fifth);
+%  }
+%
+%}
+%\end{code}
+%
+%TODO: introduce \ic{BufferedReader}
+%
+%\begin{code}
+%import java.io.BufferedReader;
+%import java.io.FileReader;
+%import java.io.PrintWriter;
+%import java.io.IOException;
+%import java.util.Scanner;
+%
+%class Adder {
+%
+%  public static void main(String[] args) throws IOException {
+%    Scanner input = new Scanner(new BufferedReader(new FileReader("numbers.txt")));
+%    PrintWriter output = new PrintWriter("sums.txt");
+%    int first = input.nextInt();
+%    int second = input.nextInt();
+%    int third = input.nextInt();
+%    int fourth = input.nextInt();
+%    int fifth = input.nextInt();
+%    output.printf("First:%d\n", first);
+%    output.printf("First two:%d\n", first + second);
+%    output.printf("First three:%d\n", first + second + third);
+%    output.printf("First four:%d\n", first + second + third + fourth);
+%    output.printf("First five:%d\n", first + second + third + fourth + fifth);
+%  }
+%
+%}
+%\end{code}
+
+\exercisesection
+
+\begin{exercise}
+Give three different programs that all have the same output as the “Hello World!” program.
+\end{exercise}
+
+\begin{exercise}
+Write a program that takes a user’s input and repeats it three times in a row back to them on a single line. For example, if a user provides “Hello” as input, your program should print out “HelloHelloHello” and then print a newline character. Use only System.out.print for printing output (i.e., do not use System.out.println nor System.out.printf).
+\end{exercise}
+
+\begin{exercise}
+Write a program that takes two inputs from the user and repeats them back to the user in the opposite order. For example, if a user provides “foo” and “bar” as input, your program should print out “barfoo” and then print a newline character. Use only System.out.println for printing output (i.e., do not use System.out.print nor System.out.printf).
+\end{exercise}
+
+\begin{exercise}
+Write a program that takes a user-inputted x value and prints out the y value of a line with slope 2.4 and y-intercept of 3.5. The precision of the result should be to 2 decimal points. Note that the y value can be computed as follows, where x is the user input: \ic{y = 2.4 * x + 3.5}
+\end{exercise}

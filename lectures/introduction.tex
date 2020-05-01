@@ -40,31 +40,6 @@ Broadly, we will cover the following topics:
        		\item How to use productivity software
     	\end{itemize}
     \end{itemize}
-    
-\begin{figure}
-  \centering
-    \includegraphics[scale=.4]{graph-paper.png}
-    \caption{An example maze. The input is in the lower left, the output is in
-      the lower right.}
-    \label{fig:graph-paper}
-\end{figure}
-
-\begin{exercise}
-  Get a piece of graph paper, and build a maze on it. Your maze should have one
-  input, and one output. An example maze is shown on
-  Figure~\ref{fig:graph-paper}.
-
-  Next, get another student's maze. You are programming a robot that can solve
-  this maze. These robots can take a sequence of commands, where each command is
-  ``Turn Left [number]'' (TL[n]) and ``Move Forwards [number]'' (MF[n]). Create a sequence of inputs to the robots
-  that would solve that maze.  For example, the following robot goes to the top
-  left corner of the provided maze: MF[2], TL[3], MF[2],
-  TL[1], MF[1], TL[1], MF[2], TL[3], MF[7].
-
-  What types of commands could have made this easier? Could your robot solve
-  arbitrary mazes? What types of commands would be helpful for making your robot
-  solve any maze.
-\end{exercise}
 
 \section{Brief history of computer science}
 
@@ -207,10 +182,6 @@ Computers help us in most tasks in the modern age. We can use them, for example,
 	\item Control robots and self-driving cars.
 \end{itemize}
 
-\begin{exercise}
-What are some other tasks a computer can accomplish?
-\end{exercise}
-
 This is why the job market for computer scientists continues to expand, and why computer skills are more and more necessary even in non-computational jobs.
 
 According to a Stackoverflow survey from 2018,\footnote{https://insights.stackoverflow.com/survey/2018/} 9\% of professional coders on the online developer community have only been coding for 0-2 years. This demonstrates two things:
@@ -230,6 +201,37 @@ Some examples of careers in computer science include
 \item Data analyst
 \item Database manager
 \end{itemize}
+
+\exercisesection
+
+\begin{figure}
+  \centering
+    \includegraphics[scale=.4]{graph-paper.png}
+    \caption{An example maze. The input is in the lower left, the output is in
+      the upper right.}
+    \label{fig:graph-paper}
+\end{figure}
+
+\begin{exercise}
+  Get a piece of graph paper, and build a maze on it. Your maze should have one
+  input, and one output. An example maze is shown on
+  Figure~\ref{fig:graph-paper}.
+
+  Next, get another student's maze. You are programming a robot that can solve
+  this maze. These robots can take a sequence of commands, where each command is
+  ``Turn Left [number]'' (TL[n]) and ``Move Forwards [number]'' (MF[n]). Create
+  a sequence of inputs to the robots that would solve that maze. For example,
+  the following robot completes the provided maze: MF[3], TL[3], MF[6], TL[1],
+  MF[4], TL[3], MF[3], TL[1], MF[4].
+
+  What types of commands could have made this easier? Could your robot solve
+  arbitrary mazes? What types of commands would be helpful for making your robot
+  solve any maze?
+\end{exercise}
+
+\begin{exercise}
+What are some other tasks a computer can accomplish?
+\end{exercise}
 
 \begin{exercise}
   Think about building a simple video game. What are the hardware, software,
