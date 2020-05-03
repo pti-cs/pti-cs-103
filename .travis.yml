@@ -1,18 +1,11 @@
-os: linux
-
-
-
-# we use the R VM because it contains LaTeX and pandoc
-language: r
-
-
+language: generic
 
 # we need super user privileges, so we depend on the old travis-ci infrastructure
 sudo: required
 
-apt_packages:
+install:
 # we download pdf2djvu to also generate a djvu file of our LaTeX source
-  - texlive-latex-extra
+  - tlmgr install mdframed
 
 script:
 # in the next step we use pdflatex to convert .tex to .pdf
