@@ -18,7 +18,6 @@ deploy:
   file:
     - "main.pdf"
   skip_cleanup: true
-  draft: true
   overwrite: true
   on:
     repo: pti-cs/pti-cs-103
