@@ -10,6 +10,7 @@ language: r
 # we need super user privileges, so we depend on the old travis-ci infrastructure
 sudo: required
 
+script:
 # in the next step we use pdflatex to convert .tex to .pdf
 # of course we could use pandoc for this also, but pdflatex generates nicer PDFs
   - pdflatex -interaction=nonstopmode main.tex
