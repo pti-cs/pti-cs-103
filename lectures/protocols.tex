@@ -186,9 +186,7 @@ An IP packet is divided into its \emph{header} and the \emph{data}. The header c
     \item \textbf{DSCP}: this stands for Differentiated Services Code Point. These bits are used to specify the type of service for the packet. This allows the network to give priority to some packets, such as those used for voice or video calling, which need to arrive as quickly as possible.
     \item \textbf{ECN}: this stands for Explicit Congestion Notification. This allows the network to flag packets which are experiencing congestion along their routes.
     \item \textbf{Total Length}: this specifies the total length of the packet, in bytes including both the header and data. Since it is 16 bits, the maximum value is $2^{16}-1 = 65535$ bytes, or about 64 KB.
-    \item \textbf{Identification}: these bits are used to group packets which have been fragmented due to a maximum transmission size imposed by the link layer, which we'll come to in the next section.
-    \item \textbf{Flags}: these are flags regarding fragmentation, used primarily to specify if this is the last in a series of fragments or if there are more fragments to come.
-    \item \textbf{Fragment Offset}: if a packet has been fragmented, these bits specify where the current block of data falls into the sequence of fragments.
+    \item \textbf{Fragmentation Data}: these bits are used to group packets which have been fragmented due to a maximum transmission size imposed by the link layer.
     \item \textbf{Time to Live}: this keeps track of how many hops a packet has made through the network. Every time the packet is forwarded along a new link in the network, this value is decreased by one. If it hits zero, the packet is dropped and the sender is notified. This is how the \ic{traceroute} utility works: it sends packets with small Time to Live values, and waits for the notifications to see where the packet was after one hop, two hops, etc.
     \item \textbf{Protocol}: this specifies the transport layer protocol which is making use of IP. For example, for TCP the protocol value is set to 6.
     \item \textbf{Header Checksum}: these bits are used for correcting errors in the header. The idea of a ``checksum'' is encoded in the word: we could imagine transmitting a stream of bits, followed by a few bits that count the number of ones in the original stream. If a zero was flipped to a one, or a one was flipped to a zero, then the receiver will notice that the checksum does not match and can ask for the packet to be resent. In practice a checksum is a more complicated function of the bits, but the idea is the same.
@@ -207,7 +205,7 @@ An IP packet is divided into its \emph{header} and the \emph{data}. The header c
         \hline
         0 & \multicolumn{4}{c|}{Version} & \multicolumn{4}{c|}{IHL} & \multicolumn{6}{c|}{DSCP} & \multicolumn{2}{c|}{ECN} & \multicolumn{16}{c|}{Total Length} \\
         \hline
-        32 & \multicolumn{16}{c|}{Identification} & \multicolumn{3}{c|}{Flags} & \multicolumn{13}{c|}{Fragment Offset} \\
+        32 & \multicolumn{32}{c|}{Fragmentation Data} \\
         \hline
         64 & \multicolumn{8}{c|}{Time to Live} & \multicolumn{8}{c|}{Protocol} & \multicolumn{16}{c|}{Header Checksum} \\
         \hline
@@ -282,3 +280,41 @@ There are many ways in which Bob could be unreliable. For example, Bob could be 
 Even if Bob is not malicious, he could be irresponsible. For example, if Bob runs an online vendor which collects credit card information to make payments, it is crucial that Bob takes appropriate security measures on his local network to protect that credit card information from becoming known to an attacker. TLS does not guarantee that Bob has taken the necessary precautions. Many of the most substantial security problems arise on the Internet when many customers have trusted a vendor like Bob with their personal details like credit card numbers, and Bob suffers a data breach, putting this data into the wrong hands.
 
 Network security is an evolving field as companies and governments work to protect against these sorts of vulnerabilities. There are many opportunities for employment in this area, as organizations increasingly need to rely on dedicated security professionals in order to keep their data and their clients' data safe.
+
+\exercisesection
+
+\begin{exercise}
+    Put the following layers in order from top to bottom, and give an example of a protocol or technology used in each layer.
+    \begin{itemize}
+        \item Transport Layer
+        \item Link Layer
+        \item Application Layer
+        \item Internet Layer
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}
+    What protocol is used as part of HTTPS in order to ensure secure transmission of data? List the three goals of this protocol and give a description of the kind of attack each goal seeks to prevent. Then give an example of an attack which would not be prevented by this protocol.
+\end{exercise}
+
+\begin{exercise}
+    Identify all of the following blocks of IP addresses which contain 48.192.72.86. (\emph{Hint:} you may want to write out each address block in binary.)
+    \begin{itemize}
+        \item 48.192.0.0/12
+        \item 48.192.0.0/16
+        \item 48.192.0.0/20
+        \item 48.0.0.0/4
+        \item 48.0.0.0/8
+        \item 48.0.0.0/12
+        \item 48.192.64.0/20
+        \item 48.192.64.0/24
+    \end{itemize}
+\end{exercise}
+
+\begin{exercise}
+    In a TCP handshake, Alice initiates by sending $\boxed{\ic{SYN}\ 895}$ to Bob. Give an example of the remaining steps that could take place in this handshake.
+\end{exercise}
+
+\begin{exercise}
+    What is the main advantage of 5 GHz WiFi over 2.4 GHz WiFi? Why is 2.4 GHz WiFi still in use?
+\end{exercise}
