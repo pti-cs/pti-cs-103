@@ -1,6 +1,11 @@
-language: generic
+language: r
 
+# we need super user privileges, so we depend on the old travis-ci infrastructure
 sudo: required
+
+install:
+# we download pdf2djvu to also generate a djvu file of our LaTeX source
+  - tlmgr install mdframed
 
 script:
 # in the next step we use pdflatex to convert .tex to .pdf
