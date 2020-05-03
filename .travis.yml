@@ -21,3 +21,6 @@ deploy:
   draft: true
   on:
     repo: pti-cs/pti-cs-103
+
+notifications:
+  email: false
