@@ -83,16 +83,16 @@ Representing numbers on a computer requires physical memory. For this reason, Ja
  \hline
  \ic{long} & 64 bits & -9,223,372,036,854,775,808 & 9,223,372,036,854,775,807 \\
  \hline
- \ic{float} & 32 bits & Approximately -3.4E+38 with 7 significant digits & Approximately 3.4E+38 with 7 significant digits \\
+    \ic{float} & 32 bits & Approximately $-3.4 \times 10^{38}$ with 7 significant digits & Approximately $3.4 \times 10^{38}$ with 7 significant digits \\
  \hline
- \ic{double} & 64 bits & Approximately -1.7E+308 with 15 significant digits & Approximately 1.7E+308 with 15 significant digits \\
+    \ic{double} & 64 bits & Approximately $-1.7 \times 10^{308} with 15 significant digits$ & Approximately $1.7 \times 10^{308}$ with 15 significant digits \\
  \hline
 \end{tabular}
 \caption{Java's six primitive numeric data types along with their memory requirements, range, and precision.}
 \label{table:numeric_types}
 \end{table}
 
-In this course, we will focus on two of these numeric types: \ic{int} for integers and \ic{double} and floating-point numbers. We use \ic{int}s frequently in Java programs because integers, or whole numbers, show up naturally in everyday life. We also \ic{double}s frequently in Java programs because floating point numbers often show up naturally in scientific applications. A \ic{double} in Java can either be written as a number with a decimal point (e.g. \ic{3.1415} or \ic{4.0}) or using scientific notation (e.g. \ic{6.022e23}). The \ic{e} in this notation is shorthand for ``times 10 to the power of \_\_\_\_''. For example, \ic{6.022e23} is equivalent to $6.022 \times 10^{23}$.
+In this course, we will focus on two of these numeric types: \ic{int} for integers and \ic{double} and floating-point numbers. We use \ic{int}s frequently in Java programs because integers, or whole numbers, show up naturally in everyday life. We also use \ic{double}s frequently in Java programs because floating point numbers often show up naturally in scientific applications. A \ic{double} in Java can either be written as a number with a decimal point (e.g. \ic{3.1415} or \ic{4.0}) or using scientific notation (e.g. \ic{6.022e23}). The \ic{e} in this notation is shorthand for ``times 10 to the power of \_\_\_\_''. For example, \ic{6.022e23} is equivalent to $6.022 \times 10^{23}$.
 
 \begin{example}
 What are examples of integers in everyday life? \\
@@ -173,7 +173,7 @@ Now that we have learned about data types, we will next learn about the operatio
 \subsection{Arithmetic operators}
 Arithmetic operators are generally the ones we are familiar with from elementary school, such as addition (\ic{+}), subtraction (\ic{-}), multiplication (\ic{*}), and division (\ic{/}). For example, \ic{5 + 3} equals \ic{8}, \ic{5.55 - 1.11} equals \ic{4.44}, and \ic{1.5 * 10} equals \ic{15}. Note that just like in regular math, the operator \ic{-} can also refer to negation of the number it's written before. Therefore, \ic{-3} is a correct expression, as well as \ic{5 + -3}, which equals 2.
 
-Of these basic arithmetic operators, division is the trickiest because it behaves in a special way with integers. In Java, if you were to divide two integers, you would get an integer as a result. This is intuitive in some cases. For example, \ic{20 / 5} would equal \ic{4}. However, in other cases, we may lose a fractional component. For instance, \ic{21 / 5} also equals \ic{4}. You might think that \ic{21 / 5} should equal \ic{4.2}, but the fractional piece (everything after the decimal point) gets \emph{truncated}, or dropped completely. This is what we call \emph{integer truncation}.
+Of these basic arithmetic operators, division is the trickiest because it behaves in a special way with integers. In Java, if you were to divide two integers, you would get an integer as a result. This is intuitive in some cases. For example, \ic{20 / 5} would equal \ic{4}. However, in other cases, we may lose a fractional component. For instance, \ic{21 / 5} also equals \ic{4}. You might think that \ic{21 / 5} should equal \ic{4.2}, but the fractional piece (everything after the decimal point) gets \emph{truncated}, or dropped completely. This is what we call \emph{integer truncation}. It is worth nothing that truncation is different than \emph{rounding}: as a simple example, rounding would cause 3.9 to become 4, whereas truncating would cause 3.9 to become 3.
 
 \begin{example}
 What is \ic{2 / 2}? What about \ic{3 / 2}? What about \ic{4 / 2}? \\
@@ -183,7 +183,7 @@ What is \ic{2 / 2}? What about \ic{3 / 2}? What about \ic{4 / 2}? \\
 \ic{4 / 2} equals {2}.
 \end{example}
 
-Java also has an extra arithmetic operator, called the ``modulo'' operator (or ``mod'' for short), that looks like a percent symbol \ic{\%}. Its purpose is to compute the remainder when dividing two numbers. For example, \ic{13 \% 3}, which we pronounce as ``ten mod three'', is equal to \ic{1} because 13 divided by 3 gives us 4, remainder 1.
+Java also has an extra arithmetic operator, called the ``modulo'' operator (or ``mod'' for short), that looks like a percent symbol \ic{\%}. Its purpose is to compute the remainder when dividing two numbers. For example, \ic{13 \% 3}, which we pronounce as ``thirteen mod three'', is equal to \ic{1} because 13 divided by 3 gives us 4, remainder 1.
 
 \begin{example}
 What is \ic{15 \% 10}? What about \ic{6.25 \% 3}? \\
@@ -251,7 +251,7 @@ Comparison operators are operators that compare numeric data. You are probably f
 
 Logical operators are used to manipulate boolean values. Like comparison operators, the result of an expression with logical operators is a boolean. The three most common logical operators in Java are \ic{\&\&} (logical And), \ic{||} (logical Or) and \ic{!} (logical Not). There are also other operators (|, \&, \^) that we will not cover. Finally, the equality and inequality operators (==, !=) can be applied on boolean values too.
 
-The logical And takes two boolean values and returns true exactly when both values are true. To use it, write the operator between the values. For example, \ic{false \&\& true} applies And to false and true, and the result is false. The following table summarizes the values of And for every input:
+The logical And takes two boolean values and returns true if and only if both values are true. To use it, write the operator between the values. For example, \ic{false \&\& true} applies And to false and true, and the result is false. The following table summarizes the values of And for every input:
 
 
 \begin{table}[h!]
@@ -317,7 +317,7 @@ We will not cover the complete order of precedence (that also includes many oper
 \item Parentheses take precedence over any other operator.
 \item Logical And takes precedence over logical Or. 
 \item Multiplication takes precedence over addition.
-\item Arithmetic operation take precedence over comparisons, who take precedence over logical operators.
+\item Arithmetic operation take precedence over comparisons, which take precedence over logical operators.
 \end{itemize}
 
 When in doubt, use parentheses. Even if the result is the same, this can help a reader follow your code more easily. 
@@ -325,9 +325,9 @@ When in doubt, use parentheses. Even if the result is the same, this can help a 
 
 \subsection{\ic{String} methods}
 
-Java has a set of operations we can use for building strings. The most common operation we will need is concatenation, or combining two strings. The same sign for the addition operator, +, is used to concatenate strings. For example, \ic{"Hello" + " " + "world"} will result in the string "Hello world". Notice that concatenation does not add a space between strings. If we want to concatenate two words, we need to explicitly write a space between them, as in the previous or following example: \ic{"Two " + "words"}.
+Java has a set of operations we can use for building strings. The most common operation we will need is concatenation, or combining two strings. The same sign for the addition operator, +, is used to concatenate strings. For example, \ic{"Hello" + " " + "world"} will result in the string ``Hello world''. Notice that concatenation does not add a space between strings. If we want to concatenate two words, we need to explicitly write a space between them, as in the previous or following example: \ic{"Two " + "words"}.
 
-Another common operation we would like to do with strings is to compare them. For example, check whether two strings are the same. The == operator works on strings as well, but it does not do what we expect. Instead, it checks whether the two strings reference the same object (we will learn about objects later in the course). Instead, when we want to compare two strings, we will use a method called "equals". If A and B represent two strings, we will call equals in the following way: \ic{A.equals(B)}. Note that upper and lower case letters are considered different, and that spaces are also counted for comparisons.
+Another common operation we would like to do with strings is to compare them. For example, check whether two strings are the same. The == operator works on strings as well, but it does not do what we expect. Instead, it checks whether the two strings reference the same object (we will learn about objects later in the course). Instead, when we want to compare two strings, we will use a method called "equals". If A and B represent two strings, we can ask whether they are equal in the following way: \ic{A.equals(B)}. Note that upper and lower case letters are considered different, and that spaces are also counted for comparisons.
 
 
 \begin{example}
@@ -367,7 +367,7 @@ A \emph{variable} is a name for a location in memory used to hold a data value.
 We can accomplish these three tasks in two main steps: \emph{declaration} and \emph{assignment}.
 
 \begin{definition}
-An \emph{declaration statement} (1) reserves a portion of memory space large enough to hold a particular type of value and (2) indicates the name by which we refer to that location.
+A \emph{declaration statement} (1) reserves a portion of memory space large enough to hold a particular type of value and (2) indicates the name by which we refer to that location.
 \end{definition}
 
 \noindent Examples of declaration statements include:
@@ -392,7 +392,9 @@ An \emph{assignment statement} sets and/or resets the value stored in the storag
 	Of course, the values you store into variables must match the type you declared them to be. Otherwise, you will encounter a compiler error. For example, \ic{int x = "x";} would lead to an error.	
 In Java, you are allowed to combine a declaration statement and an assignment statement into a single line. For example, instead of a line \ic{String name;} followed by another line \ic{name = "John Doe";}, you can write a single line, \ic{String name = "John Doe";}.	
 \begin{example}	
-  What will the following code snippet print out?	
+  What will the following code snippet print out?
+    Here you should be aware that using ``System.out.print'' will print exactly what it is given and nothing more,
+    whereas ``System.out.println'' will add a new line to the end, such that the next thing that gets printed will be on a new line.
   \begin{code}	
     String a = "computer  science ";	
     int b = 4;	
@@ -416,7 +418,7 @@ It is important to note the difference between the single equals sign used for a
   a = b;                        // now a is 3	
   System.out.println(a == b);   // prints true	
 \end{code}	
-When using the \ic{=} operator to assign to a variable, the variable you are assigning to should always go on the left. For example, we can write \ic{x = 5;} to assign \ic{5} to \ic{x}, but \ic{5 = x;} is not valid Java code, since we can't assign to a literal. If we have two different variables, say \ic{x} and \ic{y}, then \ic{x = y;} and \ic{y = x;} are both valid lines of code, but they do different things. If we write \ic{x = y;}, then the value of \ic{x} changes to become the value of \ic{y}. If we write \ic{y = x;}, then the value of \ic{y} changes to become the value of \ic{x}.	
+When using the \ic{=} symbol to assign to a variable, the variable you are assigning to should always go on the left. For example, we can write \ic{x = 5;} to assign \ic{5} to \ic{x}, but \ic{5 = x;} is not valid Java code, since we can't assign to a literal. If we have two different variables, say \ic{x} and \ic{y}, then \ic{x = y;} and \ic{y = x;} are both valid lines of code, but they do different things. If we write \ic{x = y;}, then the value of \ic{x} changes to become the value of \ic{y}. If we write \ic{y = x;}, then the value of \ic{y} changes to become the value of \ic{x}.	
 \begin{example}	
   Fill in some code in the middle of the following snippet to swap the values of \texttt{a} and \texttt{b}. The code should print \ic{ABBA} if you do this correctly. \emph{Hint:} you may need to define a third variable!	
   \begin{code}	
@@ -532,28 +534,28 @@ Programming is often a collaborative process, in which different people work on 
 \exercisesection
 
 \begin{exercise}
-Complete the blanks in the following variable declarations so that the variable type matches the value assigned to it. If multiple types can hold it, write the smallest type. \ja{we still need to explain that floating point numbers need an f after them, which is confusing and also probably not that important.}
+Complete the blanks in the following variable declarations so that the variable type matches the value assigned to it. If multiple types can hold it, write the smallest type.
 \begin{enumerate}
+\item \ic{\underline{double} temperature = 98.6;}
 \item \ic{\underline{\hspace{2cm}} isReal = false;}
 \item \ic{\underline{\hspace{2cm}} prefix = 'q';}
 \item \ic{\underline{\hspace{2cm}} ZERO = 0;}
 \item \ic{\underline{\hspace{2cm}} cap = 200;}
 \item \ic{\underline{\hspace{2cm}} velocity = 1.1e100;}
-\item \ic{\underline{\hspace{2cm}} mass = 1e5f;}
+\item \ic{\underline{\hspace{2cm}} mass = 1e5;}
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-Which of the following lines is a valid Java code? Assume that no variable has been previously defined. If a line is incorrect, explain which rules are violated in it. Remember that naming conventions are not rules of the langauge, but (important) recommentations.
+Which of the following lines is valid Java code? Assume that no variable has been previously defined. If a line is incorrect, explain which rules are violated in it. Remember that naming conventions are not rules of the langauge, but (important) recommentations.
 \begin{enumerate}
-\item \ic{String String = "Hello World!";}
 \item \ic{String Songname;}
 \item \ic{String first paragraph;}
-\item \ic{short numerator = 20;}
+\item \ic{double numerator = 20;}
 \item \ic{int STREET\_NAME;}
-\item \ic{Short index;}
+\item \ic{double index;}
 \item \ic{String message = "String";}
-\item \ic{char firstLetter = "c";}
+\item \ic{String firstLetter = "c";}
 \item \ic{int MAX\_VALUE = "10";}
 \end{enumerate}
 \end{exercise}

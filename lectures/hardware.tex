@@ -12,7 +12,7 @@ Today's lecture will focus on \emph{computer systems} \afm{should we change the 
   to systems, this is funky to say the chapter is hardware, and then say we
   focus on systems}, groupings of devices that work together to perform a common
 task (or tasks). A user will interact with a computer through a variety of input
-and output devices (e.g. keyboards, mice, speakers, microphone, and monitors). A
+and output devices. These devices include keyboards, mice, speakers, microphones, and monitors. A
 user's input will be processed, some computations will be performed, and then
 the resulting output will be displayed to the user. When most of us think about
 computers, we often think of a desktop or laptop computer, equipped with a
@@ -69,19 +69,16 @@ other devices like cars, traffic lights, X-ray machines, and thermostats to both
 control and monitor the devices. As shown in Figure~\ref{fig:hardware:overview},
 these devices connect to the rest of the computer through the computer's memory.
 This kind of input and output is called memory mapped I/O (input and output).
-Creaters of input (or output) devices are assigned a section of the computer's
-memory to write (read resp.) data. The computer will then read (write resp.)
-data to those locations to communicate with the given device. The creaters of
-these devices, agree upon a known format to read and write data.
+Creators of input (or output) devices are assigned a section of the computer’s memory to write (for input devices) or read (for output devices) data. For example, a keyboard might write data about each key that is pressed to a given location. The computer will then read the data in that location to communicate with the keyboard. In the case of an output device, the process works in reverse: the computer writes the data in the assigned location, which the output device then reads. The creators of these devices agree on a known format to read and write data.
 
 \begin{example}
   You can think of communication between devices and computer as similar to
   leaving messages for a friend in a locker. Only you and your friend have
   access to this locker, which only holds space for one message. The format you
   agree upon is which language you'll use to speak (e.g. English) and any
-  special keywords or phrases. You might agree with your friend that if either
-  of you write a message saying ``The morning is upon us'' that the other will
-  wait until ``The night has come'' before leaving any new messages.
+  special keywords or phrases. For example, you might agree upon a convention
+  like the kind used in radio communication, where one person waits until they
+  get an ``Over'' signal before responding with a new message.
 \end {example}
 
 The format that devices and computers communicate in are generally very simple
@@ -98,9 +95,9 @@ black and 1 for white. Then an image is represented as a 400 = (20 x 20) long
 sequence of pixel values. The sequence is ordered left to right, top to bottom.
 Now that both the monitor and computer agree upon the communication format, the
 computer can write images to the section of memory dedicated to the monitor
-and the monitor will read the image and display the image on it's screen.
+and the monitor will read the image and display the image on its screen.
 Figure~\ref{fig:hardware:monitor_image} displays an example image, a 
-20 x 20 chekerboard with its encoding.
+20 x 20 checkerboard with its encoding.
 
 \emph{Note: While this is a simplified example, this is similar to how modern
   graphical displays communicate with computers}.
@@ -186,12 +183,14 @@ cost a lot of time relative to keeping data in Main Memory only.
 
 The final part of a computer we will introduce today is the \emph{central processing
 unit} (CPU), also known as the \emph{processor} or \emph{main processor}. The CPU is the physical
-circuitry of a computer that performs instructions. The CPU has several key
-components: the control logic, arithmetic and logic unit (ALU), registers,
-program counter (PC), and clock. These components work together to 
+circuitry of a computer that performs instructions.
+
+The CPU has several key components: the control logic, arithmetic and logic unit (ALU), registers,
+program counter, and clock. These components work together to 
 fetch, decode, and execute all instructions --- the building blocks of all programs.
 Instructions vary between different brands of CPUs, but, in general, they will
-include arithmetric, control, read (from memory), and write (to memory) functionalities.
+include arithmetic, control, read (from memory), and write (to memory) functionalities.
+
 Example~\ref{ex:hardware:instr} shows several instructions
 that together would perform \ic{x = x + y}, given \ic{x} is stored in memory
 location 16 and \ic{y} at memory location 20. These instructions are quite low
@@ -212,53 +211,53 @@ store R1 16   -- store the value in register 1 to memory location 16
 
 A key component of a CPU is its clock. The clock allows the CPU to progress in time,
 triggering the time to progress from time \ic{t} to time \ic{t + 1}. A single time
-segment is referred to a clock cycle. You might have heard about a computer's CPU
-speed (e.g. my computer runs at 2.4 GHz = 2.4 billion clock cycles a second). This
+segment is referred to as a clock cycle. You might have heard about a computer's CPU
+speed. For example, your computer may run at 2.4 GHz = 2.4 billion clock cycles per second. This
 is determined by how fast the clock transitions from one time step to the next. This
 clock drives the progress of the CPU. The time an instruction takes is measured
 in instruction cycles. The rate of the CPU's clock is determined by the slowest
-operation of the CPU (e.g. fetch, decode, execute stage).
+operation of the CPU.
 
 In addition to clocks, the CPU contains a group of memory locations called registers.
-A single register is capable of holding a single word of information (the smallest
-unit of data in a computer). The key benefit of registers is the ability for the
-CPU to immediately read and write the contents of the CPU. The value of registers
-can be updated on each clock trigger (i.e. on the change from time \ic{t} to \ic{t + 1}).
+A single register is capable of holding a single ``word'' of information. A ``word'' is the smallest
+unit of data in a computer. The key benefit of registers is the ability for the
+CPU to immediately read and write the contents of the register. The value of a register
+can be updated each time the computer's clock ``ticks,'' or increments its value by one. 
 Most modern CPU's will have between 16 and 64 registers that programs may use.
-For comparison, accessing Main memory can take 10's or even 100's of instruction
+For comparison, accessing Main memory can take 10s or even 100s of instruction
 cycles to access while registers are immediately available to the CPU.
 
-The control unit and program counter (PC) will fetch, decode, and output the
+The control unit and program counter will fetch, decode, and output the
 controls for the execution of each instruction. The program counter holds the
 location of the next instruction to be executed. The next instruction is then
 fetched to the CPU. The CPU's control unit then decodes the fetched instruction
 and outputs control signals (commands) to main memory and the ALU. The CPU may
 read data from memory (e.g. store) and then the ALU will then execute the action
-specified by the control unit (e.g. add, subtract, multiply, compare to 0, etc.),
-and then possibly write the output to memory.
+specified by the control unit. Example actions include add, subtract, multiply, compare to 0, etc.
+The CPU may then possibly write the output to memory.
 
-In most computers, the CPU and its constiuent parts are responsible for all
+In most computers, the CPU and its constituent parts are responsible for all
 computing needs of the computer. In some select systems, there will be additional
 hardware to perform specialized operations (e.g. graphics processing units for
-processing / producing images). It is the CPU's responsbility to control the
+processing / producing images). It is the CPU's responsibility to control the
 computer and coordinate with devices to execute programs. As such, the CPU
-has seen a quick evolution to increase it's processing power. Electrical
-engineers, originally focused on making the CPU smaller and smaller and thus
-quicker, following Moore's Law : every two years the size of a CPU shrinks
-in half. Additionally, CPU's were designed with a pipelining architecture
-(i.e. multiple instructions are executed in quick succession). This is done
+has seen a quick evolution to increase its processing power. Electrical
+engineers originally focused on making the CPU smaller and smaller and thus
+quicker. The evolution follows Moore's Law : every two years the size of a CPU shrinks
+in half. Additionally, CPU's were designed with a pipelining architecture: this means
+that multiple instructions are executed in quick succession. This is done
 by noting that each stage of the five stages --- fetch, load,  decode, execute,
 and store --- can be performed independently. Thus, while one instruction is
 being executed, the next instruction can be decoded. Figure~\ref{fig:hardware:pipeline}
-shows how pipelining is peformed by executing the different parts of the pipeline
+shows how pipelining is performed by executing the different parts of the pipeline
 in parallel for five consecutive instructions.
 
 Due to the decline of Moore's Law in recent years, many CPU designers focus on
 increasing processing power by improving parallelism (i.e. being able to execute
 multiple instructions at a time). This allows instructions that do not depend
-on each other to be executed at a time. These CPU are refered to as multi-core,
+on each other to be executed at the same time. These CPUs are referred to as multi-core,
 as they have multiple cores that each have their own set of registers, control unit,
-ALU, and PC but share main memory and a single clock. In this class we, will not
+ALU, and program counter but share main memory and a single clock. In this class we will not
 teach how to effectively harness parallel programming, but note that this is
 an important progress in how hardware has evolved.
 
@@ -275,7 +274,7 @@ In this chapter, we covered the three fundamental parts of a computer system:
 input and output devices, Main and Secondary Memory, and the CPU. We discussed
 their roles, relationships, and basic capabilities. I hope that this will help
 you better understand how hardware works at a high level to better improve how
-to write programs that will eventually run on these computer system. In the
+to write programs that will eventually run on these computer systems. In the
 next chapter we will begin discussing the concept of Software and how its
 similarities and differences to hardware and where the boundary between the two
 lies.
