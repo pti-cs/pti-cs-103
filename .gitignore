@@ -28,6 +28,7 @@ lectures/*.synctex.gz
 *.cb
 *.cb2
 .*.lb
+main.pdf
 
 ## Build tool auxiliary files:
 *.fdb_latexmk
