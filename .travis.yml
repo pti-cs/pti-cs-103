@@ -1,0 +1,27 @@
+os: linux
+
+
+
+# we use the R VM because it contains LaTeX and pandoc
+language: r
+
+
+
+# we need super user privileges, so we depend on the old travis-ci infrastructure
+sudo: required
+
+# in the next step we use pdflatex to convert .tex to .pdf
+# of course we could use pandoc for this also, but pdflatex generates nicer PDFs
+  - pdflatex -interaction=nonstopmode main.tex
+
+
+
+deploy:
+  provider: releases
+  api_key:
+    secure: CVnVlMCPp277oqqLtoeYiTf0XK+v+vhrNko/DJJIhZalwZrxgxVAW0VVp91SWUyYJd9W2jrIQaawESsipWQFUS689ktZ4PbYrFhs33xTcQiR/OrlXZDBnWQEvSP3cxKtciFyMyCXf9L9MKkB3CMZelbbub2/kQg8LyXODSpFZrslqwxO5V6b+0jujJ9bFowcJZjMXLcXlhb7cCw9cIX+eUJ/0vHy1lFBs7Du1pp0QJKBbmgCsSk7PPwCVKGrJLWqSu8CPoEFz3pMq/N6wCokFuRNNXX4/0IqYLNWHoqvjMeHlnS9bkR5ZcB3LcLD+i6xzQjoKYc/hW8EWZmJh8hXpb9xFMaVSijlfe7aEKzZDZqUwldm03D6l/z0xMY9c2e8FkRVKbW8Q0SPm/QH/i4PAC/fOdn569XQgaa9jDlL+ThqAQ9FOP2bOjKCp+m7VUmrgXClPCKntTN6/L833oSj8+Q2hppDt4ymus0vjN8sICRdJDJ6+6qvoHZ33Arwt9uYSWBDIjknVq3o36YY1InccUdKZCoWiquvUzcxBN/uciPsHKclBX6A5q722aPYzRN9HBa2NitTdyDTCTQuY0+zshGdhem33WQs+lpI9zc96zwztzQU3CzPw6VZOoESMdM9ohOnSWlJ/myg/oSbFYPQ3CGIOfKpMxDnLEbu/6y7xu8=
+  file:
+    - "lectures/main.pdf"
+  skip_cleanup: true
+  on:
+    repo: pti-cs/pti-cs-103
