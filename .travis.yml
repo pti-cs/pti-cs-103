@@ -7,7 +7,9 @@ script:
 # of course we could use pandoc for this also, but pdflatex generates nicer PDFs
   - cd lectures; pdflatex -interaction=nonstopmode main.tex
 
-
+apt_packages:
+# we download pdf2djvu to also generate a djvu file of our LaTeX source
+  - texlive-latex-extra
 
 deploy:
   provider: releases
