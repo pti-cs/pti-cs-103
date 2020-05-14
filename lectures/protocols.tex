@@ -2,11 +2,11 @@
 
 Computing devices have been in use for thousands of years, at least since the invention of the Sumerican abacus between four and five thousand years ago. Even as computers became more sophisticated, a long process culminating in the development of transistor-based digital computers, they remained specialized machines, largely for use in government or business settings. The explosion in personal computing, which has flooded the planet with billions of computers that pervade almost every aspect of society, coincided roughly with the development of computer networking and the Internet. Communicating via computers -- with friends, news outlets, vendors, banks, or even artificial intelligence systems -- has revolutionized the way the world works.
 
-In the next two chapters, we'll learn how computer networks work, from the wires in the ground up to the more familiar technologies in a browser or email client. The Internet is one of the largest and most complex machines ever built, so we certainly won't be able to cover every aspect of it, but we'll focus on a few important topics. After reading, you should be able to tell a story about what happens when you open a website or send an email, and understand how to get under the hood and see how different pieces are working together to complete the task.
+In the next two chapters, we'll learn how computer networks work, from the wires in the ground up to the more familiar technologies in a browser or email client. The Internet is one of the largest and most complex machines ever built, so we certainly won't be able to cover every aspect of it, but we'll focus on a few important topics. After reading the next two chapters, you should be able to tell a story about what happens when you open a website or send an email, and understand how to get under the hood and see how different pieces are working together to complete the task.
 
-In this chapter, we'll focus specifically on the \emph{protocols} that allow computers to communicate with one another. We'll cover what a protocol is, and why detailed protocols are important for ensuring reliable networking. In the following chapter, we'll look at how these protocols work together and allow us to build large computer networks, including the global Internet.
+In this chapter, we'll focus specifically on the \emph{protocols} that allow computers to communicate with one another. We'll cover what a protocol is, and why detailed protocols are important for ensuring reliable networking. In the next chapter, we'll look at how these protocols work together and allow us to build large computer networks, including the global Internet.
 
-In addition to its inherent interest, understanding networks is very practical. Many companies look for Internet Technology or IT specialists who understand how networks work. Taking a test like the Network+ certification or A+ certification allows access to these jobs. These tests are knowledge based, so you don’t need practical experience to do well on them. They qualify you for entry level positions that pay around \$50,000 a year. If you're interested in preparing for these exams, there are many books that can help you prepare. For instance, ``CompTIA A+ Certification All-in-One Exam Guide, Ninth Edition (Exams 220-901 \& 220-902).''
+Understanding networks is both interesting and very practical. Many companies look for Internet Technology or IT specialists who understand how networks work. Taking a test like the Network+ certification or A+ certification allows access to these jobs. These tests are knowledge based, so you don’t need practical experience to do well on them. They qualify you for entry level positions that pay around \$50,000 a year. If you're interested in preparing for these exams, there are many books that can help you prepare. For instance, ``CompTIA A+ Certification All-in-One Exam Guide, Ninth Edition (Exams 220-901 \& 220-902).''
 
 \section{Protocols}
 
@@ -25,9 +25,9 @@ Rather than delve into complex diplomatic protocol, let's consider the simple ex
     \item Alice barely extends her arm, forcing Bob to stand very close.
     \item Alice sneezes into her hand immediately before initiating the handshake.
 \end{itemize}
-Any of these examples would cause some problems; many would lead Bob to wonder if Alice had ever shaken hands before, while a few might leave Bob offended or wondering if Alice is interested in communicating. Clearly it is important that Alice and Bob abide by some rules so that their handshake goes smoothly and gives a friendly message to both parties.
+Any of these examples would cause some problems; many would lead Bob to wonder if Alice had ever shaken hands before, while a few might leave Bob offended or wondering if Alice does not like Bob. Clearly it is important that Alice and Bob abide by some rules so that their handshake goes smoothly and gives a friendly message to both parties.
 
-How might we construct such a set of rules, or a protocol? It would be helpful to first divide the above gaffes into a few categories. We could do this chronologically: there are potential problems with initiating the handshake, completing the handshake itself, and terminating the handshake.
+How might we construct such a set of rules, or a protocol? It would be helpful to first divide the above gaffes into a few categories. One way to categorize them is chronologically: there are potential problems in 3 stages: initiating the handshake, completing the handshake, and terminating the handshake.
 
 Let's first write a protocol for initiating a handshake. The two parties need to come to an appropriate distance, verify that their hands are clean, make eye contact, and both extend the same hand. We can condense this into a step-by-step procedure:
 
@@ -48,22 +48,23 @@ There are a surprising number of steps for something we all do almost unconsciou
     Write similarly detailed protocols for Handshake Completion and Handshake Termination. Make sure your protocol eliminates the possibility of any of the gaffes listed above.
 \end{exercise}
 
-Computers have no social intuition whatsoever. This is why protocols are important: a computer needs to be told every single step of an interaction as simple as a handshake in order to execute it properly. Building a computer network requires a number of different protocols to establish how messages are sent on wires, routed to the appropriate destination, and more.
+You might wonder why need to write out these detailed protocols, since handshakes are so obvious. The reason is that computers have no social intuition whatsoever. This is why protocols are important: a computer needs to be told every single step of an interaction as simple as a handshake in order to execute it properly. Building a computer network requires a number of different protocols to establish how messages are sent on wires, routed to the appropriate destination, and more.
 
-One of the most important parts of a protocol is that everyone follows the same one. Some aspects of protocols are completely arbitrary, and it is important for everyone to follow the same arbitrary convention. For example, handshakes could use left hands instead of right hands. Luckily the whole world shakes right hands, but anyone who's tried driving in both the US and UK knows that not all protocols are globally uniform.
+One of the most important parts of a protocol is that everyone follows the same one. Some aspects of protocols are completely arbitrary, and it is important for everyone to follow the same arbitrary convention. For example, handshakes could use left hands instead of right hands. Luckily the whole world shakes right hands, but anyone who's tried driving in both the US and UK knows that not all protocols are the same.
 
-In order to ensure that networking protocols are consistent around the world, a body known as the Interent Engineering Task Force (IETF) carefully specifies all the protocols and makes them publicly available. Publications of the IETF are known as Requests for Comments, or RFCs. The name ``Request for Comments'' originated in the early days of networking when the documents really were intended for discussion and subsequent revision. Nowadays there is a category called standards-track RFCs which specify the standards of the Internet and which should be followed by anyone building networking technology.
+For computer networks specifically, in order to ensure that networking protocols are consistent around the world, a body known as the Interent Engineering Task Force (IETF) carefully specifies all the protocols and makes them publicly available. Publications of the IETF are known as Requests For Comments, or RFCs. The name ``Request For Comments'' originated in the early days of computer networking, when the documents were intended for comments and discussion. Nowadays there is a category called standards-track RFCs which specify the standards of the Internet and should be followed by anyone building networking technology.
 
 \section{Network Layers}\label{sec:network:layers}
 
 In the previous section we saw an example of a protocol for initiating a handshake. The protocol was more detailed than you might have expected, but it also didn't include all the details. For example, let's delve into step 2: ``Look at the other party, and wait for eye contact to be established.'' First, what does it mean to ``look at the other party''? This requires identifying the location of another human, and sending motor signals to the neck and to the eyeballs in such a way as to orient them in the direction of the other human's eyeballs. If we were to include all these details, our protocol would become extremely complex and hard to follow.
 
-In real life, we avoid this complexity by never even thinking about these details of movement, facial recognition, and the like. Our brains can automatically send the right signals to our muscles, interpret signals from our senses, and so on. We say that the brain is segmented into two layers: conscious and unconscious. The conscious layer sends high-level signals, such as the command ``Look at Bob,'' to the unconscious layer. The unconscious layer is responsible for parsing those commands and executing them by sending the right signals to muscles. This layered architecture allows the protocols to remain simple by referring to the capabilities of lower layers.
+In real life, we avoid this complexity by never even thinking about these details of movement, facial recognition, and the like. Our brains can automatically send the right signals to our muscles, interpret signals from our senses, and so on. We say that the brain is segmented into two layers: conscious and unconscious. The conscious layer sends high-level signals, such as the command ``Look at Bob,'' to the unconscious layer. The unconscious layer is responsible for parsing those commands and executing them by sending the right signals to muscles. This \textbf{layered architecture} allows the protocols to remain simple by referring to the capabilities of lower layers. As we will see later, computer networks also use a layered architecture.
 
-Communication networks also use a layered architecture. We will come to the layers that make up the Internet in a moment, but long before the Internet we had the postal system. The postal system is built up from layers, and in many ways the Internet is simply a much faster and more automated version of the same layers. Let's consider the following example of a letter being sent from Alice at Acme, Inc. to Bob at Boxes, Inc.:
+%Communication networks also use a layered architecture. We will come to the layers that make up the Internet in a moment, but long before the Internet we had the postal system. 
+Another example of a layered architecture that is similar to a computer network is the postal system. The postal system is built up from layers, and in many ways the Internet is simply a much faster and more automated version of the same layers. Let's consider the following example of a letter being sent from Alice at Acme, Inc. to Bob at Boxes, Inc.:
 
 \begin{enumerate}
-    \item Alice tells her employee, Jane, to order 50 new boxes. Jane drafts a letter to Bob at Boxes, Inc.: ``Please send 50 boxes.'' She seals it in an envelope, opens her address book and copies down Bob's mailing address, and drops the envelope off at the company mailroom. A worker in the mailroom sees that the letter is addressed to a destination outside Acme, Inc., and so he places the envelope in a postal box outside.
+    \item Alice tells her employee, Jane, to order 50 new boxes. Jane drafts a letter to Bob at Boxes, Inc. which says ``Please send 50 boxes.'' She seals the letter in an envelope, opens her address book and copies down Bob's mailing address, and drops the envelope off at the company mailroom. A worker in the mailroom sees that the letter is addressed to a destination outside Acme, Inc., and so he places the envelope in a postal box outside.
     \item A postal worker picks up the envelop from the postal box, and sees that the letter is addressed to a location outside the city. He brings the letter to the local post office, and places it into a bin to be sorted.
     \item Another postal worker picks up the envelope from the bin, and puts it on a mail truck destined for Bob's city.
     \item The mail truck drives along a highway from Alice's city to Bob's city, and gives the letter to the post office there.
@@ -97,9 +98,9 @@ This set of four layers is commonly known as TCP/IP, named for the Transmission 
 
 The application layer is the highest layer of TCP/IP. It consists of various protocols that specify how to send different types of data over the Internet. You might have heard of one of these protocols, HTTP. HTTP stands for HyperText Transfer Protocol. It comes at the beginning of a web address. When you type \ic{http://www.google.com}, you're telling your computer to use HTTP to access \ic{www.google.com}.
 
-There are many other protocols in the application layer. HTTPS is a secure version of HTTP, which uses security protocols we'll discuss in Section \ref{sec:network:security}. Another popular protocol is SSH, or Secure Shell, which programmers use to access a Linux terminal on another Internet-connected machine. The file transfer protocol, or FTP, is used for exchanging files between different computers. A variety of protocols, such as POP3, IMAP, and SMTP, are used for exchanging emails.
+There are many other protocols in the application layer. HTTPS is a secure version of HTTP, which uses security protocols we'll discuss in Section \ref{sec:network:security}. Another popular protocol is SSH, or Secure Shell, which programmers use to access the command line (see previous chapter) on another machine. The file transfer protocol, or FTP, is used for exchanging files between different computers. A variety of protocols, such as POP3, IMAP, and SMTP, are used for exchanging emails.
 
-When the application layer receives data from the transport layer, it needs to know which protocol it was sent with. In order to sort out all the different data, the application layer uses \emph{ports}. All Internet communications happen over some numbered port. For example, HTTP uses port 80. When you load \ic{http://www.google.com}, your computer sends the request to Google over port 80. Google sends its home page back over port 80. Table \ref{tab:common_ports} lists the most commonly used protocols and the ports they use.
+When the application layer receives data from the transport layer, it needs to know which protocol it was sent with. In order to sort out all the different data, the application layer uses \emph{ports}. All Internet communications happen over some numbered port. For example, HTTP uses port 80. When you load \ic{http://www.google.com}, your computer sends a request to Google over port 80, telling Google to load the home page. Google sends its home page back over port 80. Table \ref{tab:common_ports} lists the most commonly used protocols and the ports they use.
 
 \begin{table}
     \centering
@@ -125,9 +126,11 @@ A simple and famous example is \ic{isitfriday.net}. This website is hosted by a 
 
 When the application layer is ready to transmit a message, it will pass it down to the transport layer. By far the most common transport layer protocol is TCP, for Transmission Control Protocol. We will focus on TCP in this section. Another common protocol in the transport layer is TLS, for Transport Layer Security, which runs alongside TCP. We will discuss TLS more in Section \ref{sec:network:security}.
 
-When TCP is asked to transfer a message, it will prepare to send it piece by piece over the network. The individual pieces are called \emph{packets}. These packets are relatively small, about a kilobyte. For reference, an average-sized image would typically be broken into a few thousand packets before being transferred. 
+When TCP is asked to transfer a message, it will prepare to divide up the message and send it piece by piece over the network. The individual pieces are called \emph{packets}. These packets are relatively small, about a kilobyte. For reference, if you are sending an image over TCP, an average-sized image would typically be broken into a few thousand packets before being transferred. 
 
-The reason for this is that a major role of TCP is to guarantee reliability. The application layer assumes that its message will be sent in full and without errors, while the Internet layer does not guarantee accurate or successful transmission, so it is the job of the transport layer to ensure robust communication. By breaking a message into small packets, TCP helps to reduce the chance that any individual packet fails to transmit. In addition, if a packet does fail to transmit, it doesn't take too much time to recover, since TCP can re-send the relatively small packet.
+The reason for dividing up the message is that a major role of TCP is to guarantee reliability. 
+%While the application layer assumes that its message will be sent in full and without errors, 
+The Internet layer does not guarantee accurate or successful transmission, so it is the job of the transport layer to ensure robust communication. By breaking a message into small packets, TCP helps to reduce the chance that the entire message fails to transmit, since most of the packets will reach the destination. In addition, if a packet does fail to transmit, it doesn't take too much time to recover, since TCP can re-send the relatively small packet.
 
 In addition to providing reliability, TCP is responsible for initiating connections between two computers. When TCP receives a request to transfer a message to a destination, it will first complete a ``handshake'' with that destination. The goal of the handshake is to establish that both parties are connected to the Internet and ready and willing to communicate with one another. In addition, the parties need to synchronize a \emph{sequence number} which specifies the numbers that will label subsequent packets.
 
@@ -297,19 +300,21 @@ Network security is an evolving field as companies and governments work to prote
     What protocol is used as part of HTTPS in order to ensure secure transmission of data? List the three goals of this protocol and give a description of the kind of attack each goal seeks to prevent. Then give an example of an attack which would not be prevented by this protocol.
 \end{exercise}
 
-\begin{exercise}
-    Identify all of the following blocks of IP addresses which contain 48.192.72.86. (\emph{Hint:} you may want to write out each address block in binary.)
-    \begin{itemize}
-        \item 48.192.0.0/12
-        \item 48.192.0.0/16
-        \item 48.192.0.0/20
-        \item 48.0.0.0/4
-        \item 48.0.0.0/8
-        \item 48.0.0.0/12
-        \item 48.192.64.0/20
-        \item 48.192.64.0/24
-    \end{itemize}
-\end{exercise}
+% this seems way too hard
+
+%\begin{exercise}
+%    Identify all of the following blocks of IP addresses which contain 48.192.72.86. (\emph{Hint:} you may want to write out each address block in binary.)
+%    \begin{itemize}
+%        \item 48.192.0.0/12
+%        \item 48.192.0.0/16
+%        \item 48.192.0.0/20
+%        \item 48.0.0.0/4
+%        \item 48.0.0.0/8
+%        \item 48.0.0.0/12
+%        \item 48.192.64.0/20
+%        \item 48.192.64.0/24
+%    \end{itemize}
+%\end{exercise}
 
 \begin{exercise}
     In a TCP handshake, Alice initiates by sending $\boxed{\ic{SYN}\ 895}$ to Bob. Give an example of the remaining steps that could take place in this handshake.
