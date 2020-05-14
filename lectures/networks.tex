@@ -126,7 +126,7 @@ Imagine a LAN with 50 devices connected to a switch. There are over a thousand d
 
 \section{Wide Area Networks}
 
-Almost every LAN needs a way of communicating with the outside world. A network at a larger scale than a LAN is called a wide area network, or WAN. By far the most familiar example of a WAN is the Internet, but a WAN need not be this large. For example, a campus or metropolitan area may have its network organized as a WAN.
+Almost every LAN needs a way of communicating with the outside world. A network at a larger scale than a LAN is called a Wide Area Network (WAN). By far the most familiar example of a WAN is the Internet, but a WAN need not be this large. For example, a campus or metropolitan area may have its network organized as a WAN.
 
 The link layer technology which carries signals over a WAN is similar to that of a LAN. A WAN typically needs higher capacity Ethernet cables, but the general principles are the same. The primary difference between a LAN and a WAN comes in at the Internet layer, where the IP protocol distinguishes between public and private networks. In this section we will discuss this difference, and the systems and protocols used to connect public networks together.
 
@@ -134,11 +134,11 @@ The link layer technology which carries signals over a WAN is similar to that of
 
 If you have used a home network, you may be more familiar with routers than switches. This is because a switch is designed to connect all the devices into an area into a local network, but typically we also want to connect a local network to the outside Internet. This is the role of a router. Routers are responsible for connecting different networks together into a larger network.
 
-In a typical setup, several devices on a local network will be connected to a router. The router assigns private IP addresses to each of these devices. Private IP addresses belong to one of three special blocks reserved for this purpose. The most common block is 192.168.*.*, any address ranging from 192.168.0.0 to 192.168.255.255. There are about 65,000 such addresses. A block like this can be written as 192.168.0.0/16, meaning the first 16 bits are fixed and the rest can change. The other private IP address ranges are 172.16.0.0/12, with about 1 million addresses, and 10.0.0.0/8, with about 16 million addresses.
+In a typical setup, several devices on a local network will be connected to a router. The router assigns private IP addresses to each of these devices. Private IP addresses belong to one of three special blocks reserved for this purpose. The most common block is 192.168.*.*, any address ranging from 192.168.0.0 to 192.168.255.255. There are about 65,000 such addresses. A block like this can be written as 192.168.0.0/16, meaning the first 16 bits are fixed and the rest can change. The other private IP address blocks are 172.16.0.0/12, with about 1 million addresses, and 10.0.0.0/8, with about 16 million addresses.
 
-When a device (such as a switch) within the LAN receives a packet, it will look at the destination IP address. If it knows where to route the packet -- that is, if the packet is destined for another device on the local network -- then it will forward the packet appropriately. If it does not know where to route the packet, then it will forward it on to the device designated as the \emph{default gateway} for the network. The default gateway is typically the router.
+When a device (such as a switch) within a LAN receives a packet, it will look at the destination IP address. If the packet is destined for another device on the LAN, then the switch will forward the packet appropriately. If the switch does not know where to route the packet, then it will forward the packet to a device designated as the \emph{default gateway} for the network. The default gateway is typically the router.
 
-When the router receives a packet with a destination address outside the local network, it knows how to forward it appropriately. First, it will change the source address of the packet. The packet originated from a device on the private network, so its source address is a private address, such as 192.168.1.4. The router will replace this source address with its own address on the WAN. This will be a public IP address, such as 172.217.15.100. It then sends the packet out to the public Internet and awaits a reply. When it receives a reply, it will forward the packet on to the correct device on the network. This process is depicted in Figure \ref{fig:gateway}.
+When the router receives a packet with a destination address outside of the LAN, it will forward the packet appropriately, using the following steps. First, the router will change the source address of the packet. The packet originated from a device on the private network, so its source address is a private address, such as 192.168.1.4. The router will replace this source address with its own address on the WAN. This will be a public IP address, such as 172.217.15.100. Next, the router sends the packet out to the public Internet and awaits a reply. When the router receives a reply, it will forward the packet on to the correct device on the network. This process is depicted in Figure \ref{fig:gateway}. 
 
 \begin{figure}
     \centering
@@ -164,11 +164,11 @@ When the router receives a packet with a destination address outside the local n
 
 \subsection{Autonomous Systems}
 
-Once a packet is routed to a wide area network, such as the Internet, it needs to be sent to the network which contains the destination address. Typically, the first destination for a packet is a router belonging to an Internet Service Provider (ISP). For example, in the \ic{traceroute} trace on page \pageref{code:traceroute}, the packet ends up at a router owned by Verizon, a popular ISP. This router belongs to an \emph{autonomous system} (AS) operated by Verizon. An autonomous system is simply a connection of routers on the Internet which are under some common administrative control, such as by an ISP.
+Once a packet is routed to the Internet, it needs to be sent to the network which contains the destination address. Typically, the first destination for a packet is a router belonging to an Internet Service Provider (ISP). For example, in the \ic{traceroute} trace on page \pageref{code:traceroute}, the packet ends up at a router owned by Verizon, a popular ISP. This router belongs to an \emph{autonomous system} (AS) operated by Verizon. An autonomous system is simply a connection of routers on the Internet which are under common administrative control (e.g. the ISP).
 
 Autonomous systems are managed globally using autonomous system numbers, or ASNs, which are similar to IP addresses. These numbers are allocated by the Internet Assigned Numbers Authority (IANA) to Regional Internet Registries (RIRs), which then assign the numbers to autonomous systems.
 
-The routers in an autonomous system can forward packets to destinations within the same AS, but if a packet is destined for a network on another AS, it needs to be routed appropriately. This requires different ASs to communicate with one another. This can happen via \emph{peering}, in which two ASs mutually agree to carry traffic to one another free of charge, or via \emph{transit}, in which an AS charges a fee to carry traffic from other ASs.
+The routers in an autonomous system can forward packets to destinations within the same AS, but if a packet is destined for a network on another AS, it needs to be routed appropriately. This requires different AS's to communicate with one another. This can happen via \emph{peering}, in which two AS's mutually agree to carry traffic to one another free of charge, or via \emph{transit}, in which an AS charges a fee to carry traffic from other AS's.
 
 When two ASs need to communicate with one another, they use the Border Gateway Protocol (BGP). This is the core routing protocol of the Internet, and is responsible for making decisions on how to get packets to a destination in the quickest way possible. 
 
@@ -179,5 +179,15 @@ When two ASs need to communicate with one another, they use the Border Gateway P
 \end{exercise}
 
 \begin{exercise}
-    Margaret has been hired as a network administrator to set up a network for Acme, Inc. Acme has 45 computers in their office, and there is no network in place. If Margaret wants to put a unique cable between every pair of computers, how many cables will she need? If Margaret wants to use the minimum number of cables to ensure every computer has a path in the network to every other computer, how many cables will she need?
+    Margaret has been hired as a network administrator to set up a network for Acme, Inc. Acme has 10 computers in their office, and there is no network in place. If Margaret wants to put a unique cable between every pair of computers, how many cables will she need? 
+    %If Margaret wants to use the minimum number of cables to ensure every computer has a path in the network to every other computer, how many cables will she need?
+\end{exercise}
+
+\begin{exercise}
+    What do ISP and AS stand for? What is the relationship between an ISP and an AS?
+    %If Margaret wants to use the minimum number of cables to ensure every computer has a path in the network to every other computer, how many cables will she need?
+\end{exercise}
+
+\begin{exercise}
+    What do LAN and WAN stand for? What is the relationship between a LAN and a WAN?
 \end{exercise}
