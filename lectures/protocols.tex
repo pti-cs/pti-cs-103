@@ -98,7 +98,7 @@ This set of four layers is commonly known as TCP/IP, named for the Transmission 
 
 The application layer is the highest layer of TCP/IP. It consists of various protocols that specify how to send different types of data over the Internet. You might have heard of one of these protocols, HTTP. HTTP stands for HyperText Transfer Protocol. It comes at the beginning of a web address. When you type \ic{http://www.google.com}, you're telling your computer to use HTTP to access \ic{www.google.com}.
 
-There are many other protocols in the application layer. HTTPS is a secure version of HTTP, which uses security protocols we'll discuss in Section \ref{sec:network:security}. Another popular protocol is SSH, or Secure Shell, which programmers use to access the command line (see previous chapter) on another machine. The file transfer protocol, or FTP, is used for exchanging files between different computers. A variety of protocols, such as POP3, IMAP, and SMTP, are used for exchanging emails.
+There are many other protocols in the application layer. HTTPS is a secure version of HTTP, which uses security protocols we'll discuss in the next chapter. Another popular protocol is SSH, or Secure Shell, which programmers use to access the command line (see previous chapter) on another machine. The file transfer protocol, or FTP, is used for exchanging files between different computers. A variety of protocols, such as POP3, IMAP, and SMTP, are used for exchanging emails.
 
 When the application layer receives data from the transport layer, it needs to know which protocol it was sent with. In order to sort out all the different data, the application layer uses \emph{ports}. All Internet communications happen over some numbered port. For example, HTTP uses port 80. When you load \ic{http://www.google.com}, your computer sends a request to Google over port 80, telling Google to load the home page. Google sends its home page back over port 80. Table \ref{tab:common_ports} lists the most commonly used protocols and the ports they use.
 
@@ -124,7 +124,7 @@ A simple and famous example is \ic{isitfriday.net}. This website is hosted by a 
 
 \subsection{Transport Layer}
 
-When the application layer is ready to transmit a message, it will pass it down to the transport layer. By far the most common transport layer protocol is TCP, for Transmission Control Protocol. We will focus on TCP in this section. Another common protocol in the transport layer is TLS, for Transport Layer Security, which runs alongside TCP. We will discuss TLS more in Section \ref{sec:network:security}.
+When the application layer is ready to transmit a message, it will pass it down to the transport layer. By far the most common transport layer protocol is TCP, for Transmission Control Protocol. We will focus on TCP in this section. Another common protocol in the transport layer is TLS, for Transport Layer Security, which runs alongside TCP. We will discuss TLS more in the next chapter.
 
 When TCP is asked to transfer a message, it will prepare to divide up the message and send it piece by piece over the network. The individual pieces are called \emph{packets}. These packets are relatively small, about a kilobyte. For reference, if you are sending an image over TCP, an average-sized image would typically be broken into a few thousand packets before being transferred. 
 
@@ -241,49 +241,6 @@ There are two major variants of Wi-Fi: 2.4 gigahertz (GHz) and 5 GHz. These are 
 
 The details of link layer technologies are complex, but luckily you rarely have to deal with them directly. In most cases, Ethernet or Wi-Fi have been engineered to the point where little effort is required to make them work properly, and you can focus on other layers of the network while trusting that signals are being carried appropriately by the link layer.
 
-
-\section{Network Security}\label{sec:network:security}
-
-One of the most important issues with computer networks is security. The Internet is frequently used for transmitting confidential messages, facilitating financial transactions, and other applications where security is paramount. For this reason,there are protocols dedicated to ensuring that the Internet can be secure. The most common such protocol is Transport Layer Security (TLS), which is a successor to an older protocol called Secure Sockets Layer (SSL). TLS is implemented at the transport layer of a network. Web traffic which uses TLS/SSL security is sent using the HTTPS protocol at the application layer, rather than the unsecured HTTP protocol.
-
-Another common network security application is a Virtual Private Network, or VPN. A VPN allows computers connected to different LANs to communicate over the Internet as if they belonged to the same LAN. This is often used by companies to allow employees to access private resources even when they are away from the office. Security is very important for a VPN, and it can be provided using TLS or other protocols.
-
-The details of TLS are complicated, and we will not get into them here. Instead, we will cover what exactly security means in a network setting, and look at three goals of any secure network: privacy, authenticity, and reliability. Achieving these goals requires using tools from cryptography, which you may learn about in a future course.
-
-\subsection{Privacy}
-
-When two parties want to securely transmit a message, one of their most straightforward goals is privacy. The two parties do not want a third party to be able to lisen in on their communication.
-
-Following a standard convention in cryptography, we will denote the two parties by Alice and Bob, and the adversarial third party by Carol. Alice is sending a message to Bob, and Carol wants to listen in. Since network signals travel over cables, Carol could listen in to the signal by physically tapping into a wire. Even more easily, on a wireless network, all signals are broadcast over the air and can be received by anyone who wants to listen.
-
-In order to protect their messages from being read by Carol, Alice and Bob use an encryption algorithm. Alice and Bob have some shared key, and when Alice wants to send a message, she first uses her key to turn the plain text of the message into a cipher text. If the algorithm is secure, then the cipher text cannot be converted back to the plain text without knowledge of the key. This way, if Carol manages to read the message, she will only see nonsensical cipher text. Only Bob, who has the key, can produce the plain text.
-
-A key issue here is how Alice and Bob come to have the same key. If Alice tells Bob her key over the network, then Carol could retrieve the key and use it to decrypt all future messages. This is a fundamental problem in cryptography called the key-sharing problem. It is solved using a technique called public key cryptography. In TLS, public key cryptography is implemented using either the RSA algorithm, or a more sophisticated method called elliptic curve cryptography (ECC). These algorithms allow Alice and Bob to generate shared keys which Carol cannot intercept.
-
-\subsection{Authenticity}
-
-Even if Carol cannot read messages sent between Alice and Bob, she can still do damage. One potential attack would be for Carol to impersonate Alice, by sending a message to Bob which says it comes from Alice. This is why TLS must also protect the authenticity of messages: if a message says it comes from Alice, Bob needs some way of verifying that this is actually the case.
-
-The public key cryptography algorithms used for ensuring privacy can also provide authenticity. In these algorithms, every party on the network has a private key which is never shared with anyone. This private key is important for generating the shared keys used for encrypting messages. It can also be used to generate a ``digital signature,'' which could only be produced by someone in possession of the private key. As long as the private key has never been shared, a digital signature can provide a guarantee of authenticity.
-
-\subsection{Integrity}
-
-Finally, even if Carol cannot read messages or impersonate Alice or Bob, she could try to modify one of their messages. This is called a man-in-the-middle (MITM) attack, where Carol intercepts Alice's communications, edits them, and then forwards them to Bob with Alice's signature intact.
-
-To protect against this, TLS uses a message authentication code (MAC) which is sent along with any message. This is a short code sent with the message, which depends on the shared key and on the message. If the algorithms are secure, then it should be nearly impossible to generate a MAC without knowledge of both the shared key and the message. When Bob receives the message along with the MAC, he verifies that the MAC is correct. If it is not, then he knows the message has been altered in transit and discards it.
-
-\subsection{Security versus Trust}
-
-An enormous amount of expertise, testing, and iteration has gone into making TLS secure. However, it is still relatively common to hear about security problems on the Internet. Where do these problems come from?
-
-In this context, it is important to recognize a key difference between security and trust. Network security provided by TLS achieves the three goals outlined above: privacy, authenticity, and integrity. When Alice communicates with Bob, she can be sure that only Bob can read her messages, that messages she receives from Bob really come from Bob, and that the messages have not been altered in transit. However, \emph{TLS does not guarantee that Alice can trust Bob}.
-
-There are many ways in which Bob could be unreliable. For example, Bob could be attempting to execute a phishing attack by impersonating someone else. TLS guarantees that Bob cannot truly impersonate \ic{facebook.com}, but he could own \ic{fcebook.com} and, using TLS security, provide a website that looks just like \ic{facebook.com} and asks for your login credentials. If you provide them to \ic{fcebook.com}, then Bob could read your password and log into your actual Facebook account.
-
-Even if Bob is not malicious, he could be irresponsible. For example, if Bob runs an online vendor which collects credit card information to make payments, it is crucial that Bob takes appropriate security measures on his local network to protect that credit card information from becoming known to an attacker. TLS does not guarantee that Bob has taken the necessary precautions. Many of the most substantial security problems arise on the Internet when many customers have trusted a vendor like Bob with their personal details like credit card numbers, and Bob suffers a data breach, putting this data into the wrong hands.
-
-Network security is an evolving field as companies and governments work to protect against these sorts of vulnerabilities. There are many opportunities for employment in this area, as organizations increasingly need to rely on dedicated security professionals in order to keep their data and their clients' data safe.
-
 \exercisesection
 
 \begin{exercise}
@@ -294,10 +251,6 @@ Network security is an evolving field as companies and governments work to prote
         \item Application Layer
         \item Internet Layer
     \end{itemize}
-\end{exercise}
-
-\begin{exercise}
-    What protocol is used as part of HTTPS in order to ensure secure transmission of data? List the three goals of this protocol and give a description of the kind of attack each goal seeks to prevent. Then give an example of an attack which would not be prevented by this protocol.
 \end{exercise}
 
 % this seems way too hard
