@@ -26,7 +26,7 @@
 
 \vspace{1in}
 \begin{center}
-    \gradetable[h][questions]
+    \gradetable[h][pages]
 \end{center}
 
 \pagebreak
@@ -35,7 +35,7 @@
 
 \begin{questions}
 
-\question Which of the following is not part of the hardware of a computer?
+\question[2] Which of the following is not part of the hardware of a computer?
 \begin{choices}
     \choice Monitor
     \CorrectChoice Word processor
@@ -43,7 +43,7 @@
     \choice Motherboard
 \end{choices}
 
-\question What is the term for a part of a program which is not read by the computer, and which is used to describe what the code does for human readers?
+\question[2] What is the term for a part of a program which is not read by the computer, and which is used to describe what the code does for human readers?
 \begin{choices}
     \choice Annotation
     \choice Notation
@@ -51,7 +51,7 @@
     \CorrectChoice Comment
 \end{choices}
 
-\question What kind of memory is persistent, but can take longer to access?
+\question[2] What kind of memory is persistent, but can take longer to access?
 \begin{choices}
     \choice Primary memory
     \CorrectChoice Secondary memory
@@ -59,10 +59,10 @@
     \choice RAM
 \end{choices}
 
-\question Which of the following could fill in the blank in the following line of code:
-    \begin{code}
-        char c = ??????
-    \end{code}
+\question[2] Which of the following could fill in the blank in the following line of code:
+    \begin{center}
+        \ic{char c = ??????}
+    \end{center}
 \begin{choices}
     \choice \ic{5.0}
     \choice \ic{"Q"}
@@ -70,15 +70,52 @@
     \choice \ic{'abc'}
 \end{choices}
 
-\question Which of the following is the correct binary form of 37?
+\question[2] What does the following code segment print out?
+\begin{code}
+    System.out.print(7/4);
+    System.out.print(" ");
+    System.out.print(7.0/4);
+    System.out.print(" ");
+    System.out.print(7/4.0);
+\end{code}
 \begin{choices}
-    \CorrectChoice 100101
-    \choice 100011
-    \choice 101010
-    \choice 100010
+    \choice 1.75 1.75 1.75
+    \CorrectChoice 1 1.75 1.75
+    \choice 1 1.75 1
+    \choice 1 1 1.75
 \end{choices}
 
-\question Which of the following methods is used to print a \ic{String} to the console without ending the current line?
+\question[2] What type belongs in the blank in the following line of code?
+\begin{center}
+    \ic{?????? x = 10.5/3.5}
+\end{center}
+\begin{choices}
+    \choice \ic{char}
+    \choice \ic{String}
+    \choice \ic{int}
+    \CorrectChoice \ic{double}
+\end{choices}
+
+\question[2] Which of the following is the correct binary form of 37?
+\begin{choices}
+    \CorrectChoice 100101$_2$
+    \choice 100011$_2$
+    \choice 101010$_2$
+    \choice 100010$_2$
+\end{choices}
+
+\question[2] What bitwise operation belongs in place of the question mark?
+\begin{center}
+    \ic{110100011 ? 1010101 = 111110110}
+\end{center}
+\begin{choices}
+    \choice AND (\&)
+    \choice OR ($|$)
+    \CorrectChoice XOR (\textasciicircum)
+    \choice NAND
+\end{choices}
+
+\question[2] Which of the following methods is used to print a \ic{String} to the console without ending the current line?
 \begin{choices}
     \choice \ic{System.out.printf}
     \choice \ic{System.out.println}
@@ -86,7 +123,7 @@
     \CorrectChoice \ic{System.out.print}
 \end{choices}
 
-\question What is the term for software which translates a programmer's code into assembly language?
+\question[2] What is the term for software which translates a programmer's code into assembly language?
 \begin{choices}
     \choice Assembler
     \CorrectChoice Compiler
@@ -94,7 +131,7 @@
     \choice BIOS
 \end{choices}
 
-\question What command can be used to display the contents of a file in the terminal?
+\question[2] What command can be used to display the contents of a file in the terminal?
 \begin{choices}
     \CorrectChoice cat
     \choice ls
@@ -102,7 +139,7 @@
     \choice cp
 \end{choices}
 
-\question What is the most commonly used protocol in the transport layer of the Internet?
+\question[2] What is the most commonly used protocol in the transport layer of the Internet?
 \begin{choices}
     \choice HTTP
     \CorrectChoice TCP
@@ -110,18 +147,167 @@
     \choice Wi-Fi
 \end{choices}
 
-\question Which of the following IP addresses belongs to the block 192.168.0.0/16?
+\question[2] Which of the following security attributes is not guaranteed by standard Internet protocols?
+\begin{choices}
+    \CorrectChoice Trustworthiness
+    \choice Authenticity
+    \choice Integrity
+    \choice Privacy
+\end{choices}
+
+\question[2] Which of the following IP addresses belongs to the block 192.168.0.0/16?
 \begin{choices}
     \choice 192.0.0.1
-    \choice 255.255.255.255
+    \choice 192.184.0.0
     \choice 127.0.0.1
     \CorrectChoice 192.168.0.1
 \end{choices}
 
-\end{questions}
+\question[2] Which of the following topologies is typically used by a switched network?
+\begin{choices}
+    \choice Linear topology
+    \choice Circular topology
+    \choice Bus topology
+    \CorrectChoice Star topology
+\end{choices}
 
 \section{Short Answer}
 
+\question[5] Explain in 2--3 sentences the purpose of the Java Virtual Machine.
+
+\begin{solution}
+For most languages, a compiler has to translate into an assembly language specific to the processor in a user's computer. This makes it difficult to share compiled code. The Java compiler writes assembly langauge which can be understood by the Java Virtual Machine. This way, anyone with the Java Virtual Machine on their computer can run the compiled code.
+\end{solution}
+
+\question[5] Give an example of a layered architecture we have discussed in this course, and list the layers from top to bottom. Describe the advantages of a layered architecture.
+
+\begin{solution}
+    One example is the TCP/IP protocol stack in the Internet. The layers are the application layer, transport layer, Internet layer, and link layer. 
+
+    Another example is the layers of software and hardware. An example of layers in this case would be applications, libraries, operating systems, BIOS, and hardware.
+
+    In each case, the layered architecture is useful because it allows programmers to focus on systems with manageable complexity, and then these systems link together in layers to provide rather complex capabilities that would be difficult to program all at once.
+\end{solution}
+
+\question[5] On the terminal, you are in a directory called \ic{/users/jdoe/scans} which contains many files. You want to list all files in the directory, then copy the file \ic{cs.pdf} to \ic{/users/jdoe}, and finally, delete all \ic{.pdf} files in the \ic{/users/jdoe/scans} directory. What three commands would you use?
+
+\begin{solution}
+    Use \ic{ls}, followed by \ic{cp cs.pdf ..}, and finally \ic{rm *.pdf}.
+\end{solution}
+
+\question Indicate what each of the following code snippets will print out.
+\begin{parts}
+    \part[2] \hfill\\
+    
+\begin{code}
+int x = 4;
+String y = "hi";
+System.out.printf("%d%d%s%d",x,x,y,x);
+\end{code}
+
+    \begin{solution}
+        \ic{44hi4}
+    \end{solution}
+
+    \part[2] \hfill\\
+    
+\begin{code}
+int x = 7;
+int y = 5;
+if(x - y == 3) {
+    System.out.println("foo");
+}
+if(x - y == 2) {
+    System.out.pritnln("bar");
+}
+else if(y - x == -2) {
+    System.out.println("far");
+}
+\end{code}
+
+    \begin{solution}
+        \ic{bar}
+    \end{solution}
+
+    \part[2] \hfill\\
+    
+\begin{code}
+int x = 7;
+int y = 3;
+for(int i = 0; i < 5; i++) {
+    System.out.print(x/y);
+    x++;
+}
+\end{code}
+
+    \begin{solution}
+        \ic{22333}
+    \end{solution}
+
+    \part[4] \hfill\\
+
+\begin{code}
+for(int i = 0; i < 6; i++) {
+    for(int j = 0; j < 6; j++) {
+        if(i + j % 2 == 0) {
+            System.out.print('X');
+        }
+        else {
+            System.out.print(')');
+        }
+    }
+    System.out.println();
+}
+\end{code}
+
+    \begin{solution}
+        \hfill\\
+        \ic{XOXOXO\newline OXOXOX\newline XOXOXO\newline OXOXOX\newline XOXOXO\newline OXOXOX}
+    \end{solution}
+\end{parts}
+
+\question Perform each of the following binary operations.
+\begin{parts}
+    \part[5] $110100_2 + 11001100_2$
+    \answerline[$100000000_2$]
+    \part[5] $10110101_2 \,\&\; 10010011_2$
+    \answerline[$10010001_2$]
+    \part[5] $10110101_2 \;\verb!^!\; 10010011_2$
+    \answerline[$100110_2$]
+\end{parts}
+
 \section{Programming}
+
+\question[15] There is an integer \ic{n} and a String \ic{s}. Write Java code which will print \ic{s} once on the first line, twice on the second line, and so on, up to \ic{n} times on the \ic{n}th line.
+
+\begin{solution}
+\begin{code}
+for(int i = 1; i <= n; i++) {
+    for(int j = 0; j < i; j++) {
+        System.out.print(s);
+    }
+    System.out.println();
+}
+\end{code}
+\end{solution}
+
+\question[15] Print the first 100 integers, starting from 1, each on their own line. Next to each one, print \ic{fizz} if the integer is divisible by 7, print \ic{buzz} if the integer is divisible by 9, but print nothing if the integer is divisible by both.
+
+\begin{solution}
+\begin{code}
+for(int i = 1; i <= 100; i++) {
+    System.out.print(i + " ");
+    if(i % 7 == 0 && i & 9 != 0) {
+        System.out.print("fizz");
+    }
+    if(i % 7 != 0 && i % 9 == 0) {
+        System.out.print("buzz");
+    }
+    System.out.println();
+}
+\end{code}
+\end{solution}
+
+\end{questions}
 
 \end{document}
